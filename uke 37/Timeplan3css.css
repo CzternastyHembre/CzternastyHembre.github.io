@@ -1,0 +1,21 @@
+body{
+  background-color: rgb(150,150,200);
+  font-family:arial,sans-serif;
+}
+main>p,h2{
+  text-align: center;
+  width: auto;
+}
+article{
+  border: solid red;
+}
+  main{
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px 300px;
+    padding:10px;
+    border: solid blue;
+    margin: 0px;
+  }
+p{
+  color:#323232;
+}

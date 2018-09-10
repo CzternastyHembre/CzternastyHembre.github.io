@@ -1,0 +1,52 @@
+body{
+
+}
+main{
+  display: grid;
+  grid-template-columns:300px 300px 300px 300px;
+}
+h1{
+  font-size: 70px;
+  text-align: center;
+  color: darkblue;
+}
+h2{
+  text-align: left;
+}
+p{
+  width: 300px
+  color:#323232;
+}
+li,ul {
+  margin: 5px;
+  color: orange;
+  list-style-type:square;
+  border:2px solid darkgrey;
+  border-radius: 5px;
+}
+li {
+  background-color: lightgrey;
+  width:100px;
+}
+ul{
+  background-color: grey;
+  width: 150px;
+}
+table{
+  text-align: center;
+  border-collapse: collapse;
+  border: darkgrey;
+}
+td,th{
+  border-bottom:1px solid  darkgrey;
+}
+tr:hover{
+  background-color: grey;
+  color: yellow;
+}
+tr:nth-child(even) hidden{
+  background-color: lightgrey;
+}
+article{
+  padding: 25px;
+}
