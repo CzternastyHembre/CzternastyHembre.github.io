@@ -1,14 +1,15 @@
 body{
-
+background-color: rgb(230,230,130)
 }
 main{
   display: grid;
-  grid-template-columns:300px 300px 300px 300px;
+  grid-template-columns:1fr 1fr 1fr 1fr;
 }
 h1{
   font-size: 70px;
   text-align: center;
-  color: darkblue;
+  color: rgb(10,100,10);
+  font-family:serif,sans-serif;
 }
 h2{
   text-align: left;
@@ -35,18 +36,31 @@ ul{
 table{
   text-align: center;
   border-collapse: collapse;
-  border: darkgrey;
+  border:1px solid darkgrey;
+  background-color: white;
 }
 td,th{
   border-bottom:1px solid  darkgrey;
 }
-tr:hover{
-  background-color: grey;
-  color: yellow;
-}
-tr:nth-child(even) hidden{
+tr:nth-child(even){
   background-color: lightgrey;
+}
+tr:hover{
+  background-color: black;
+  color: yellow;
+  transition: 0.5s;
+}
+th{
+  background-color: rgb(47,89,210);
 }
 article{
   padding: 25px;
+}
+img{
+  width:150px;
+}
+img:hover{
+  transform: rotate(770deg);
+  transition: 3s;
+  color: blue;
 }
