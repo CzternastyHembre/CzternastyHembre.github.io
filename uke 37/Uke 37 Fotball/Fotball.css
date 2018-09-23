@@ -29,6 +29,9 @@ li {
   background-color: lightgrey;
   width:100px;
 }
+li:hover{
+  background-color: darkgrey;
+}
 ul{
   background-color: grey;
   width: 150px;
@@ -56,11 +59,17 @@ th{
 article{
   padding: 25px;
 }
-img{
+#RBK{
   width:150px;
 }
-img:hover{
-  transform: rotate(770deg);
-  transition: 3s;
-  color: blue;
+#RBK:hover{
+  transform: rotate(400deg);
+  transition: 1s;
+}
+#fotball{
+  width: auto;
+}
+#fotball:hover{
+  transform: rotate(360deg);
+  transition: 1s;
 }

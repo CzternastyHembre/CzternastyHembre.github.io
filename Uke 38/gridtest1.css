@@ -1,0 +1,23 @@
+body{
+  background-color: rgb(220,220,220);
+}
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr  1fr 2fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 0px;
+  margin: 20px;
+}
+main>p{
+  background-color: rgb(100,200,150);
+  text-align: center;
+  padding: 25px;
+  border: solid 4px yellow;
+  outline: solid 2px red;
+}
+main>p:hover{
+  background-color: lightblue;
+  border: solid 2px red;
+  outline: solid 4px yellow;
+  transition: 0.5s;
+}

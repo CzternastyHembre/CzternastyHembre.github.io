@@ -1,0 +1,11 @@
+header{
+  text-align: center;
+  font-size: 20px;
+  font-style: times,sans-serif;
+  color: blue;
+}
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 25px;
+}
