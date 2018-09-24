@@ -1,11 +1,50 @@
+body{
+  font-style: arial,times,sans-serif;
+  font-size: 150%;
+  background-color: rgb(220,220,250);
+}
 header{
   text-align: center;
-  font-size: 20px;
-  font-style: times,sans-serif;
   color: blue;
 }
 main{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 25px;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 20px;
+}
+Article>h1{
+  color: orange;
+}
+article{
+  border: solid red;
+}
+#kap2{
+  color: red;
+}
+table{
+  border-collapse:collapse;
+  background-color: white;
+  }
+  th,td{
+    border: solid 1px black;
+  }
+  tr{
+border-bottom: solid black;
+  }
+  #rad1{
+    color: blue;
+    font-style: italic;
+  }
+  tr:hover{
+    background-color: lightgrey;
+    color: darkred;
+}
+img{
+  width: 100%
+}
+ul{
+  background-color: green;
+  border-radius: 5px;
+  width: 100px;
+  padding-bottom: 5px;
 }
