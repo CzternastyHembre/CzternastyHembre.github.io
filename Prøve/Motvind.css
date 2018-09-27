@@ -1,0 +1,33 @@
+body{
+  background-color: lightblue;
+  margin-left: 200px;
+}
+h1{
+  font-style: italic;
+}
+img{
+  width: 400px;
+}
+article{
+  width: 700px;/* NOTE: for at teksten skal se finere ut */
+}
+video{
+  width: 300px;
+}
+ul{ /* NOTE: Hentet noe fra css stilen stilark.css for å få en meer oversiktlig navigasjonsbar */
+  list-style-type: none;
+  padding:0;
+}
+li{
+  display: inline;
+}
+li>a{
+  text-decoration: none;
+  padding-right: 10px;
+}
+td.b{
+  font-weight: bold
+}
+thead{
+  text-align:left;
+}
