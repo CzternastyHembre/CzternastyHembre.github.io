@@ -1,0 +1,43 @@
+body{
+  background-color: rgb(220, 210, 190);
+  font-family: Helvetica, sans-serif;
+}
+header{
+  color:rgba(10, 13, 130);
+}
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 0.5fr;
+  grid-gap: 20px;
+  text-align: center;
+}
+main article{
+  color:#232323;
+  border: solid 5px brown;
+  background-color: rgb(200, 200, 150);
+  border-radius: 10px;
+}
+main article:hover{
+  background-color: rgb(220, 220, 150);
+}
+main h1{
+  font-size: xx-large;
+}
+p{
+  font-size: x-large;
+}
+h1.Man{
+  color: darkred;
+}
+h1.Tir{
+  color:green;
+}
+h1.Ons{
+  color: blue;
+}
+h1.Tor{
+  color: red;
+}
+h1.Fre{
+  color:purple;
+}
