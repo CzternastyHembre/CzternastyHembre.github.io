@@ -1,0 +1,27 @@
+body{
+  background-color: lightgreen;
+  color:#323232;
+}
+h1{
+  font-size: 100px;
+}
+p{
+  font-size:x-large;
+}
+p:hover::first-line{
+  color: red;
+  font-size: xx-large;
+}
+  p::selection{
+    color: red;
+    background: blue;
+}
+p:active{
+  color: blue;
+}
+i:nth-child(3n){
+  color: red;
+}
+article:hover{
+  color: red;
+}
