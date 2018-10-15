@@ -1,0 +1,41 @@
+body{
+  background-color: rgb(230, 230, 200);
+  font-family: sans-serif,arial,times;
+}
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 30px;
+  text-align: center;
+}
+article{
+  padding: 3px;
+  border-radius: 500px;
+  border: solid grey 2px;
+}
+main article:hover{
+  border: solid grey 2px;
+  border-style: dashed ;
+  padding: 3px;
+  cursor:grabbing; 
+}
+header>h1{
+  font-size: 90px;
+  text-align: center;
+  color: rgb(100, 140, 10);
+}
+main article:nth-child(4n-3){
+  background-color: pink;
+}
+main article:nth-child(4n){
+  background-color: pink;
+}
+main article:nth-child(4n-2){
+  background-color: lightblue;
+}
+main article:nth-child(4n-1){
+  background-color: lightblue;
+}
+header>h1::{
+}
