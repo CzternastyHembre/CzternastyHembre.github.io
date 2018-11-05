@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body{
+        margin-left: 70px;
+        margin-right: 70px;
+      }
+      #periodesystem{
+        display: grid;
+        grid-template-columns: repeat(18,1fr);
+        text-align: center;
+        grid-auto-rows:minmax(0px,85px);}
+        /*grid-gap: 3px;
+      }
+      #periodesystem div{
+        border: 2px solid black;*/ /* NOTE: enten denne eller den unnder */
+
+      .Metall,.halv-Metall,.ikke-Metall{
+        border-top: 1px solid black;
+        border-left: 1px solid black;
+        }
+      #right{
+        border-right: 1px solid black;
+      }
+      #right2{
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+      }
+      #bunn{
+        border-bottom: 1px solid black;
+      }
+      .Metall{
+        background-color: #edc47d;
+      }
+      .halv-Metall{
+        background-color: #f45642;
+      }
+      .ikke-Metall{
+        background-color: lightblue;
+      }
+      .to{
+        grid-column: 17;
+        opacity:0;
+      }
+      .fem{
+        opacity:0;
+        grid-column: 12;
+      }
+      .tretten{
+        grid-column: 12;
+        opacity:0;
+      }
+      .luft{
+        grid-column: 1/19;
+        padding: 10px;
+        grid-row: 8;
+        opacity: 0;
+      }
+      .luft2{
+        grid-row: 9;
+        grid-column: 1/4;
+        opacity:0;
+      }
+      .luft3{
+        padding: 10px;
+        grid-column: 1/19;
+        opacity:0;
+        grid-row: 10;
+      }
+      .luft4{
+        grid-row: 11;
+        grid-column: 1/4;
+        opacity:0;
+      }
+      .luft6{
+        grid-column:17/19;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <article id="periodesystem">
+
+        <div id="right" class="ikke-Metall"><p>1</p> <h1>H</h1> </div>
+        <div class="to"></div>
+        <div id="right" class="ikke-Metall"></div>
+        <div class="Metall"><p>3</p> <h1>Li</h1> </div>
+        <div id="right" class="Metall"></div>
+        <div class="fem"></div>
+        <div class="halv-Metall"></div>
+        <div class="ikke-Metall"></div>
+        <div class="ikke-Metall"></div>
+        <div class="ikke-Metall"></div>
+        <div class="ikke-Metall"></div>
+        <div id="right" class="ikke-Metall"></div>
+        <div class="Metall"><p>11</p> <h1>Na</h1> </div>
+        <div id="right" class="Metall"></div>
+        <div class="tretten"></div>
+        <div class="Metall"></div>
+        <div class="halv-Metall"></div>
+        <div class="ikke-Metall"></div>
+        <div class="ikke-Metall"></div>
+        <div class="ikke-Metall"></div>
+        <div id="right" class="ikke-Metall"></div>
+        <div class="Metall"><p>19</p><h1>K</h1> </div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="halv-Metall"></div>
+        <div class="halv-Metall"></div>
+        <div class="ikke-Metall"></div>
+        <div class="ikke-Metall"></div>
+        <div id="right" class="ikke-Metall"></div>
+        <div class="Metall"><p>37</p><h1>Rb</h1> </div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="halv-Metall"></div>
+        <div class="halv-Metall"></div>
+        <div class="ikke-Metall"></div>
+        <div id="right" class="ikke-Metall"></div>
+        <div class="Metall"><p>55</p><h1>Cs</h1> </div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="Metall"></div>
+        <div class="halv-Metall"></div>
+        <div id="bunn" class="halv-Metall"></div>
+        <div id="right2" class="ikke-Metall"></div>
+        <div id="bunn" class="Metall"><p>87</p><h1>Fr</h1> </div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="right2" class="Metall"></div>
+
+        <div class="luft6"></div>
+
+        <div class="luft"></div>
+        <div class="luft2"></div>
+
+
+        <div id="bunn" class="Metall"><p>58</p><h1>Ce</h1> </div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="right2" class="Metall"></div>
+
+        <div class="luft3"></div>
+
+        <div class="luft4"></div>
+
+        <div id="bunn" class="Metall"><p>90</p><h1>Th</h1> </div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="bunn" class="Metall"></div>
+        <div id="right2" class="Metall"></div>
+
+  </article>
+  </body>
+</html>
