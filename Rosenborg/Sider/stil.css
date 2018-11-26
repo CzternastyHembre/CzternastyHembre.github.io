@@ -1,0 +1,138 @@
+body{
+  margin: auto;
+  text-align: center;
+}
+header{
+  background-color: black;
+  padding: 1px;
+  font-size: 30px;
+  font-style:
+}
+header a{
+  text-decoration:none;
+  color: white;
+}
+nav li{
+  display: inline;
+  padding-right:30px;
+  padding-left:30px;
+  border-right: solid black   1px;
+  font-size: 25px;
+  font-weight: bold;
+}
+nav a{
+  text-decoration:none;
+  color: black;
+}
+nav a:hover{
+  color: #323232;
+  border-bottom: solid orange;
+}
+nav ul{
+  margin: auto;
+  border-bottom: solid lightgrey;
+  padding: 10px;
+}
+main{
+  width: 1280px;
+  margin: auto;
+}
+main p{
+  font-size: 20px;
+}
+main.Hovedside{
+  grid-gap: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+img.standardbilde{
+  width: 100%;
+  border-radius: 10px;
+  border: solid black;
+}
+address{
+  background-color: black;
+  color: white;
+  border-top: solid lightgrey;
+}
+address ul{
+  list-style-type: none;
+  display: inline;
+}
+main.Hovedside table{
+  margin: auto;
+  border-collapse: collapse;
+  border:15px solid #10253d;
+  background-color: white;
+}
+main.Hovedside td,main.Hovedside th{
+  border-bottom: solid #10253d 1px;
+  padding-right: 30px;
+}
+main.Hovedside td{
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+main.Hovedside tr:nth-child(2n+1){
+  background-color: lightgrey;
+}
+main.Hovedside th{
+  background-color:#10253d;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: white;
+}
+main.Hovedside tr:hover{
+  background-color: grey;
+}
+main.Stall{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2%;
+}
+
+main.Stall h1{
+  grid-column: span 4;
+}
+article.Stall{
+  border: solid darkgrey 10px;
+  color: white;
+  background-color: black;
+}
+article.Stall img{
+  width: 100%;
+}
+article.Stall:hover{
+  border: solid black 10px;
+}
+dl.Spillerbeskrivelse table{
+  border-collapse: collapse;
+  margin:auto;
+ }
+dl.Spillerbeskrivelse td,dl.Spillerbeskrivelse th{
+width: 100px;
+}
+dl.Spillerbeskrivelse th{
+}
+dl.Spillerbeskrivelse tr{
+  border-bottom: 2px solid white;
+}
+
+
+
+
+
+
+
+
+
+#eliteserien{
+  width: 30px;
+}
+#Serietabell{
+  grid-column: span 2;
+}
+#snapchat{
+  width: 2%;
