@@ -126,6 +126,11 @@ dl.Spillerbeskrivelse tr{
   border-bottom: 2px solid white;
 }
 
+
+.sosialemedier{
+  height: 70px;
+}
+
 #logo{
   height: 100px;
   font: arial 100px bold;
