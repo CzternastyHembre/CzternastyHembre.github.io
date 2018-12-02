@@ -92,6 +92,8 @@ main.Stall{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 2%;
+  border-left: solid lightgrey;
+  border-right: solid lightgrey;
 }
 
 main.Stall h1{
