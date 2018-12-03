@@ -1,0 +1,174 @@
+body{
+  margin: auto;
+  text-align: center;
+  font-family: arial
+}
+header{
+  background-color: black;
+  padding: 1px;
+  font-size: 20px;
+}
+header a{
+  text-decoration:none;
+  color: white;
+}
+nav li{
+  display: inline;
+  padding-right:30px;
+  padding-left:30px;
+  border-right: solid black   1px;
+  font-size: 25px;
+  font-weight: bold;
+}
+nav a{
+  text-decoration:none;
+  color: black;
+}
+nav a:hover{
+  color: #434343;
+  border-bottom: solid orange;
+}
+nav a.aktiv{
+  border-bottom: solid orange;
+}
+nav ul{
+  margin: auto;
+  border-bottom: solid lightgrey;
+  padding: 10px;
+}
+main{
+  width: 1280px;
+  margin: auto;
+}
+main p{
+  font-size: 20px;
+}
+main.Hovedside{
+  grid-gap: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+img.standardbilde{
+  width: 100%;
+  border-radius: 10px;
+  border: solid black;
+}
+address{
+  background-color: black;
+  color: white;
+  border-top: solid lightgrey;
+}
+address ul{
+  list-style-type: none;
+  display: inline;
+}
+main.Hovedside table{
+  margin: auto;
+  border-collapse: collapse;
+  outline: 2px solid black;
+  border:15px solid #10253d;
+  background-color: white;
+}
+main.Hovedside td,main.Hovedside th{
+  border-bottom: solid #10253d 1px;
+  padding-right: 30px;
+}
+main.Hovedside td{
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+main.Hovedside tr:nth-child(2n+1){
+  background-color: lightgrey;
+}
+main.Hovedside th{
+  background-color:#10253d;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: white;
+}
+main.Hovedside tr:hover{
+  background-color: grey;
+}
+main.Stall{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 20px;
+  border-left: solid lightgrey;
+  border-right: solid lightgrey;
+}
+
+main.Stall h1,#skult{
+  grid-column: span 4;
+}
+article.Stall{
+  border: solid darkgrey 10px;
+  color: white;
+  background-color: black;
+  border-radius: 20px;
+  margin-bottom: 100px;
+}
+article.Stall img{
+  width: 95%;
+  margin-top: 7px;
+  border-radius: 10px;
+}
+article.Stall:hover{
+  border: solid grey 10px;
+  transform: scale(1.1);
+  transition: 0.15s;
+}
+dl.Spillerbeskrivelse table{
+  border-collapse: collapse;
+  margin:auto;
+ }
+dl.Spillerbeskrivelse td,dl.Spillerbeskrivelse th{
+  width: 100px;
+}
+dl.Spillerbeskrivelse th{
+}
+dl.Spillerbeskrivelse tr{
+  border-bottom: 2px solid white;
+}
+.sosialemedier{
+  height: 70px;
+}
+
+main.nyheter{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+article.nyhet{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #ddd;
+}
+article.nyhet video{
+  width: 500px;
+}
+
+
+
+#hovedsak{
+  margin-bottom: 20px;
+  grid-column: 2 span;
+}
+
+#logo{
+  height: 100px;
+  font: arial 100px bold;
+}
+#logo:hover{
+  transform: scale( 1.2);
+  transition: 0.2s;
+}
+#eliteserien{
+  width: 30px;
+}
+#Serietabell{
+  grid-column: span 2;
+}
+#snapchat{
+  width: 2%;
