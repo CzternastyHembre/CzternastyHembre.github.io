@@ -131,11 +131,13 @@ article.Stall:hover{
 dl.Spillerbeskrivelse table{
   border-collapse: collapse;
   margin:auto;
+  width: 90%
  }
-dl.Spillerbeskrivelse td,dl.Spillerbeskrivelse th{
-  width: 100px;
+dl.Spillerbeskrivelse td{
+  text-align: right;
 }
 dl.Spillerbeskrivelse th{
+  text-align: left;
 }
 dl.Spillerbeskrivelse tr{
   border-bottom: 2px solid white;
@@ -149,13 +151,15 @@ main.nyheter{
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
 }
+main.nyheter article.nyhet:hover{
+  background-color: black;
+  color: white;
+
+}
 article.nyhet{
   display: grid;
   grid-template-columns: 1fr 1fr;
   background-color: #ddd;
-}
-article.nyhet video{
-  height: 250px;
 }
 article.nyhet p{
   font-size: medium;
@@ -164,20 +168,23 @@ article.nyhet h1{
   border-bottom:5px solid #BE9E55;
   font-size: x-large;
 }
-main.nyheter article.nyhet:hover{
-  background-color: black;
-  color: white;
+article.nyhet video{
+  height: 250px;
 }
-section{
+article.nyehet section{
   padding-left: 15px;
   padding-right: 15px;
 }
+
+
+
+
+
 
 #hovedsak{
   margin-bottom: 20px;
   grid-column: 2 span;
 }
-
 #logo{
   height: 100px;
   font: arial 100px bold;
