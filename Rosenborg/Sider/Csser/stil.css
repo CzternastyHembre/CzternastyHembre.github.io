@@ -19,17 +19,26 @@ nav li{
   border-right: solid black   1px;
   font-size: 25px;
   font-weight: bold;
+
 }
-nav a{
+/*
+nav{
+  position:sticky;
+  background-color: white;
+  margin: auto;
+  width: 1500px;
+}
+*/
+nav a, main.nyheter a{
   text-decoration:none;
   color: black;
 }
 nav a:hover{
   color: #434343;
-  border-bottom: solid orange;
+  border-bottom: solid #BE9E55;
 }
 nav a.aktiv{
-  border-bottom: solid orange;
+  border-bottom: solid #BE9E55;
 }
 nav ul{
   margin: auto;
@@ -146,10 +155,23 @@ article.nyhet{
   background-color: #ddd;
 }
 article.nyhet video{
-  width: 500px;
+  height: 250px;
 }
-
-
+article.nyhet p{
+  font-size: medium;
+}
+article.nyhet h1{
+  border-bottom:5px solid #BE9E55;
+  font-size: x-large;
+}
+article.nyhet:hover{
+  background-color: black;
+  color: white;
+}
+section{
+  padding-left: 15px;
+  padding-right: 15px;
+}
 
 #hovedsak{
   margin-bottom: 20px;
