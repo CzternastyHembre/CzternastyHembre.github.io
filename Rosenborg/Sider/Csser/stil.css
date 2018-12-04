@@ -164,7 +164,7 @@ article.nyhet h1{
   border-bottom:5px solid #BE9E55;
   font-size: x-large;
 }
-article.nyhet:hover{
+main.nyheter article.nyhet:hover{
   background-color: black;
   color: white;
 }
