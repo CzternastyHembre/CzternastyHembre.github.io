@@ -29,7 +29,7 @@ nav{
   width: 1500px;
 }
 */
-nav a, main.nyheter a{
+nav a, main a{
   text-decoration:none;
   color: black;
 }
@@ -108,24 +108,24 @@ main.Stall{
   border-right: solid lightgrey;
 }
 
-main.Stall h1,#skult{
+main.Stall h1{
   grid-column: span 4;
 }
-article.Stall{
+a.Stall{
   border: solid darkgrey 10px;
   color: white;
   background-color: black;
   border-radius: 20px;
   margin-bottom: 100px;
 }
-article.Stall img{
+a.Stall img{
   width: 95%;
   margin-top: 7px;
   border-radius: 10px;
 }
-article.Stall:hover{
+a.Stall:hover{
   border: solid grey 10px;
-  transform: scale(1.1);
+  transform: scale(1.05 );
   transition: 0.15s;
 }
 dl.Spillerbeskrivelse table{
