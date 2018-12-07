@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" width="16" height="16" viewBox="0 0 16 16" version="1.1">
+  <title>
+    contex-aware-help16
+  </title>
+  <desc>
+    Created with Sketch.
+  </desc>
+  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+    <g id="contex-aware-help16" sketch:type="MSArtboardGroup" fill="#959DA6">
+      <path d="M8 1C4.12 1 1 4.14 1 8 1 11.88 4.12 15 8 15 11.86 15 15 11.88 15 8 15 4.14 11.86 1 8 1L8 1ZM8 13.25C7.35 13.25 6.83 12.73 6.83 12.08 6.83 11.44 7.35 10.92 8 10.92 8.65 10.92 9.17 11.44 9.17 12.08 9.17 12.73 8.65 13.25 8 13.25L8 13.25ZM8.88 9.17L8.88 9.46 7.13 9.46 7.13 8.88C7.13 7.13 9.46 7.13 9.46 5.96 9.46 5.38 8.88 4.79 8 4.79 7.13 4.79 6.25 5.67 6.25 5.67L5.08 4.5C5.08 4.5 6.25 3.04 8 3.04 9.76 3.04 11.21 4.21 11.21 5.96 11.21 8.29 8.88 8.29 8.88 9.17L8.88 9.17Z" id="help" sketch:type="MSShapeGroup"/>
+    </g>
+  </g>
+</svg>

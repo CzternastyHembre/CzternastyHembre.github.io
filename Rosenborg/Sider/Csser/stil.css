@@ -131,7 +131,7 @@ a.Stall:hover{
 dl.Spillerbeskrivelse table{
   border-collapse: collapse;
   margin:auto;
-  width: 90%
+  width: 85%
  }
 dl.Spillerbeskrivelse td{
   text-align: right;
@@ -178,13 +178,14 @@ a.nyehet section{
 .litensak{
   width: 450px;
 }
-.storsak{
-  width: 450px;
+
+
+#lol{
+  height: 500px;
 }
-
-
-
-
+#hovedsak img{
+  width: 900px;
+}
 #hovedsak{
   grid-column: 2 span;
 }

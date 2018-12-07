@@ -1,0 +1,64 @@
+// Preview media files plugin
+
+CKEDITOR.plugins.add('previewmedia', TextEditorManager.setupIframePlugin("previewmedia",
+{
+    addToolBarButton: false,
+    dialogName: "previewmedia_dialog",
+    dialogSrcReplacementFunction: function (editor, pluginConfig, e)
+    {
+        var extraSettings = pluginConfig.ExtraSettings,
+            selection = e.getSelection(),
+            url = pluginConfig.DialogSrc;
+
+        if (selection && selection.getSelectedElement() != null)
+        {
+            var parsed = JSON.parse($(decodeURIComponent(selection.getSelectedElement().data("cke-realelement"))).attr(extraSettings.mediaContentAttribute));
+
+            [
+                { key: '{filePath}', value: parsed.url },
+                { key: '{fileName}', value: parsed.fileName },
+                { key: '{playerMediaType}', value: parsed.mediaType }
+            ].forEach(function (item)
+            {
+                url = url.replace(item.key, encodeURIComponent(item.value));
+
+                // The line below used to replace the URL when it's transferred as a query parameter of another URL
+                url = url.replace(new RegExp(encodeURIComponent(item.key), "i"), encodeURIComponent(encodeURIComponent(item.value)));
+            });
+        }
+        return url;
+    },
+    beforeInitComplete: function (editor, pluginConfig)
+    {
+        // Add context menu item
+        if (editor.contextMenu)
+        {
+            // Add contextmenu group
+            editor.addMenuGroup('previewmedia');
+            // Add contextmenu element to group we just created - icon from css search for .cke_button_previewmedia
+            editor.addMenuItem('previewmedia',
+	        {
+	            label: pluginConfig.EditText,
+	            command: pluginConfig.Id,
+	            group: 'previewmedia'
+	        });
+            // Listen for clicks on images with media attribute
+            editor.contextMenu.addListener(function (elem, selection)
+            {
+                // Use selected element instead of element passed as a parameter.
+                // Selection could be range of elements and elem will be only first in the range.
+                // For ranges context menu item shouldn't be shown.
+                var element = selection ? selection.getSelectedElement() : elem;
+                if (element)
+                    element = element.getAscendant('img', true);
+                if (element && !element.isReadOnly() && element.data('cke-realelement')
+                    && (element.hasClass(pluginConfig.ExtraSettings.cssClasses.fakeVideo) || element.hasClass(pluginConfig.ExtraSettings.cssClasses.fakeAudio)))
+                {
+                    // ok - image that is media content, return the command
+                    return { previewmedia: CKEDITOR.TRISTATE_OFF };
+                }
+                return null;
+            });
+        }
+    }
+}));

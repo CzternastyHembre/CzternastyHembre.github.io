@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4 (15575) - http://www.bohemiancoding.com/sketch -->
+    <title>generic-group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="groups-64" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="generic-icon-groups-64" sketch:type="MSArtboardGroup">
+            <rect id="Rectangle-1" fill="#FBFBFB" sketch:type="MSShapeGroup" x="0" y="0" width="64" height="64"></rect>
+            <path d="M56,49.75 C56,42.1582031 45.1582031,44.3417969 45.1582031,37.5878906 C45.1582031,37.5878906 49.5,32.7128906 49.5,23.75 C49.5,18.3925781 45.1074219,14 39.75,14 C34.3417969,14 30,18.3925781 30,23.75 C30,24.8417969 30.0507812,25.8066406 30.1777344,26.7714844 L30.1777344,26.8222656 C30.1777344,26.8222656 34.3417969,30.4785156 34.3417969,36.75 C34.3417969,45.3574219 30.4824219,51.1972656 30.4824219,51.1972656 C30.4824219,51.1972656 31.4980469,52.1621094 34.0878906,53 L54.9082031,53 C55.5175781,53 56,52.5175781 56,51.9082031 L56,49.75 Z M36.5,62.75 C36.5,55.1582031 25.6582031,57.3417969 25.6582031,50.5878906 C25.6582031,50.5878906 30,45.7128906 30,36.75 C30,31.3925781 25.6074219,27 20.25,27 C14.8417969,27 10.5,31.3925781 10.5,36.75 C10.5,45.7128906 14.8417969,50.5878906 14.8417969,50.5878906 C14.8417969,57.3417969 4,55.234375 4,62.75 L4,64.9082031 C4,65.5175781 4.48242188,66 5.09179688,66 L35.4082031,66 C36.0175781,66 36.5,65.5175781 36.5,64.9082031 L36.5,62.75 Z" id="users" fill="#DDDDDD" sketch:type="MSShapeGroup"></path>
+        </g>
+        <g id="generic-group" sketch:type="MSArtboardGroup"></g>
+    </g>
+</svg>

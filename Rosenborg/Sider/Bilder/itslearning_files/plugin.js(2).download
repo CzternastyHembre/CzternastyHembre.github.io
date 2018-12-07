@@ -1,0 +1,129 @@
+// image properties - we override the default one because we want to handle equation images and extension plugin placeholder differently
+CKEDITOR.plugins.add('itslimageprop', TextEditorManager.setupIframePlugin("itslimageprop",
+{
+    dialogName: "itslimageprop_dialog",
+    dialogSrcReplacementFunction: function (editor, pluginConfig, e)
+    {
+        var attributes = ["src", "alt", "border", "align", "class", "width", "height"],
+            selection = e.getSelection(),
+            url = pluginConfig.DialogSrc;
+
+        if (!selection || selection.getSelectedElement() == null) {
+            return null;
+        }
+
+        var style = selection.getSelectedElement().getAttribute("style");
+        for (var iAttr in attributes) {
+            var attrKey = attributes[iAttr],
+                attrValue = '';
+            // float (align), heigth and width should first be retrieved from style
+            if ("height" == attrKey || "width" == attrKey || "align" == attrKey) {
+                if (attrKey == "align") {
+                    attrValue = getAttributeValueFromStyle("float", style);
+                }
+                else {
+                    attrValue = getAttributeValueFromStyle(attrKey, style);
+                }
+            }
+            if (attrValue.length == 0) {
+                attrValue = selection.getSelectedElement().getAttribute(attrKey);
+                if (!attrValue)
+                    attrValue = '';
+            }
+            // don't send the entire url for embedded images, as that is much too long
+            // (the old url will be retrieved again when posting back)
+            if ("src" == attrKey && attrValue.lastIndexOf('data:', 0) === 0) {
+                attrValue = 'data:';
+            }
+            var valueToReplace = '{' + attrKey + '}';
+            url = url.replace(valueToReplace, encodeURIComponent(attrValue));
+
+            // The line below used to replace the URL when it's transferred as a query parameter of another URL
+            url = url.replace(new RegExp(encodeURIComponent(valueToReplace), "i"), encodeURIComponent(encodeURIComponent(attrValue)));
+        }
+        return url;
+
+        function getAttributeValueFromStyle(key, style)
+        {
+            if (style)
+            {
+                var i = style.indexOf(key);
+                if (i >= 0)
+                {
+                    i += key.length;
+                    i = style.indexOf(':', i);
+                    return style.substr(i + 1, style.indexOf(';', i) - i - 1).replace(' ', '').replace('px', '');
+                }
+            }
+            return '';
+        }
+    },
+    beforeInitComplete: function (editor, pluginConfig)
+    {
+        if (editor.contextMenu)
+        {
+            // Add contextmenu group
+            editor.addMenuGroup('itslimageprop');
+            // Add contextmenu element to group we just created - icon from css search for .cke_button_itslimageprop
+            editor.addMenuItem('itslimageprop',
+	        {
+	            label: pluginConfig.EditText,
+	            command: pluginConfig.Id,
+	            group: 'itslimageprop'
+	        });
+            // Listen for clicks on images
+            editor.contextMenu.addListener(function (elem, selection)
+            {
+                // Use selected element instead of element passed as a parameter.
+                // Selection could be range of elements and elem will be only first in the range.
+                // For ranges context menu item shouldn't be shown.
+                var element = selection ? selection.getSelectedElement() : elem;
+                if (element)
+                    element = element.getAscendant('img', true);
+                if (element && !element.isReadOnly() && !element.data('cke-realelement'))
+                {
+                    // do not show for wiris images
+                    if (element.getAttribute('data-mathml'))
+                    {
+                        return null;
+                    }
+
+                    // do not show for extension plugin placeholder image
+                    if (element.getAttribute('plugincontent') || element.getAttribute('mediacontent'))
+                    {
+                        return null;
+                    }
+
+                    // ok - image that we can set properties for, return the image properties command
+                    return { itslimageprop: CKEDITOR.TRISTATE_OFF };
+                }
+                return null;
+            });
+        }
+    },
+    dialogContentLoad: function (editor, pluginConfig, $iframe) {
+        var attributes = ["data-image-date-limit", "data-image-metadata"],
+            selection = editor.getSelection(),
+            resultObject = {},
+            iframe = $iframe.get(0);
+
+        if (!selection || selection.getSelectedElement() == null) {
+            return;
+        }
+
+        var style = selection.getSelectedElement().getAttribute("style");
+        for (var i = 0; i < attributes.length; i++) {
+            var attrKey = attributes[i],
+                attrValue = '';
+            
+            attrValue = selection.getSelectedElement().getAttribute(attrKey);
+            if (!attrValue) {
+                attrValue = '';
+            }
+
+            resultObject[attrKey] = attrValue;
+        }
+
+        CommonFunctions.makePostMessageCall(iframe.contentWindow, new CommonWindowMessages.TextEditorSendImageSettingsMessage(resultObject));
+    }
+}));

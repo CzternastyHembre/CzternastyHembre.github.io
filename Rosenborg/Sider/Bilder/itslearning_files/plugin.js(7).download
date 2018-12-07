@@ -1,0 +1,56 @@
+CKEDITOR.plugins.add('editextension',
+{
+    init: function (editor) {
+        var config = editor.config,
+            extensionConfig = editor.config["editextension"],
+            pluginName = extensionConfig.Id;
+
+        editor.addCommand(pluginName,
+        {
+            exec: function (e) { eval(extensionConfig.Command); }
+        });
+
+        if (editor.contextMenu) {
+            // Add contextmenu group
+            editor.addMenuGroup('extension');
+            // Add contextmenu element to group we just created
+            editor.addMenuItem('editextension',
+            {
+                label: extensionConfig.Text,
+                icon: extensionConfig.IconSrc || this.path + "icons/tools" + (CKEDITOR.env.hidpi ? "32.png" : "16.png"),
+                command: pluginName,
+                group: 'extension'
+            });
+
+            // Listen for clicks on equation images
+            editor.contextMenu.addListener(function (element) {
+                if (element)
+                    element = element.getAscendant('img', true);
+                if (element && !element.isReadOnly() && !element.data('cke-realelement')
+                    && element.getAttribute("id") != null && element.getAttribute("id").indexOf("extension:") == 0) {
+
+                    var extensionId = TextEditorManager.getExtensionIdFromIdString(element.getAttribute("id"));
+
+                    // Disable plugin for oembed content
+                    if (extensionId == TextEditorManager.commonSettings.constants.oembedExtensionId) {
+                        return null;
+                    }
+
+                    var editReferenceValue = element.getAttribute('editReference'),
+                        canEditPlugin = editReferenceValue != null && editReferenceValue.length > 0;
+
+                    // Change text depending on whether we can edit the plugin or not
+                    editor.getMenuItem('editextension').label = canEditPlugin ? extensionConfig.EditText : extensionConfig.Text;
+
+                    // replace the editorClientInstanceId with the current editor's clientInstanceId
+                    extensionConfig.Command = extensionConfig.Command.replace("{editorId}", editor.name);
+                    extensionConfig.Command = extensionConfig.Command.replace(new RegExp(/ExtensionId=\S*?&/), "ExtensionId=" + extensionId + "&");
+                    extensionConfig.Command = extensionConfig.Command.setQueryStringParameter("EditReference", editReferenceValue);
+
+                    return { editextension: CKEDITOR.TRISTATE_OFF };
+                }
+                return null;
+            });
+        }
+    }
+});

@@ -1,0 +1,2 @@
+function UserStatusHandler(d){function b(){$.ajax({type:"POST",url:d.keepAliveServiceUrl,contentType:"application/json; charset=utf-8",dataType:"json",success:function(a){a=a.d;var c=window[d.onUpdateInboxFuncName],b=window[d.setOnlineUsersFuncName];$.isFunction(c)&&c(a.UnreadMessages,a.UnreadOffice365CloudEmailMessages,a.UnreadGmailCloudEmailMessages,a.UnreadNotifications,a.UnreadEmailMessages,a.TopEmailAccountId,a.UnreadSkoleIntraMessages);$.isFunction(b)&&b(a.OnlineUsers,a.MessengerStatus)}})}
+this.initialize=function(a,c){setTimeout(b,a);setInterval(b,c)}};

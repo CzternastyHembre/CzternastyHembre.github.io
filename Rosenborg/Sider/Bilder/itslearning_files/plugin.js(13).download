@@ -1,0 +1,70 @@
+(function ()
+{
+    var settings;
+
+    CKEDITOR.plugins.add("fakemedia",
+    {
+        requires: ["fakeobjects"],
+
+        init: function(editor)
+        {
+            settings = editor.config["fakemedia"].PluginSettings;
+        },
+
+        onLoad: function ()
+        {
+            CKEDITOR.addCss(".cke_fakemedia_audio { background-image: url(" + CKEDITOR.getUrl(this.path + "../../images/embed-audio-placeholder.png") + "); width: 429px; height: 117px; } .cke_fakemedia_video { background-image: url(" + CKEDITOR.getUrl(this.path + "../../images/embed-video-placeholder.png") + "); width: 387px; height: 220px; }");
+        },
+
+        afterInit: function (editor)
+        {
+            var dataProcessor = editor.dataProcessor,
+                dataFilter = dataProcessor && dataProcessor.dataFilter;
+            if (dataFilter)
+            {
+                dataFilter.addRules(
+                {
+                    elements:
+                    {
+                        "img": function (element)
+                        {
+                            var mediacontent = element.attributes[settings.mediaContentAttribute];
+                            if (mediacontent)
+                            {
+                                return createFakeElement(editor, element, isVideo(JSON.parse(mediacontent)) ? settings.cssClasses.video : settings.cssClasses.audio);
+                            }
+                            return null;
+                        }
+                    }
+                }, 5);
+            }
+
+            function isVideo(mediacontent)
+            {
+                var mediaType = mediacontent[settings.dataMemberNames.mediaType];
+                switch (mediaType)
+                {
+                    case settings.mediaTypes.auto:
+                        var filename = mediacontent[settings.dataMemberNames.fileName],
+                            extension = filename.substring(filename.lastIndexOf('.') + 1, filename.length).toLowerCase();
+                        return settings.supportedVideoFormats.some(function (item)
+                        {
+                            return extension == item;
+                        });
+                    case settings.mediaTypes.forceAudio:
+                        return false;
+                    case settings.mediaTypes.forceVideo:
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+
+            function createFakeElement(editor, realElement, cssClass)
+            {
+                return editor.createFakeParserElement(realElement, cssClass, 'img', false);
+            }
+        }
+    });
+
+})();
