@@ -75,8 +75,8 @@ address ul{
 main.Hovedside table{
   margin: auto;
   border-collapse: collapse;
-  outline: 2px solid black;
-  border:15px solid #10253d;
+  outline: 1px solid black;/*
+  border:15px solid #10253d;*/
   background-color: white;
 }
 main.Hovedside td,main.Hovedside th{
@@ -142,6 +142,7 @@ dl.Spillerbeskrivelse th{
 dl.Spillerbeskrivelse tr{
   border-bottom: 2px solid white;
 }
+
 .sosialemedier{
   height: 70px;
 }
@@ -150,39 +151,41 @@ main.nyheter{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
+  margin-top: 20px;
 }
-main.nyheter article.nyhet:hover{
+main.nyheter a.nyhet:hover{
   background-color: black;
   color: white;
 
 }
-article.nyhet{
+a.nyhet{
   display: grid;
   grid-template-columns: 1fr 1fr;
   background-color: #ddd;
+  margin-bottom: 20px;
 }
-article.nyhet p{
+a.nyhet p{
   font-size: medium;
 }
-article.nyhet h1{
+a.nyhet h1{
   border-bottom:5px solid #BE9E55;
   font-size: x-large;
 }
-article.nyhet video{
-  height: 250px;
-}
-article.nyehet section{
+a.nyehet section{
   padding-left: 15px;
   padding-right: 15px;
 }
-
-
+.litensak{
+  width: 450px;
+}
+.storsak{
+  width: 450px;
+}
 
 
 
 
 #hovedsak{
-  margin-bottom: 20px;
   grid-column: 2 span;
 }
 #logo{
@@ -198,6 +201,3 @@ article.nyehet section{
 }
 #Serietabell{
   grid-column: span 2;
-}
-#snapchat{
-  width: 2%;
