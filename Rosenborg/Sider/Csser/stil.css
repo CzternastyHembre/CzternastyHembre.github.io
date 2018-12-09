@@ -178,8 +178,43 @@ a.nyehet section{
 .litensak{
   width: 450px;
 }
-
-
+/*main.nyheter div{
+  margin: auto;
+}*/
+main.Resultater td.seier{
+  background-color: green;
+}
+main.Resultater td.uavgjort{
+  background-color: yellow;
+}
+main.Resultater td.tap{
+  background-color: red;
+}
+main.Resultater table{
+  margin: auto;
+  border-collapse: collapse;
+}
+main.Resultater tr.måned{
+  background-color: black;
+  color: white;
+}
+main.Resultater tr.kamp{
+  background-color: #bbb;
+}
+main.Resultater tr.kamp:hover{
+  background-color: #888;
+}
+td,th{
+  padding : 10px;
+}
+main.Resultater button{
+  border: none;
+  background-color: green;
+  margin-left: 750px;
+}
+main.Resultater a{
+  color: white;
+}
 #lol{
   height: 500px;
 }
