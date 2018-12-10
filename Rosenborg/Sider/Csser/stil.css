@@ -12,38 +12,46 @@ header a{
   text-decoration:none;
   color: white;
 }
-nav li{
+div.nav li{
   display: inline;
   padding-right:30px;
   padding-left:30px;
   border-right: solid black   1px;
-  font-size: 25px;
+  font-size: 35px;
   font-weight: bold;
-
 }
-/*
-nav{
-  position:sticky;
-  background-color: white;
-  margin: auto;
-  width: 1500px;
+div.nav li.siste{
+  border-right: none;
 }
-*/
-nav a, main a{
+#logonav{
+  height: 40px;
+  overflow: hidden;
+}
+div.nav{
+  width: 100%;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 999;
+  float: left;
+}
+div.nav a, main a{
   text-decoration:none;
   color: black;
 }
-nav a:hover{
+div.nav a:hover{
   color: #434343;
   border-bottom: solid #BE9E55;
 }
-nav a.aktiv{
+div.nav a.aktiv{
   border-bottom: solid #BE9E55;
 }
-nav ul{
+div.nav ul{
   margin: auto;
-  border-bottom: solid lightgrey;
-  padding: 10px;
+  border-bottom: 1px solid lightgrey;
+  border-top: 1px solid lightgrey ;
+  padding-bottom: 10px;
+  background-color: white;
 }
 main{
   width: 1280px;
@@ -55,7 +63,7 @@ main p{
 main.Hovedside{
   grid-gap: 15px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:repeat(2, 1fr);
 }
 
 img.standardbilde{
@@ -214,6 +222,10 @@ main.Resultater button{
 }
 main.Resultater a{
   color: white;
+}
+main.shop{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 #lol{
   height: 500px;
