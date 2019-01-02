@@ -1,7 +1,7 @@
 body{
   margin: auto;
+  font-family: arial,sans-serif;
   text-align: center;
-  font-family: arial
 }
 header{
   background-color: black;
@@ -12,8 +12,14 @@ header a{
   text-decoration:none;
   color: white;
 }
-div.nav li{
+div.nav li, main.stall li{
   display: inline;
+
+}
+main.stall li{
+
+}
+div.nav li{
   padding-right:30px;
   padding-left:30px;
   border-right: solid black   1px;
@@ -39,12 +45,13 @@ div.nav a, main a{
   text-decoration:none;
   color: black;
 }
-div.nav a:hover{
-  color: #434343;
+div.nav a:hover, div.nav a.aktiv, ul.stall a:hover{
   border-bottom: solid #BE9E55;
+  opacity: 0.75;
 }
-div.nav a.aktiv{
-  border-bottom: solid #BE9E55;
+a.nyhet:hover{
+  background-color: black;
+  color: white;
 }
 div.nav ul{
   margin: auto;
@@ -108,30 +115,28 @@ main.Hovedside th{
 main.Hovedside tr:hover{
   background-color: grey;
 }
-main.Stall{
+main.stall{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 20px;
-  border-left: solid lightgrey;
-  border-right: solid lightgrey;
 }
 
-main.Stall h1{
+main.stall h1, main.stall ul{
   grid-column: span 4;
 }
-a.Stall{
+a.stall{
   border: solid darkgrey 10px;
   color: white;
   background-color: black;
   border-radius: 20px;
   margin-bottom: 100px;
 }
-a.Stall img{
+a.stall img{
   width: 95%;
   margin-top: 7px;
   border-radius: 10px;
 }
-a.Stall:hover{
+a.stall:hover{
   border: solid grey 10px;
   transform: scale(1.05 );
   transition: 0.15s;
@@ -155,18 +160,15 @@ dl.Spillerbeskrivelse tr{
   height: 70px;
 }
 
-main.nyheter{
+main.nyheter, main.kjøp, main.shop{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-  margin-top: 20px;
+  grid-column-gap: 20px;
 }
-main.nyheter a.nyhet:hover{
-  background-color: black;
-  color: white;
-
+main.kjøp, main.shop{
+  grid-row-gap: 20px;
 }
-a.nyhet{
+a.nyhet, main.kjøp article.kjøp, main.shop a{
   display: grid;
   grid-template-columns: 1fr 1fr;
   background-color: #ddd;
@@ -175,16 +177,19 @@ a.nyhet{
 a.nyhet p{
   font-size: medium;
 }
-a.nyhet h1{
+a.nyhet h1, article.kjøp h1, main.shop h1, a.stall h1, main.nyhetsside h1{
   border-bottom:5px solid #BE9E55;
   font-size: x-large;
 }
-a.nyehet section{
-  padding-left: 15px;
-  padding-right: 15px;
+a.nyhet p, a.nyhet h1, article.kjøp h1, article.kjøp p{
+  padding-left: 10px;
+  padding-right: 10px;
 }
-.litensak{
+.litensak, article.kjøp img{
   width: 450px;
+}
+main.shop img{
+  width: 100%;
 }
 /*main.nyheter div{
   margin: auto;
@@ -223,14 +228,62 @@ main.Resultater button{
 main.Resultater a{
   color: white;
 }
+/*
 main.shop{
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+main.kjøp{
+  text-align: left;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  grid-gap: 10px;
+  margin: 10px;
+}
+main.kjøp article.kjøp{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: solid black;
+}
+main.kjøp img{
+  width: 300px;
+}*/
+main.kjøp option.str{
+  color: grey;
+  font-style: italic;
+}
+
+a.tilbake{
+  text-align:x***;*******!!!!!!!!!!!
+}
+main.stall li {
+  background-color: black;
+  padding: 5px;
+  border-radius: 10px;
+}
+main.stall a{
+  color: white;
+
+}
+
+
+
+main.Hovedside table, main.shop{
+  margin-bottom: 20px;
+}
+main.nyhetsside section{
+  border-bottom: solid 1px grey;
+}
+
+#nyhetnr1{
+  width: 1200px;
+}
+
 #lol{
   height: 500px;
 }
-#hovedsak img{
+#hovedsak img {
   width: 900px;
 }
 #hovedsak{
