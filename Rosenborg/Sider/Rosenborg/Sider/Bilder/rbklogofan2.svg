@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 170 110" style="enable-background:new 0 0 170 110;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;stroke:#000000;}
+	.st1{fill:#FFFFFF;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	.st2{stroke:#000000;}
+	.st3{fill:none;}
+	.st4{fill:#FFFFFF;}
+	.st5{font-family:'Arial';}
+	.st6{font-size:16.7085px;}
+	.st7{letter-spacing:3;}
+	.st8{letter-spacing:1;}
+	.st9{font-family:'Arial';}
+	.st10{font-size:11.809px;}
+	.st11{fill:#8D6B36;}
+</style>
+<polygon class="st0" points="84.9,98.5 8.1,71 84.9,43.6 161.7,71 "/>
+<polygon class="st1" points="84.9,94.7 18.7,71 84.9,47.4 151.2,71 "/>
+<polygon class="st2" points="77.4,92 18.7,71 77.4,50.1 "/>
+<polygon class="st2" points="92.4,92 151.1,71 92.4,50.1 "/>
+<rect x="64.5" y="63.6" class="st3" width="45.9" height="17"/>
+<text transform="matrix(1 0 0 1 64.5371 75.5508)"><tspan x="0" y="0" class="st4 st5 st6 st7">R</tspan><tspan x="15.4" y="0" class="st5 st6 st7">B</tspan><tspan x="29.9" y="0" class="st4 st5 st6 st8">F</tspan></text>
+<circle class="st4" cx="56.8" cy="72.1" r="2.2"/>
+<circle class="st4" cx="113.4" cy="72.1" r="2.2"/>
+<rect x="37.3" y="67.4" class="st3" width="17.3" height="15"/>
+<text transform="matrix(1 0 0 1 37.2769 75.7861)" class="st4 st9 st10">20</text>
+<rect x="120.4" y="67.4" class="st3" width="17.3" height="15"/>
+<text transform="matrix(1 0 0 1 120.3945 75.7861)" class="st4 st9 st10">18</text>
+<polygon class="st11" points="77.6,39.1 68.9,32.9 60.3,39.2 63.5,29.1 54.8,22.9 65.5,22.8 68.7,12.6 72.1,22.7 82.8,22.6 74.2,29
+	"/>
+<polygon class="st11" points="92.9,39.1 101.5,32.9 110.1,39.2 106.9,29.1 115.6,22.9 104.9,22.8 101.7,12.6 98.3,22.7 87.7,22.6
+	96.2,29 "/>
+</svg>

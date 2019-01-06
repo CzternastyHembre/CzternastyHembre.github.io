@@ -1,0 +1,270 @@
+body{
+  margin: auto;
+  font-family: arial,sans-serif;
+  text-align: center;
+}
+header{
+  background-color: black;
+  padding: 1px;
+  font-size: 20px;
+}
+header a{
+  text-decoration:none;
+  color: white;
+}
+address{
+  background-color: black;
+  color: white;
+  border-top: solid lightgrey;
+}
+address.kjøpt{
+  /*for å få den nederst på siden*/
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+div.nav li, main.stall li, address ul{
+  display: inline;
+}
+div.nav li{
+  padding-right:30px;
+  padding-left:30px;
+  border-right: solid black 1px;
+  font-size: 35px;
+  font-weight: bold;
+}
+div.nav li.siste{
+  border-right: none;
+}
+div.nav #logo{
+  height: 40px;
+}
+div.nav{
+  width: 100%;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 999;
+  float: left;
+}
+div.nav a, main a{
+  text-decoration:none;
+  color: black;
+}
+div.nav a:hover, div.nav a.aktiv, ul.stall a:hover{
+  border-bottom: solid #BE9E55;
+  opacity: 0.75;
+}
+a.nyhet:hover, a.shop:hover{
+  background-color: black;
+  color: white;
+}
+div.nav ul{
+  margin: auto;
+  border-bottom: 1px solid lightgrey;
+  border-top: 1px solid lightgrey ;
+  padding-bottom: 10px;
+  background-color: white;
+}
+main{
+  width: 1280px;
+  margin: auto;
+}
+main p{
+  font-size: 20px;
+}
+main.Hovedside{
+  grid-gap: 15px;
+  display: grid;
+  grid-template-columns:repeat(2, 1fr);
+}
+
+main.Hovedside table{
+  margin: auto;
+  border-collapse: collapse;
+  outline: 1px solid black;/*
+  border:15px solid #10253d;*/
+  background-color: white;
+}
+main.Hovedside td,main.Hovedside th{
+  border-bottom: solid #10253d 1px;
+  padding-right: 30px;
+}
+main.Hovedside td{
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+main.Hovedside tr:nth-child(2n+1){
+  background-color: lightgrey;
+}
+main.Hovedside th{
+  background-color:#10253d;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: white;
+}
+main.Hovedside tr:hover{
+  background-color: grey;
+}
+img.standardbilde{
+  width: 100%;
+  border-radius: 10px;
+  border: solid black;
+}
+main.stall{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 20px;
+}
+ul.stall a{
+  color: white;
+}
+main.stall h1, main.stall ul{
+  grid-column: span 4;
+}
+a.stall{
+  border: solid darkgrey 10px;
+  color: white;
+  background-color: black;
+  border-radius: 20px;
+  margin-bottom: 100px;
+}
+a.stall img{
+  width: 95%;
+  margin-top: 7px;
+  border-radius: 10px;
+}
+a.stall:hover{
+  border: solid grey 10px;
+  transform: scale(1.05 );
+  transition: 0.15s;
+}
+dl.Spillerbeskrivelse table{
+  border-collapse: collapse;
+  margin:auto;
+  width: 85%
+ }
+dl.Spillerbeskrivelse td{
+  text-align: right;
+}
+dl.Spillerbeskrivelse th{
+  text-align: left;
+}
+dl.Spillerbeskrivelse tr{
+  border-bottom: 2px solid white;
+}
+main.nyheter, main.kjøp, main.shop{
+  /* gridlayouten */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+}
+a.nyhet, main.kjøp article.kjøp, main.shop a{
+  /*gridlayouten inni*/
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #ddd;
+  margin-bottom: 20px;
+}
+main.kjøp, main.shop{
+  grid-row-gap: 20px;
+}
+a.nyhet p{
+  font-size: medium;
+}
+a.nyhet h1, article.kjøp h1, main.shop h1, a.stall h1, main.nyhetsside h1, main.kjøpt h2{
+  border-bottom:5px solid #BE9E55;
+  font-size: x-large;
+}
+a.nyhet p, a.nyhet h1, article.kjøp h1, article.kjøp p{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.litensak, article.kjøp img{
+  width: 450px;
+}
+main.shop img{
+  width: 100%;
+}
+main.Resultater td.seier{
+  background-color: green;
+}
+main.Resultater td.uavgjort{
+  background-color: yellow;
+}
+main.Resultater td.tap{
+  background-color: red;
+}
+main.Resultater table{
+  margin: auto;
+  border-collapse: collapse;
+}
+main.Resultater tr.måned{
+  background-color: black;
+  color: white;
+}
+main.Resultater tr.kamp{
+  background-color: #bbb;
+}
+main.Resultater tr.kamp:hover{
+  background-color: #888;
+}
+main.Resultater td, main.Resultater th, main.stall td, main.stall th{
+  padding : 10px;
+}
+main.Resultater button{
+  border: none;
+  background-color: green;
+  margin-left: 750px;
+}
+main.Resultater a{
+  color: white;
+}
+main.kjøp option.str{
+  color: grey;
+  font-style: italic;
+}
+main.stall li {
+  background-color: black;
+  padding: 5px;
+  border-radius: 10px;
+}
+main.Hovedside table, main.shop{
+  margin-bottom: 20px;
+}
+main.nyhetsside section{
+  border-bottom: solid 1px grey;
+}
+button.tilbake{
+  width: 120px;
+}
+main.kjøpt{
+  margin-bottom: 10px;
+  margin-top: 71.6px;
+  width: 800px;
+}
+.nyhetsbilde{
+  width: 1200px;
+}
+#hovedsak img {
+  width: 900px;
+}
+#hovedsak{
+  grid-column: 2 span;
+}
+#logo{
+  height: 100px;
+  font: arial 100px bold;
+}
+header #logo:hover{
+  transform: scale( 1.2);
+  transition: 0.2s;
+}
+#eliteserien{
+  width: 30px;
+}
+#Serietabell{
+  /*for å få den sentrert*/
+  grid-column: span 2;
+}
