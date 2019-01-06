@@ -12,26 +12,32 @@ header a{
   text-decoration:none;
   color: white;
 }
-div.nav li, main.stall li{
-  display: inline;
-
+address{
+  background-color: black;
+  color: white;
+  border-top: solid lightgrey;
 }
-main.stall li{
-
+address.kjøpt{
+  /*for å få den nederst på siden*/
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+div.nav li, main.stall li, address ul{
+  display: inline;
 }
 div.nav li{
   padding-right:30px;
   padding-left:30px;
-  border-right: solid black   1px;
+  border-right: solid black 1px;
   font-size: 35px;
   font-weight: bold;
 }
 div.nav li.siste{
   border-right: none;
 }
-#logonav{
+div.nav #logo{
   height: 40px;
-  overflow: hidden;
 }
 div.nav{
   width: 100%;
@@ -49,7 +55,7 @@ div.nav a:hover, div.nav a.aktiv, ul.stall a:hover{
   border-bottom: solid #BE9E55;
   opacity: 0.75;
 }
-a.nyhet:hover{
+a.nyhet:hover, a.shop:hover{
   background-color: black;
   color: white;
 }
@@ -73,20 +79,6 @@ main.Hovedside{
   grid-template-columns:repeat(2, 1fr);
 }
 
-img.standardbilde{
-  width: 100%;
-  border-radius: 10px;
-  border: solid black;
-}
-address{
-  background-color: black;
-  color: white;
-  border-top: solid lightgrey;
-}
-address ul{
-  list-style-type: none;
-  display: inline;
-}
 main.Hovedside table{
   margin: auto;
   border-collapse: collapse;
@@ -115,12 +107,19 @@ main.Hovedside th{
 main.Hovedside tr:hover{
   background-color: grey;
 }
+img.standardbilde{
+  width: 100%;
+  border-radius: 10px;
+  border: solid black;
+}
 main.stall{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 20px;
 }
-
+ul.stall a{
+  color: white;
+}
 main.stall h1, main.stall ul{
   grid-column: span 4;
 }
@@ -155,29 +154,26 @@ dl.Spillerbeskrivelse th{
 dl.Spillerbeskrivelse tr{
   border-bottom: 2px solid white;
 }
-
-.sosialemedier{
-  height: 70px;
-}
-
 main.nyheter, main.kjøp, main.shop{
+  /* gridlayouten */
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 20px;
 }
-main.kjøp, main.shop{
-  grid-row-gap: 20px;
-}
 a.nyhet, main.kjøp article.kjøp, main.shop a{
+  /*gridlayouten inni*/
   display: grid;
   grid-template-columns: 1fr 1fr;
   background-color: #ddd;
   margin-bottom: 20px;
 }
+main.kjøp, main.shop{
+  grid-row-gap: 20px;
+}
 a.nyhet p{
   font-size: medium;
 }
-a.nyhet h1, article.kjøp h1, main.shop h1, a.stall h1, main.nyhetsside h1{
+a.nyhet h1, article.kjøp h1, main.shop h1, a.stall h1, main.nyhetsside h1, main.kjøpt h2{
   border-bottom:5px solid #BE9E55;
   font-size: x-large;
 }
@@ -191,9 +187,6 @@ a.nyhet p, a.nyhet h1, article.kjøp h1, article.kjøp p{
 main.shop img{
   width: 100%;
 }
-/*main.nyheter div{
-  margin: auto;
-}*/
 main.Resultater td.seier{
   background-color: green;
 }
@@ -217,7 +210,7 @@ main.Resultater tr.kamp{
 main.Resultater tr.kamp:hover{
   background-color: #888;
 }
-td,th{
+main.Resultater td, main.Resultater th, main.stall td, main.stall th{
   padding : 10px;
 }
 main.Resultater button{
@@ -228,60 +221,31 @@ main.Resultater button{
 main.Resultater a{
   color: white;
 }
-/*
-main.shop{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-main.kjøp{
-  text-align: left;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: 100%;
-  grid-gap: 10px;
-  margin: 10px;
-}
-main.kjøp article.kjøp{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border: solid black;
-}
-main.kjøp img{
-  width: 300px;
-}*/
 main.kjøp option.str{
   color: grey;
   font-style: italic;
-}
-
-a.tilbake{
-  text-align:x***;*******!!!!!!!!!!!
 }
 main.stall li {
   background-color: black;
   padding: 5px;
   border-radius: 10px;
 }
-main.stall a{
-  color: white;
-
-}
-
-
-
 main.Hovedside table, main.shop{
   margin-bottom: 20px;
 }
 main.nyhetsside section{
   border-bottom: solid 1px grey;
 }
-
-#nyhetnr1{
-  width: 1200px;
+button.tilbake{
+  width: 120px;
 }
-
-#lol{
-  height: 500px;
+main.kjøpt{
+  margin-bottom: 10px;
+  margin-top: 71.6px;
+  width: 800px;
+}
+.nyhetsbilde{
+  width: 1200px;
 }
 #hovedsak img {
   width: 900px;
@@ -293,7 +257,7 @@ main.nyhetsside section{
   height: 100px;
   font: arial 100px bold;
 }
-#logo:hover{
+header #logo:hover{
   transform: scale( 1.2);
   transition: 0.2s;
 }
@@ -301,4 +265,6 @@ main.nyhetsside section{
   width: 30px;
 }
 #Serietabell{
+  /*for å få den sentrert*/
   grid-column: span 2;
+}
