@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyApruYVSCufdRIvHaXDQiTsZbl0QE4LNus",
+        authDomain: "personer-553e9.firebaseapp.com",
+        databaseURL: "https://personer-553e9.firebaseio.com",
+        projectId: "personer-553e9",
+        storageBucket: "personer-553e9.appspot.com",
+        messagingSenderId: "88713487332"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <script>
+      const db = firebase.database();
+      const kontaktliste = db.ref("kontaktliste")
+
+      kontaktliste.push(
+      {
+      "Mattis":{
+        "Info":{
+          "Navn":"Mattis",
+          "Mellomnavn":"Czternasty",
+          "Etternavn":"Hembre",
+          "Bosted":{
+            "Land":"Norge",
+            "By":"Haslum"
+          },
+          "Alder":17,
+          "Aktiviteter":["Fotball","Skyting"],
+          "Mann":true,
+          "Dame":false
+        },
+        "Beskrivelse":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      }
+    }
+  )
+  kontaktliste.push(
+  {
+    "Adrian":{
+      "Info":{
+        "Navn":"Adrian",
+        "Mellomnavn":null,
+        "Etternavn":"Deprez",
+        "Bosted":{
+          "Land":"Norge",
+          "By":"Asker"
+        },
+        "Alder":17,
+        "Aktiviteter":["Hockey","Bandy"],
+        "Mann":true,
+        "Dame":false
+      },
+      "Beskrivelse":"Gutt med langt brunt hår og imsdal vannflaske"
+    }
+  }
+  )
+
+  kontaktliste.push(
+    {
+      "Torodd":{
+        "Info":{
+          "Navn":"Torodd",
+          "Mellomnavn":null,
+          "Etternavn":"Boysen",
+          "Bosted":{
+            "Land":"Norge",
+            "By":"Kolsås"
+          },
+          "Alder":17,
+          "Aktiviteter":["Hockey","Ingunn"],
+          "Mann":true,
+          "Dame":false
+        },
+        "Beskrivelse":"Ftgid Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn Ingunn "
+      }
+    }
+  )
+
+
+</script>
+
+
+  </body>
+</html>

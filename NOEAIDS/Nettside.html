@@ -1,0 +1,91 @@
+<!--  Kilder:
+      pixabay.com
+      frukt.no
+      http://matvaretabellen.no-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Mattis Utvalgte</title>
+    <link rel="stylesheet" href="stil.css">
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBn4zj1r0dRGAbymNlWTAEw3laiNooHyAg",
+      authDomain: "prooveuke12.firebaseapp.com",
+      databaseURL: "https://prooveuke12.firebaseio.com",
+      projectId: "prooveuke12",
+      storageBucket: "prooveuke12.appspot.com",
+      messagingSenderId: "678228812653"
+    };
+    firebase.initializeApp(config);
+    </script>
+
+  </head>
+  <body>
+    <header>
+      <a href="intro.html">
+        <h1 id="hei">Mattis Utvalgte</h1>
+      </a>
+    </header>
+
+    <nav>
+
+      <section class="omfang">
+        <div class="hovedknapp" id="first" onclick="visAlle()">Alle</div>
+        <section class="underholder">
+          <a class="divv" href="AlleMannAlle.html">Liste</a>
+        </section>
+      </section>
+
+      <section class="omfang">
+        <div class="hovedknapp" onclick="visFrukter()">Frukt og grønt</div>
+        <section class="underholder">
+          <div class="divv" onclick="visFPris()">Pris</div>
+          <div class="divv" onclick="visFkcal()">kcal</div>
+          <div class="divv" onclick="visFAlf()">Alfabetisk</div>
+        </section>
+      </section>
+      <section class="omfang">
+        <div class="hovedknapp" onclick="visBakverk()">Bakverk</div>
+        <section class="underholder">
+          <div class="divv" onclick="visBPris()">Pris</div>
+          <div class="divv" onclick="visBKcal()">kcal</div>
+          <div class="divv" onclick="visBAlf()">Alfabetisk</div>
+        </section>
+      </section>
+      <section class="omfang">
+        <div class="hovedknapp" onclick="visDrikkevarer()">Drikkevarer</div>
+        <section class="underholder">
+          <div class="divv" onclick="visDPris()">Pris</div>
+          <div class="divv" onclick="visDKcal()">kcal</div>
+          <div class="divv" onclick="visDAlf()">Alfabetisk</div>
+        </section>
+      </section>
+      <section class="omfang">
+        <div class="hovedknapp" onclick="visDiverse()">Diverse</div>
+        <section class="underholder">
+          <div class="divv" onclick="visAPris()">Pris</div>
+          <div class="divv" onclick="visKjøtt()">Kjøtt</div>
+          <div class="divv" onclick="visSøtt()">Søtt</div>
+        </section>
+      </section>
+    </nav>
+
+    <main class="hoved"></main>
+
+    <address>
+      <ul>
+        <li>Kontakt oss:</li>
+        <li>info@nettside.no</li>
+        <li>+47 546 90 140</li>
+      </ul>
+    </address>
+
+
+    <script src="skript/nettside.js"></script>
+
+  </body>
+</html>

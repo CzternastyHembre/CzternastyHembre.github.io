@@ -1,0 +1,298 @@
+body{
+  /* background-color: #eee; */
+  font-family: arial,times,sans-serif;
+  margin: auto;
+  background-color: #52BE80;
+  font-family: Verdana, sans-serif;
+}
+main, header{
+  width: 80%;
+  margin: auto;
+}
+header a, .insdd{
+  color: black;
+  font-size: 30px;
+  -webkit-text-stroke:white 2px;
+  text-align: center;
+  padding: 0px;
+  text-decoration:none;
+}
+main a, nav a{
+  text-decoration: none;
+  color: black;
+}
+
+/* hovedside stil */
+main.hoved{
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 20px;
+}
+
+/*
+main.hoved a.tynn{
+  grid-column: span 2;
+}
+main.hoved a.normal{
+  grid-column: span 3;
+}
+main.hoved a.bred{
+  grid-column: span 4;
+} */
+
+
+main.hoved article{
+  /* height: 250px; */
+
+  overflow: hidden;
+  position: relative;
+  background-color: white;
+
+  /* border: 4px solid #bbc; */
+  box-shadow: 0px 0px 2px;
+}
+main.hoved img{
+
+/* str */
+  height: 130px;
+
+/* posisjonering */
+  padding: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+/* stil */
+}
+main.hoved article button{
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size:14px;
+  padding: 4px;
+  z-index: 9;
+
+  background-color: #ABB2B9;
+  border: solid 1px black;
+  box-shadow: 0px 0px 1px 0px;
+
+  /* transform: translateY(200%);
+  transition: 0.21s; */
+}
+main.hoved article button, main.hoved article div{
+  transform: translateY(200%);
+  transition: 0.41s;
+}
+main.hoved article:hover button, main.hoved article:hover div{
+  cursor: pointer;
+  transform: translateY(0);
+}
+main.hoved article div, main.hoved h1{
+  background-color: #2C3E50;
+  color: #D0D3D4;
+  margin: 0px;
+  padding: 10px;
+}
+main.hoved div{
+  font-style: italic;
+}
+
+main.beskrivelse article.matinfo div.kont{
+  margin: auto;
+  text-align: center;
+
+  display: grid;
+  grid-template-columns: repeat(2,1fr)
+}
+main.beskrivelse td, main.beskrivelse table, main.beskrivelse th{
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin: auto;
+}
+main.beskrivelse td, main.beskrivelse th, main.beskrivelse b{
+  padding: 10px;
+  font-size: large;
+}
+main.beskrivelse tr{
+  background-color: lightgrey;
+}
+main.beskrivelse tr:nth-child(2n){
+  background-color: grey;
+}
+main.beskrivelse tr:first-child{
+  background-color: white;
+}
+main.table{
+  width: 80%;
+}
+main.beskrivelse img{
+  width: 100%;
+}
+main.beskrivelse p{
+  font-size: xx-large;
+  color: #444;
+}
+/* main.beskrivelse div{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); */
+}
+main.beskrivelse p{
+  margin: 10px;
+}
+main.beskrivelse button, main.beskrivelse select{
+  font-size: large;
+  margin:10px;
+}
+main.beskrivelse h1{
+  font-size: 50px;
+  color: black;
+  margin: 10px;
+}
+main.beskrivelse div{
+  margin: auto;
+}
+main.beskrivelse a, .intro, .godJul{
+  background-color: white;
+  padding: 5px;
+  text-decoration: none;
+  width: 100%;
+  color: black;
+  box-shadow: 2px 2px 4px;
+  margin: 5px;
+}
+.frasia{
+  text-align: center;
+}
+main.beskrivelse a:active, .intro:active, .godJul:active  {
+  background-color: #ddd;
+}
+
+/* navbar */
+nav{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  z-index: 9999;
+  position: sticky;
+  top: 0;
+  text-align: center;
+  width: 100%;
+
+
+  background-color: lightgrey;
+}
+
+
+div.hovedknapp{
+  padding: 15px;
+  margin: 10px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  background-color: #C0C0C0;
+
+  /* box-shadow: 0px 2px 3px 0px; */
+}
+section.underholder{
+  display: none;
+  position: absolute;
+  width: 20%;
+
+  box-shadow: 4px 4px 8px 0px;
+
+}
+
+section.omfang:hover section.underholder{
+  display: block;
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+}
+section.underholder .divv{
+  width: 100%;
+  background-color: #A0A0A0;
+  padding: 5px;
+}
+section.underholder a.divv{
+  font-style: italic;
+}
+
+
+section.underholder .divv:hover, .omfang:hover .hovedknapp{
+  background-color: #808080;
+  cursor: pointer;
+}
+section.underholder .divv:active, div.hovedknapp:active{
+  opacity: 0.7;
+}
+
+.str{
+  color: #999;
+  font-style: italic;
+}
+
+address{
+  text-align: center;
+  border-top: solid 1px grey;
+  background-color: #aae;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+address ul{
+  list-style-type: none;
+}
+.hohoho{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-row-gap: 15px;
+  font-weight: bold;
+}
+.hohoho div li{
+text-decoration: underline;
+font-weight: normal;
+color: #0000ee;
+margin: 5px;
+}
+
+@media screen and (max-width: 1200px) {
+  main.hoved{
+    grid-template-columns: repeat(3,1fr);
+  }
+  main.beskrivelse p{
+    font-size: x-large;
+  }
+}
+@media screen and (max-width: 900px) {
+  main.hoved, .hohoho{
+    grid-template-columns: repeat(2,1fr);
+  }
+  main.beskrivelse p{
+    font-size: large;
+  }
+  .mySlides img{
+    height: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  main.hoved, .hohoho{
+    grid-template-columns: repeat(1,1fr);
+  }
+  nav{
+    grid-template-columns: 1fr;
+    position: static;
+  }
+  section.underholder{
+    width: 50%;
+    position: static;
+  }
+  section.underholder div{
+  padding: 0px;
+  }
+  main.beskrivelse p{
+    font-size: small  ;
+  }
+}
+@media screen and (min-width: 1600px) {
+  main.hoved{
+    grid-template-columns: repeat(5,1fr);
+  }
+}

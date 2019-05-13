@@ -1,0 +1,25 @@
+body{
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+form{
+  padding: 20px;
+  border-bottom: solid 1px black;
+}
+#secKontakter{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 10px;
+  margin: auto;
+  border-bottom: solid 1px black;
+}
+#secKontakter div{
+  padding: 10px;
+}
+#secKontakter div:nth-child(6n), #secKontakter div:nth-child(6n-1), #secKontakter div:nth-child(6n-2){
+  background-color: #eee
+}
+b{
+  background-color: pink;
+}

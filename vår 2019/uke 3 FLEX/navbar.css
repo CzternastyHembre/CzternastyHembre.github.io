@@ -1,0 +1,33 @@
+body{
+  width: 80%;
+  margin: auto;
+}
+nav.flex{
+  /*flex*/
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  /*stil*/
+  overflow: hidden;
+  border: solid 1px black;
+}
+nav.flex a{
+  /*flex*/
+  width: 100%;
+  flex: auto;
+  flex-basis: auto;
+  text-align: center;
+  padding: 5px;
+  text-decoration: none;
+  color: black;
+
+  /*stil*/
+  background-color: #aad;
+}
+nav.flex a:nth-child(2n){
+  background-color: #dad
+}
+nav.flex a:hover{
+  opacity: 0.7;
+}

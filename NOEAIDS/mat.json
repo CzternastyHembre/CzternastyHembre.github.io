@@ -1,0 +1,758 @@
+{
+  "Frukt":{
+    "F001":{
+        "Navn":"Eple",
+        "Img":[
+          "apple-336015_640.png",
+          "eple.jpg"
+        ],
+        "Pris":20,
+        "Salgstype":"kg",
+        "Dosering":"9 stk",
+        "protein":0.3,
+        "karbohydrat":10,
+        "fett":0.1,
+        "kcal":47,
+        "bildeStoorrelse":"normal",
+        "beskrivelse":"Eple er en frukt kjent allerede fra steinalderen og finnes i dag i et ukjent antall varianter. Opprinnelig kommer eplet fra Asia og frukten kjenner vi jo fra bibelhistorien, der Eva frister Adam med en frukt fra kunnskapens tre."
+    },
+    "F002":{
+        "Navn":"Banan",
+        "Img":[
+          "bananas-575773_640.png",
+          "banan.jpg"
+        ],
+        "Pris":25,
+        "Salgstype":"kg",
+        "Dosering":"7 stk",
+        "protein":1.1,
+        "karbohydrat":18.1,
+        "fett":0.3,
+        "kcal":83,
+        "bildeStoorrelse":"normal",
+        "beskrivelse":"Banan kommer opprinnelig fra India, og er en av våre eldste kulturplanter. Portugisiske sjøfarerer brakte bananer til Kanariøyene, og spanjolene brakte den videre til Mellom-Amerika."
+    },
+    "F003":{
+        "Navn":"Kirsebær",
+        "Img":[
+          "cherries-158241_640.png",
+          "kirsebær.jpg"
+        ],
+        "Pris":45,
+        "Salgstype":"kurv",
+        "Dosering":"250 gram",
+        "protein":0.7,
+        "karbohydrat":9,
+        "fett":0,
+        "kcal":41,
+        "bildeStoorrelse":"normal",
+        "beskrivelse":"Kirsebær er steinfrukt og i slekt med plommer. Kirsebær er egentlig en betegnelse som omfatter to hovedgrupper: Søtkirsebær, som i Norge blir kalt for moreller, og surkirsebær, som vi her kaller kirsebær."
+    },
+    "F004":{
+        "Navn":"Sitron",
+        "Img":[
+          "citron-154449_640.png",
+          "sitron.jpg"
+        ],
+        "Pris":18,
+        "Salgstype":"kg",
+        "Dosering":"8 stk",
+        "protein":0.8,
+        "karbohydrat":2.2,
+        "fett":0.3,
+        "kcal":19,
+        "bildeStoorrelse":"normal",
+        "beskrivelse":"Sitron er en sitrusfrukt som fra gammelt av kjent som krydder- og medisinalvekst. Den kommer opprinnelig fra området sør for Himalaya. Senere ble planten bragt videre til Europa av Columbus og det er nå produksjon av sitron i landene rundt Middelhavet og USA."
+    },
+    "F005":{
+        "Navn":"Grapefruit",
+        "Img":[
+          "grapefruit-154469_640.png",
+          "grapefruit.jpg"
+        ],
+        "Pris":29,
+        "Salgstype":"kg",
+        "Dosering":"7 stk",
+        "protein":0.6,
+        "karbohydrat":6.8,
+        "fett":0,
+        "kcal":32,
+        "bildeStoorrelse":"normal",
+        "beskrivelse":"Grapefrukt er en ung sitrusfrukt. Den ble først oppdaget i Puerto Rico i 1750. Senere kom den til Florida der den først ble dyrket i større omfang."
+    },
+    "F006":{
+        "Navn":"Kiwi",
+        "Img":[
+          "kiwi-161728_640.png",
+          "kiwi.jpg"
+        ],
+        "Pris":34,
+        "Salgstype":"kg",
+        "Dosering":"12 stk",
+        "protein":1.1,
+        "karbohydrat":10.6,
+        "fett":0.5,
+        "kcal":57,
+        "bildeStoorrelse":"normal",
+        "beskrivelse":"Kiwi kommer opprinnelig fra Kina. Den vokser på trær og dyrkes nå flere steder i verden, men vi kjenner kiwi best fra New Zealand. Navnet kiwi kommer fra fuglen med samme navn som er et nasjonalsymbol på New Zealand."
+    },
+    "F007":{
+        "Navn":"Appelsin",
+        "Img":[
+          "oranges-42395_640.png",
+          "appelsin.jpg"
+        ],
+        "Pris":16,
+        "Salgstype":"kg",
+        "Dosering":"6 stk",
+        "protein":0.9,
+        "karbohydrat":7.2,
+        "fett":0.1,
+        "kcal":37,
+        "bildeStoorrelse":"normal",
+        "beskrivelse":"Navnet appelsin kommer fra tyskernes Apfelsine som betyr kinesisk eple. Fra 1500-tallet ble appelsinplanten kjent i Europa som prydbusk, mens fruktproduksjon startet i Europa på begynnelsen av 1800-tallet."
+    },
+    "F008":{
+        "Navn":"Ananas",
+        "Img":[
+          "pineapple-300038_640.png",
+          "ananas.jpg"
+        ],
+        "Pris":54,
+        "Salgstype":"kg",
+        "Dosering":"1 stk",
+        "protein":0.4,
+        "karbohydrat":10.1,
+        "fett":0.2,
+        "kcal":47,
+        "bildeStoorrelse":"normal",
+        "beskrivelse":"Ananas består egentlig av over 100 individuelle bær samlet rundt en treaktig stilk som avsluttes med en bladkrone. Ananas finnes tilgjengelig i Norge hele året i flere størrelser."
+    },
+    "F009":{
+        "Navn":"Jordbær",
+        "Img":[
+          "strawberry-36949_640.png",
+          "jordbær.jpg"
+        ],
+        "Pris":89,
+        "Salgstype":"kurv",
+        "Dosering":"250 gram",
+        "protein":0.5,
+        "karbohydrat":6.6,
+        "fett":0.2,
+        "kcal":34,
+        "bildeStoorrelse":"tynn",
+        "beskrivelse":"Jordbær slik vi kjenner dem i dag er et resultat av en lang krysningsprosess av ulike viltvoksende jordbærplanter. Jordbær har vært kjent som ville markjordbær i Europa siden romertiden, men kommersiell dyrkning begynte på begynnelsen av 1800-tallet."
+    },
+    "F010":{
+        "Navn":"Tomat",
+        "Img":[
+          "tomato-304316_640.png",
+          "tomat.jpg"
+        ],
+        "Pris":26,
+        "Salgstype":"pakke",
+        "Dosering":"12 stk",
+        "protein":0.7,
+        "karbohydrat":2.5,
+        "fett":0.2,
+        "kcal":18,
+        "bildeStoorrelse":"normal",
+        "beskrivelse":"Tomater dyrkes både på friland og i drivhus over store deler av verden. Tomater har et tynt skall og relativt tynt fruktkjøtt som omgir en geléaktig masse, hvor det sitter mange flate frø."
+    },
+    "F011":{
+        "Navn":"Vannmelon",
+        "Img":[
+          "watermelon-154510_640.png",
+          "vannmelon.jpg"
+        ],
+        "Pris":30,
+        "Salgstype":"kg",
+        "Dosering":"0.5 stk",
+        "protein":0.6,
+        "karbohydrat":8,
+        "fett":0.2,
+        "kcal":30,
+        "bildeStoorrelse":"normal",
+        "beskrivelse":"I vannmelon sitter kjernene i fruktkjøttet hvis den ikke er stenfri. Vannmelon kommer opprinnelig fra Afrika der den fortsatt vokser vilt. Den dyrkes i dag i flere av landene rundt Middelhavet."
+    },
+    "F012":{
+        "Navn":"Paprika",
+        "Img":[
+          "wbell-pepper-33623_640.png",
+          "paprika.jpg"
+        ],
+        "Pris":39,
+        "Salgstype":"kg",
+        "Dosering":"8 stk",
+        "protein":1.1,
+        "karbohydrat":4.6,
+        "fett":0.2,
+        "kcal":28,
+        "bildeStoorrelse":"tynn",
+        "beskrivelse":"Paprika kommer opprinnelig fra Sør- og Mellom-Amerika. I dag dyrkes den i stort omfang også i Europa. Navnet paprika er en fellesbetegnelse for de større, milde capsicum-artene vi kjenner."
+      }
+  },
+  "Bakverk":{
+    "B001":{
+        "Navn":"Baguette",
+        "Img":[
+          "baguette-37442_640.png",
+          "bread-2436370_1920.jpg"
+        ],
+        "Pris":19,
+        "Salgstype":"stk",
+        "Dosering":"250 gram",
+        "protein":9.9,
+        "karbohydrat":50.6,
+        "fett":1.4,
+        "kcal":260,
+        "bildeStoorrelse":"normal",
+        "beskrivelse":"En baguette eller bagett er en type lyst brød som skiller seg ut ved den store lengden i forhold til bredden. En standard baguette er fem eller seks centimeter bred og tre eller fire centimeter høy, men kan være opptil en meter lang. Korte baguetter brukes ofte til sandwicher."
+    },
+    "B002":{
+        "Navn":"Brød",
+        "Img":[
+          "bread-306914_640.png",
+          "bread-2864703_1920.jpg"
+        ],
+        "Pris":22,
+        "Salgstype":"stk",
+        "Dosering":"550 gram",
+        "protein":10.7,
+        "karbohydrat":40,
+        "fett":1.7,
+        "kcal":235,
+        "bildeStoorrelse":"bred",
+        "beskrivelse":"Brød er en matvare bakt av mel fra en eller flere kornsorter. Brød har vært en viktig og næringsrik del av kostholdet siden begynnelsen på jordbrukssamfunnet. Opprinnelig ble melet blandet med vann og stekt i glør eller på hete steiner som uhevet brød. Eksempler fra i dag er flatbrød og knekkebrød."
+    },
+    "B003":{
+        "Navn":"Banankake",
+        "Img":[
+          "bread-576777_640.png",
+          "quark-bread-514890_1920.jpg"
+        ],
+        "Pris":59,
+        "Salgstype":"stk",
+        "Dosering":"400 gram",
+        "protein":7.8,
+        "karbohydrat":56,
+        "fett":2.2,
+        "kcal":320,
+        "bildeStoorrelse":"normal",
+        "beskrivelse":"Hjemme hos meg blir bananene alltid overmodne før jeg rekker å spise dem på vanlig måte. Så her kommer mitt aller beste tips til hva du kan gjøre med overmodne bananer. Nemlig en supersaftig banankake med masse mørk sjokolade."
+    },
+    "B004":{
+        "Navn":"Ristet Brødskive",
+        "Img":[
+          "bread-1300348_640.png",
+          "toast-1077984_1920.jpg"
+        ],
+        "Pris":5,
+        "Salgstype":"stk",
+        "Dosering":"40 gram",
+        "protein":10.7,
+        "karbohydrat":40,
+        "fett":1.7,
+        "kcal":235,
+        "bildeStoorrelse":"tynn",
+        "beskrivelse":"Brød er en matvare bakt av mel fra en eller flere kornsorter. Brød har vært en viktig og næringsrik del av kostholdet siden begynnelsen på jordbrukssamfunnet. Opprinnelig ble melet blandet med vann og stekt i glør eller på hete steiner som uhevet brød. Eksempler fra i dag er flatbrød og knekkebrød."
+    },
+    "B005":{
+        "Navn":"Boller",
+        "Img":[
+          "buns-575506_640.png",
+          "buns-1502597_1920.jpg"
+        ],
+        "Pris":40,
+        "Salgstype":"pakke",
+        "Dosering":"5 stk",
+        "protein":7.9,
+        "karbohydrat":50.7,
+        "fett":11.5,
+        "kcal":342,
+        "bildeStoorrelse":"bred",
+        "beskrivelse":"Denne hvetebaksten er så sinnsyk god. Store, luftige og litt seige boller som smaker fantastisk godt. Vi må bare si at det er kanskje de beste bollene vi har produsert, Vi steker dem i en form som gjør at bollene vokser inni hverandre, det gjør at sidene blir veldig myke."
+    },
+    "B006":{
+        "Navn":"Kjeks",
+        "Img":[
+          "cookie-25400_640.png",
+          "cookie-3216243_1920.jpg"
+        ],
+        "Pris":45,
+        "Salgstype":"pakke",
+        "Dosering":"4 stk",
+        "protein":2.3,
+        "karbohydrat":59.1,
+        "fett":25.5,
+        "kcal":491,
+        "bildeStoorrelse":"normal",
+        "beskrivelse":"Kjeks er flate, små bakverk som er stekt tørre slik at de kan holde seg i lang tid. Kjeks kan være søte som kaker eller mettende som brød. Kjeks er typisk en enkel tørr skive som er rund eller firkantet av fasong. Noen kjeks kan ha andre former, for eksempel bokstavkjeks."
+    },
+    "B007":{
+        "Navn":"Hvit Cupcake",
+        "Img":[
+          "cupcake-25446_640.png",
+          "cupcakes-690040_1920.jpg"
+        ],
+        "Pris":19,
+        "Salgstype":"stk",
+        "Dosering":"100 gram",
+        "protein":2.9,
+        "karbohydrat":59.4,
+        "fett":13.9,
+        "kcal":375,
+        "bildeStoorrelse":"tynn",
+        "beskrivelse":"Cupcake er den amerikanske variant av muffins, og er en liten kake bakt i porsjonsstørrese, ofte dekorert med en form for søt topping. Den største forskjellen til den mer tradisjonelle muffinsen, er for mange den økte graden av dekorasjon og topping, som har utviklet seg til å bli en egen kunst."
+    },
+    "B008":{
+        "Navn":"Rosa Cupcake",
+        "Img":[
+          "cupcake-390893_640.png",
+          "cupcakes-4068121_1920.jpg"
+        ],
+        "Pris":19,
+        "Salgstype":"stk",
+        "Dosering":"100 gram",
+        "protein":2.9,
+        "karbohydrat":59.4,
+        "fett":13.9,
+        "kcal":375,
+        "bildeStoorrelse":"tynn",
+        "beskrivelse":"Cupcake er den amerikanske variant av muffins, og er en liten kake bakt i porsjonsstørrese, ofte dekorert med en form for søt topping. Den største forskjellen til den mer tradisjonelle muffinsen, er for mange den økte graden av dekorasjon og topping, som har utviklet seg til å bli en egen kunst."
+    },
+    "B009":{
+        "Navn":"Donut",
+        "Img":[
+          "donut-1139832_640.png",
+          "donuts-2969490_1920.jpg"
+        ],
+        "Pris":14,
+        "Salgstype":"stk",
+        "Dosering":"200 gram",
+        "protein":6.2,
+        "karbohydrat":33.3,
+        "fett":37.3,
+        "kcal":497,
+        "bildeStoorrelse":"normal",
+        "beskrivelse":"Doughnut eller donut er betegnelsen på et bakverk som er spesielt utbredt i USA, men som derfra har spredt seg over hele verden."
+    },
+    "B011":{
+        "Navn":"Pepperkaker",
+        "Img":[
+          "gingerman-162141_640.png",
+          "biscuit-83807_1280.jpg"
+        ],
+        "Pris":16,
+        "Salgstype":"stk",
+        "Dosering":"80 gram",
+        "protein":5.3,
+        "karbohydrat":72.9,
+        "fett":15.9,
+        "kcal":459,
+        "bildeStoorrelse":"tynn",
+        "beskrivelse":"Pepperkake er en type kjeks som lages i forbindelse med juletider. Vanlige ingredienser er hvetemel, sukker, margarin, sirup, natron, og krydderne kanel, nellik, ingefær og kardemomme. Det er ikke noe fast krav at deigen skal inneholde pepper selv om det er dette krydderet som har gitt kjeksen navn."
+    },
+    "B012":{
+        "Navn":"Croissant",
+        "Img":[
+          "pastry-575413_640.png",
+          "bread-1284438_1920.jpg"
+        ],
+        "Pris":14,
+        "Salgstype":"stk",
+        "Dosering":"125 gram",
+        "protein":8.5,
+        "karbohydrat":43.7,
+        "fett":21.4,
+        "kcal":404,
+        "bildeStoorrelse":"normal",
+        "beskrivelse":"En croissant er et sprøtt bakverk av smørdeig, med form som en halvmåne. Det sies at bakverket ble oppfunnet i byen Wien for å feire slutten på Det osmanske rikes andre beleiring av byen i 1683. Bakverk av denne arten kalles «Viennoiseries» i Frankrike."
+    },
+    "B013":{
+        "Navn":"Pretzel",
+        "Img":[
+          "pretzel-42555_640.png",
+          "pretzel-2759994_1920.jpg"
+        ],
+        "Pris":14,
+        "Salgstype":"stk",
+        "Dosering":"90 gram",
+        "protein":10,
+        "karbohydrat":80,
+        "fett":2.6,
+        "kcal":380,
+        "bildeStoorrelse":"normal",
+        "beskrivelse":"Vannkringler fra Bergen har sine aner i Tyskland, der du kan kjøpe nystekte brezels nesten over alt, enten harde og sprø, eller myke og nybakte. Etter å ha krysset havet har brezels blitt til pretzels i USA, og er et populært bakverk på linje med bagels. De lages også på nesten samme måte, ved at de får et bad i kokende vann før de stekes."
+    },
+    "B014":{
+        "Navn":"Sandwich",
+        "Img":[
+          "sandwich-576531_640.png",
+          "sandwich.jpg"
+        ],
+        "Pris":39,
+        "Salgstype":"stk",
+        "Dosering":"350 gram",
+        "protein":11,
+        "karbohydrat":18,
+        "fett":13,
+        "kcal":233,
+        "bildeStoorrelse":"normal",
+        "beskrivelse":"En sandwich er en matrett bestående av to avlange, påsmurte brødskiver med pålegg mellom, for eksempel skiver av kjøtt, ost, grønnsaker og lignende. En variant er club sandwich, som er en sandwich med to lag pålegg mellom tre brødskiver."
+    },
+    "B015":{
+        "Navn":"Loff Brødskive",
+        "Img":[
+          "white-bread-1381346_640.png",
+          "bread-2238411_1920.jpg"
+        ],
+        "Pris":4,
+        "Salgstype":"stk",
+        "Dosering":"40 gram",
+        "protein":8.6,
+        "karbohydrat":53,
+        "fett":2.3,
+        "kcal":272,
+        "bildeStoorrelse":"tynn",
+        "beskrivelse":"Loff er et lyst fint brød som ikke inneholder andre typer mel enn finsiktet hvete."
+      }
+    },
+  "Drikkevarer":{
+    "D001":{
+      "Navn":"Øl",
+      "Img":[
+        "beer-152021_640.png",
+        "beer-2439237_1920.jpg"
+      ],
+      "Pris":30,
+      "Salgstype":"boks",
+      "Dosering":"0.5 liter",
+      "protein":0.4,
+      "karbohydrat":1,
+      "fett":0,
+      "kcal":24,
+      "bildeStoorrelse":"tynn",
+      "beskrivelse":"Øl er en samlebetegnelse på alkoholholdig drikke brygget på korn. Ordet nedstammer fra et urindoeuropeisk ord som omtrent tilsvarer alut. Øl er kjent fra oldtiden, og det første ølet ble trolig brygget for mer enn seks tusen år siden."
+    },
+    "D002":{
+      "Navn":"Champagne",
+      "Img":[
+        "beer-glass-32068_640.png",
+        "new-years-eve-3894621_1920.jpg"
+      ],
+      "Pris":144,
+      "Salgstype":"flaske",
+      "Dosering":"0.75 liter",
+      "protein":0.3,
+      "karbohydrat":1.4,
+      "fett":0,
+      "kcal":76,
+      "bildeStoorrelse":"tynn",
+      "beskrivelse":"Champagne eller sjampanje er en hvit, musserende vin fra distriktet Champagne i regionen Grand Est i Nord-Frankrike. Ekte champagne lages etter bestemmelser i Appellation d'origine contrôlée-systemet. I land verden over er champagne betraktet som en festdrikk og luksusvare."
+    },
+    "D003":{
+      "Navn":"Cola",
+      "Img":[
+        "coca-cola-443123_640.png",
+        "coca-cola-462776_1920.jpg"
+    ],
+      "Pris":19,
+      "Salgstype":"boks",
+      "Dosering":"0.33 liter",
+      "protein":0 ,
+      "karbohydrat":10.6,
+      "fett":0,
+      "kcal":42,
+      "bildeStoorrelse":"tynn",
+      "beskrivelse":"Coca-Cola er en amerikansk brus av typen cola, produsert av The Coca-Cola Company i Atlanta i USA. Coca-Cola er som varemerke plassert på fjerdeplass på Forbes liste over Most valued brands. Drikken ble oppfunnet av apotekeren John Pemberton i 1886."
+    },
+    "D004":{
+      "Navn":"Kokosnøttdrink",
+      "Img":[
+        "coconut-150154_640.png",
+        "food-3062139_1920.jpg"
+      ],
+      "Pris":56,
+      "Salgstype":"stk",
+      "Dosering":"0.5 liter",
+      "protein":3.2,
+      "karbohydrat":5,
+      "fett":4.2,
+      "kcal":154,
+      "bildeStoorrelse":"tynn",
+      "beskrivelse":"Kokosnøtt er en stenfrukt fra kokospalmen. Den kan veie opp til tre kilo. Skallet på frukten, som er meget hardt, er omgitt av et løsere fiberlag. Frukten er hvit, og innerst er en nærmest farveløs væske, som kan drikkes. Tørket frukt kalles kopra og er en viktig vare i framstillingen av margarin og såpe."
+    },
+    "D005":{
+      "Navn":"Jordbærmilkshake",
+      "Img":[
+        "drinks-34377_640.png",
+        "strawberry-drink-1411374_1920.jpg"
+      ],
+      "Pris":54,
+      "Salgstype":"glass",
+      "Dosering":"0.4 liter",
+      "protein":4,
+      "karbohydrat":10.6,
+      "fett":1.4,
+      "kcal":71,
+      "bildeStoorrelse":"tynn",
+      "beskrivelse":"Hvilken luksus det er å drikke et stort glass med iskald og forfriskende jordbærmilkshake! Vi lager rett og slett milkshake helt fra bunnen av med de ferskeste bærene"
+    },
+    "D006":{
+      "Navn":"Druejuice",
+      "Img":[
+        "grapes-576631_640.png",
+        "grape-juice-2875098_1920.jpg"
+      ],
+      "Pris":34,
+      "Salgstype":"glass",
+      "Dosering":"0.25 liter",
+      "protein":0.3,
+      "karbohydrat":16,
+      "fett":0.1,
+      "kcal":66,
+      "bildeStoorrelse":"tynn",
+      "beskrivelse":"Vi bruker kun søte, modne druer av sortene Barbera og Montepulciano, nøye utvalgt for å skape en intens dyprød farge og et fint avbalansert sødme/syreforhold."
+    },
+    "D007":{
+      "Navn":"Martini",
+      "Img":[
+        "martini-154548_640.png",
+        "bebe-3147283_1920.jpg"
+      ],
+      "Pris":82,
+      "Salgstype":"glass",
+      "Dosering":"0.2 liter",
+      "protein":0.3,
+      "karbohydrat":9.8,
+      "fett":0,
+      "kcal":138,
+      "bildeStoorrelse":"tynn",
+      "beskrivelse":"Martini er en cocktail av gin og italiensk, rød vermut. Dry martini er en amerikansk cocktail av gin og tørr, hvit vermut. Dry Martini lages vanligvis med seks deler gin og én del vermut ifølge International Bartenders Associations nettsted."
+    },
+    "D008":{
+      "Navn":"Rødvin",
+      "Img":[
+        "wine-37257_640.png",
+        "wine-1761613_1920.jpg"
+      ],
+      "Pris":99,
+      "Salgstype":"flaske",
+      "Dosering":"0.75 liter",
+      "protein":0.1,
+      "karbohydrat":0.7,
+      "fett":0,
+      "kcal":74,
+      "bildeStoorrelse":"tynn",
+      "beskrivelse":"Rødvin er en alkoholholdig drikke, som er fremstilt av blå/røde druer. Ordet vin kommer fra latin, ‘vinum’, som er relatert til greske οἶνος."
+    }
+  },
+  "Annet":{
+    "A001":{
+      "Navn":"Skinke",
+      "Img":[
+        "bone-1294362_640.png",
+        "ham-3853584_1920.jpg"
+        ],
+      "Pris":235,
+      "Salgstype":"lår",
+      "Dosering":"3kg",
+      "protein":21,
+      "karbohydrat":1.5,
+      "fett":6,
+      "kcal":145,
+      "bildeStoorrelse":"normal",
+      "beskrivelse":"Skinke betegner et kjøttstykke som etter norske regler er hentet fra lår av svin. Skinke kan tilberedes og serveres fersk, med eller uten ben, som f.eks stekt skinkestek eller skinkerull. Den kan renskjæres, kokes og brukes som pålegg med navnet kokt skinke.",
+      "type":"kjøtt"
+    },
+    "A002":{
+      "Navn":"Sjokolade",
+      "Img":[
+        "chocolate-2896696_640.png",
+        "chocolate-183543_1920.jpg"
+        ],
+      "Pris":39,
+      "Salgstype":"plate",
+      "Dosering":"200 gram",
+      "protein":4.9,
+      "karbohydrat":61,
+      "fett":31,
+      "kcal":545,
+      "bildeStoorrelse":"normal",
+      "beskrivelse":"Sjokolade er et næringsmiddel der de viktigste ingrediensene er kakaomasse, kakaofett og sukker. Sjokolade er blant verdens mest populære godterier. Den nytes i forskjellige former, som oftest som konfekt eller drikke, men den kan også brukes som krydder i matlaging og som pålegg på brød.",
+      "type":"søtt"
+    },
+    "A003":{
+      "Navn":"Torsk",
+      "Img":[
+        "fish-30828_640.png",
+        "fish-107707_1920.jpg"
+        ],
+      "Pris":30,
+      "Salgstype":"filé",
+      "Dosering":"200 gram",
+      "protein":23.5,
+      "karbohydrat":0,
+      "fett":0.7,
+      "kcal":75,
+      "bildeStoorrelse":"normal",
+      "beskrivelse":"Torsk, eller mer nøyaktig atlanterhavstorsk, er en fiskeart i torskefamilien. I norsk sammenheng er denne arten den kommersielt viktigste matfisken i denne familien og brukes veldig mye i norsk tradisjonsmat.",
+      "type":"kjøtt"
+    },
+    "A004":{
+      "Navn":"Hamburger",
+      "Img":[
+        "hamburger-576419_640.png",
+        "burger-731298_1920.jpg"
+        ],
+      "Pris":90,
+      "Salgstype":"burger",
+      "Dosering":"250 gram",
+      "protein":17,
+      "karbohydrat":24,
+      "fett":14,
+      "kcal":294,
+      "bildeStoorrelse":"normal",
+      "beskrivelse":"Hamburger er både selve kjøttet og den ferdige retten som vanligvis serveres som to stykker brød med rent, finhakket stekt eller grillet kjøtt mellom. Hamburger kan også serveres som en åpen sandwich, med overdelen av brødet ved siden av.",
+      "type":"køtt"
+    },
+    "A005":{
+      "Navn":"Pølse",
+      "Img":[
+        "hot-dog-575813_640.png",
+        "hot-dog-2436748_1920.jpg"
+        ],
+      "Pris":25,
+      "Salgstype":"pølse",
+      "Dosering":"100 gram",
+      "protein":10,
+      "karbohydrat":0,
+      "fett":18,
+      "kcal":224,
+      "bildeStoorrelse":"normal",
+      "beskrivelse":"Pølse er et matprodukt, fortrinnsvis laget av kjøttfarse eller -deig som stoppes/stappes inn i en tarm eller et annet avlangt hylster, og siden kokes, spekes eller røykes.",
+      "type":"kjøtt"
+    },
+    "A006":{
+      "Navn":"Vanniljeis",
+      "Img":[
+        "ice-1432274_640.png",
+        "ice-cream-410330_1920.jpg"
+        ],
+      "Pris":15,
+      "Salgstype":"is",
+      "Dosering":"100 gram",
+      "protein":3.5,
+      "karbohydrat":24,
+      "fett":11,
+      "kcal":207,
+      "bildeStoorrelse":"tynn",
+      "beskrivelse":"Iskrem, fløteis eller bare is er en form for spiseis som består av en frosset blanding av fløte og smakstilsetninger og søtningsstoffer, ofte servert som dessert. Blandingen nedkjøles under omrøring for å forhindre at det dannes store iskrystaller.",
+      "type":"søtt"
+    },
+    "A007":{
+      "Navn":"Pistasjis",
+      "Img":[
+        "ice-1432276_640.png",
+        "ice-cream-410330_1920.jpg"
+        ],
+      "Pris":15,
+      "Salgstype":"is",
+      "Dosering":"100 gram",
+      "protein":3.5,
+      "karbohydrat":24,
+      "fett":11,
+      "kcal":207,
+      "bildeStoorrelse":"tynn",
+      "beskrivelse":"Iskrem, fløteis eller bare is er en form for spiseis som består av en frosset blanding av fløte og smakstilsetninger og søtningsstoffer, ofte servert som dessert. Blandingen nedkjøles under omrøring for å forhindre at det dannes store iskrystaller.",
+      "type":"søtt"
+    },
+    "A008":{
+      "Navn":"Jordbæris",
+      "Img":[
+        "ice-1432277_640.png",
+        "ice-cream-410330_1920.jpg"
+        ],
+      "Pris":15,
+      "Salgstype":"is",
+      "Dosering":"100 gram",
+      "protein":3.5,
+      "karbohydrat":24,
+      "fett":11,
+      "kcal":207,
+      "bildeStoorrelse":"tynn",
+      "beskrivelse":"Iskrem, fløteis eller bare is er en form for spiseis som består av en frosset blanding av fløte og smakstilsetninger og søtningsstoffer, ofte servert som dessert. Blandingen nedkjøles under omrøring for å forhindre at det dannes store iskrystaller.",
+      "type":"søtt"
+    },
+    "A009":{
+      "Navn":"Bringebæris",
+      "Img":[
+        "ice-1432278_640.png",
+        "ice-cream-410330_1920.jpg"
+        ],
+      "Pris":15,
+      "Salgstype":"is",
+      "Dosering":"100 gram",
+      "protein":3.5,
+      "karbohydrat":24,
+      "fett":11,
+      "kcal":207,
+      "bildeStoorrelse":"tynn",
+      "beskrivelse":"Iskrem, fløteis eller bare is er en form for spiseis som består av en frosset blanding av fløte og smakstilsetninger og søtningsstoffer, ofte servert som dessert. Blandingen nedkjøles under omrøring for å forhindre at det dannes store iskrystaller.",
+      "type":"søtt"
+    },
+    "A010":{
+      "Navn":"Laks",
+      "Img":[
+        "salmon-575539_640.png",
+        "salmon-1238248_1920.jpg"
+        ],
+      "Pris":45,
+      "Salgstype":"filé",
+      "Dosering":"250 gram",
+      "protein":20,
+      "karbohydrat":13,
+      "fett":0,
+      "kcal":208,
+      "bildeStoorrelse":"normal",
+      "beskrivelse":"Laks, eller mer nøyaktig atlanterhavslaks, forekommer i Nord-Atlanteren og gyter i tilstøtende elver.",
+      "type":"kjøtt"
+    },
+    "A011":{
+      "Navn":"Spareribs",
+      "Img":[
+        "spare-ribs-575310_640.png",
+        "bbq-1226798_1920.jpg"
+        ],
+      "Pris":25,
+      "Salgstype":"Rib",
+      "Dosering":"50 gram",
+      "protein":15,
+      "karbohydrat":0,
+      "fett":23,
+      "kcal":277,
+      "bildeStoorrelse":"normal",
+      "beskrivelse":"Spare ribs (also side ribs or spareribs) are a variety of pork ribs cooked and eaten in various cuisines around the world. They are cut from the lower portion of the pig specifically the belly and breastbone, behind the shoulder, and include 11 to 13 long bones.",
+      "type":"kjøtt"
+    },
+    "A012":{
+      "Navn":"Biff",
+      "Img":[
+        "steak-575806_640.png",
+        "meat-1155132_1920.jpg"
+        ],
+      "Pris":120,
+      "Salgstype":"Stek",
+      "Dosering":"300 gram",
+      "protein":25,
+      "karbohydrat":0,
+      "fett":19,
+      "kcal":270,
+      "bildeStoorrelse":"normal",
+      "beskrivelse":"Biff er en matrett hvor kjøttskiver fra okse stekes eller grilles og serveres med tilbehør. Biff som på engelsk kalles steak er det samme som det skandinaviske ordet steik [stæik].",
+      "type":"kjøtt"
+    }
+  }
+}

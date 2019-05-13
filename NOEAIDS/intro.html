@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="stil.css">
+    <title>Mattis Utvalgte</title>
+    <style>
+      a{
+        text-decoration: none;
+      }
+
+    .mySlides {display: none;}
+    img {
+      vertical-align: middle;
+      height:600px;
+    }
+
+    /* Slideshow container */
+    .slideshow-container, footer {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+
+    /* Caption text */
+    .text {
+      color: #f2f2f2;
+      font-size: 30px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      -webkit-text-stroke:black 2px;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active {
+      background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 1.5s;
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @-webkit-keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+
+    @keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+      .text {font-size: 11px}
+    }
+    footer{
+      line-height: 20pt;
+      width:800px;
+    }
+    </style>
+
+  </head>
+  <body>
+    <header class="insdd">
+      <h1>
+        Mattis Utvalgte
+      </h1>
+    </header>
+
+
+
+    <main>
+      <a href="Nettside.html">
+        <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <img src="fruktBilder/eplelol.jpg" style="width:100%">
+          <div class="text">Frukter</div>
+        </div>
+
+        <div class="mySlides fade">
+          <img src="bakverkBilder/bread-2864703_1920.jpg" style="width:100%">
+          <div class="text">Bakverk</div>
+        </div>
+
+        <div class="mySlides fade">
+          <img src="drikkeBilder/wine-1761613_1920.jpg" style="width:100%">
+          <div class="text">Drinker</div>
+        </div>
+
+        <div class="mySlides fade">
+          <img src="diverseBilder/fish-107707_1920.jpg" style="width:100%">
+          <div class="text">Diverse</div>
+        </div>
+
+        </div>
+        <br>
+
+        <div style="text-align:center">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </a>
+    </main>
+
+    <p class="frasia"><a class="intro" href="Nettside.html">Vis varene</a></p>
+
+
+    <footer>
+      <p>Siden 1979 har Mattis Utvalgte tilbudt kunder over hele landet et godt valgt utvalg av dagligvarer av god kvalitet til de laveste prisene.</p>
+      <p>Mattis Utvalgte i Norge består av et hovedkontor i Oslo, samt tolv regionskontorer og seks distribunaler. Hovedkontorets oppgaver omfatter felles markedsføring og innkjøp, økonomi og IT, samt drift, etablering og sentrale støttefunksjoner. Regionskontorene er servicekontorer for butikkene i regionen, og tar seg av regional markedsføring og etablering av nye butikker i sitt område.</p>
+      <p>Ved å ha dyktige mennesker med de riktige holdningene, gjøre de riktige tingene, jobbe hardt og ha det morsomt mens vi holder på, har vi lykkes med å skape en solid virksomhet som er lønnsom ikke bare for våre kjøpmenn og for bedriften – men også for kundene.</p>
+      <p>Verdigrunnlagene er ryggraden i vår bedriftskultur. Dette er et sett verdier som har blitt til gjennom bedriftens historie, og som vi i Mattis Utvalgte lever etter hver dag:</p>
+      <ul>
+        <li>Vi rendyrker bedriftens forretningsidé</li>
+        <li>Vi holder en høy forretningsmoral</li>
+        <li>Vi skal være gjeldfri</li>
+        <li>Vi skal motivere til vinnerkultur</li>
+        <li>Vi tenker positivt og offensivt</li>
+        <li>Vi snakker med hverandre – ikke om hverandre</li>
+        <li>Kunden er vår øverste sjef</li>
+        <li>Vi vil ha det morsomt og lønnsomt</li>
+      </ul>
+    </footer>
+
+    <address>
+      <ul>
+        <li>Kontakt oss:</li>
+        <li>info@nettside.no</li>
+        <li>+47 546 90 140</li>
+      </ul>
+    </address>
+
+    <script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+</script>
+
+  </body>
+</html>

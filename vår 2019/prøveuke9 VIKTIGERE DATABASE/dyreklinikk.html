@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dyreklinikken</title>
+    <link rel="stylesheet" href="stil.css">
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBPaLqT9285yZqiG30u4_loi2tOVbJaiHo",
+        authDomain: "dyrellernoesaant.firebaseapp.com",
+        databaseURL: "https://dyrellernoesaant.firebaseio.com",
+        projectId: "dyrellernoesaant",
+        storageBucket: "",
+        messagingSenderId: "367306593499"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button onclick="visAlle()">Alle</button>
+        <button onclick="visKatterAbc()">Katter</button>
+        <button onclick="visEldsteHunder()">Eldste Hunder</button>
+        <button onclick="visBeige()">Beige</button>
+        <button onclick="visMtilT()">Alle fra M til og med T</button>
+
+      </nav>
+    </header>
+    <main>
+
+    </main>
+<button type="button"><a href="#"></a></button>
+    <script>
+      const main = document.querySelector("main");
+      const db = firebase.database();
+      const hunder = db.ref("Dyr/Hunder");  //Fyll inn riktig referanse
+      const katter = db.ref("Dyr/Katter");  //Lag en referanse for katter også!
+
+      function genererHTML(snapshot){
+        let dyr = snapshot.val(); //legger til "bilder/" i <img> og lager en mappe bilder med alle bilder for å få det mer oversiktlig
+        let key = snapshot.key;
+
+        main.innerHTML +=`
+            <article class="Dyr">
+              <h1>${dyr.Navn}</h1>
+              <img src="bilder/${dyr.Bilde}" alt="">
+              <section>
+                <p>Farge: ${dyr.Farge1}, ${dyr.Farge2}</p>
+                <p>Alder: ${dyr.Alder}</p>
+              </section>
+              <button type="button"><a href="dyrestats.html?id=${key}">Detaljer</a></button>
+            </article>
+        `
+      }
+      function visAlle(){
+        main.innerHTML = "";
+        hunder.on("child_added",genererHTML);
+        katter.on("child_added", genererHTML);
+      }
+      function visKatterAbc() {
+        main.innerHTML = "";
+        katter.orderByChild("Navn").on("child_added",genererHTML);
+      }
+      function visEldsteHunder() {
+        main.innerHTML = "";
+         hunder.orderByChild("Alder").limitToLast(3).on("child_added",genererHTML);
+      }
+      function visBeige() {
+        main.innerHTML = "";
+        hunder.orderByChild("Farge1").equalTo("Beige").on("child_added",genererHTML);
+        hunder.orderByChild("Farge2").equalTo("Beige").on("child_added",genererHTML);
+        katter.orderByChild("Farge1").equalTo("Beige").on("child_added",genererHTML);
+        katter.orderByChild("Farge2").equalTo("Beige").on("child_added",genererHTML);
+      }
+      function visMtilT() {
+        main.innerHTML = "";
+        hunder.orderByChild("Navn").startAt("M").endAt("U").on("child_added",genererHTML); //endAt("U") og ikke T for å få med T
+        katter.orderByChild("Navn").startAt("M").endAt("U").on("child_added",genererHTML);
+      }
+      visAlle();
+    </script>
+
+  </body>
+</html>

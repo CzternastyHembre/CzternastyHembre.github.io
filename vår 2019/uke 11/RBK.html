@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBG8aLeou6KAdZpD-e_4vP1LXdHgtdfdrE",
+        authDomain: "wtfffff-cd051.firebaseapp.com",
+        databaseURL: "https://wtfffff-cd051.firebaseio.com",
+        projectId: "wtfffff-cd051",
+        storageBucket: "wtfffff-cd051.appspot.com",
+        messagingSenderId: "419074396684"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <link rel="stylesheet" href="stil.css">
+  </head>
+  <body>
+
+    <nav>
+      <button type="button"onclick="visAlle()">Alle</button>
+      <button type="button"onclick="visKeeper()">Keeper</button>
+      <button type="button"onclick="visForsvar()">Forsvar</button>
+      <button type="button"onclick="visMidtbane()">Midtbane</button>
+      <button type="button"onclick="visAngrep()">Angrep</button>
+    </nav>
+
+
+    <main></main>
+
+    <script>
+      const main = document.querySelector("main");
+      const db = firebase.database();
+      const spillere = db.ref("Spillere");  //Fyll inn riktig referanse
+
+      function genererHTML(snapshot){
+        let spiller = snapshot.val(); //legger til "bilder/" i <img> og lager en mappe bilder med alle bilder for å få det mer oversiktlig
+        main.innerHTML +=`
+            <article class="spiller">
+              <img src="${spiller.Bilde}" alt="">
+              <h1>${spiller.Navn}</h1>
+              <section>
+                <p>Posisjon: ${spiller.Posisjon}</p>
+                <p>Født: ${spiller.Født}</p>
+              </section>
+            </article>
+        `
+      }
+      function visAlle(){
+        main.innerHTML = "";
+        spillere.on("child_added",genererHTML);
+       }
+      function visKeeper() {
+        main.innerHTML =" ";
+        spillere
+          .orderByChild("Posisjon")
+          .equalTo("Keeper")
+          .on("child_added",genererHTML);
+        }
+      function visForsvar() {
+        main.innerHTML ="";
+        spillere
+          .orderByChild("Posisjon")
+          .equalTo("Forsvar")
+          .on("child_added",genererHTML);
+      }
+      function visMidtbane() {
+        main.innerHTML ="";
+        spillere
+          .orderByChild("Posisjon")
+          .equalTo("Midtbane")
+          .on("child_added",genererHTML);
+      }
+      function visAngrep() {
+        main.innerHTML ="";
+        spillere
+          .orderByChild("Posisjon")
+          .equalTo("Angrep")
+          .on("child_added",genererHTML);
+      }
+
+      visKeeper();
+      visForsvar();
+      visMidtbane();
+      visAngrep();
+
+    </script>
+
+  </body>
+</html>

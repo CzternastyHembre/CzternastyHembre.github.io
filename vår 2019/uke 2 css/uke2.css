@@ -1,0 +1,77 @@
+header{
+  background-color: green;
+  width: 90%;
+  margin:auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 2px solid black;
+}
+header nav{
+  /*flex*/
+  display: flex;
+  flex-direction: row;
+}
+nav a{
+  text-decoration: none;
+  color:#dde;
+  padding-left: 15px;
+}
+header nav a:last-child{
+  margin-left: auto;
+  padding-right: 15px;
+}
+
+main{
+  /*resonsiv*/
+  width: 90%;
+
+  /*annet*/
+  margin: auto;
+  background-color: #bbe;
+
+  /*grid*/
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap:30px;
+}
+
+/*adaptiv grid*/
+@media screen and (max-width: 1200px) {
+  main{
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #beb;
+  }
+}
+@media screen and (max-width: 900px) {
+  main{
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #ebb;
+  }
+}
+@media screen and (max-width: 600px) {
+  main{
+    grid-template-columns: repeat(1, 1fr);
+    background-color: #bbb;
+  }
+  header nav{
+    flex-direction: column;
+    align-items: center;
+  }
+  nav a{
+    border-bottom: solid black;
+    margin: auto;
+    padding-left:0px;
+  }
+  header nav a:last-child{
+    padding-right: 0px;
+  }
+}
+@media (orientation:portrait) {}
+@media (orientation:landscape) {}
+img.medium{
+  /*resonsiv*/
+  width: 100%;
+}
+article{
+  margin: 15px;
+}

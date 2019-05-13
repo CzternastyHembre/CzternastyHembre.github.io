@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="look.css">
+    <title>Emz Fashion</title>
+    <!-- Husk å koble til firebase -->
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCSCUa2CoSnORMyZomdmS-7m8XxpKvf_DQ",
+        authDomain: "stortprosjekt.firebaseapp.com",
+        databaseURL: "https://stortprosjekt.firebaseio.com",
+        projectId: "stortprosjekt",
+        storageBucket: "stortprosjekt.appspot.com",
+        messagingSenderId: "1028403982255"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+  </head>
+  <body>
+    <header>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img id="slidebilder" src="andrebilder\slide1.jpg">
+  <div class="text">EMZ FASHION</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img id="slidebilder" src="andrebilder\slide2.jpg">
+  <div class="text">EMZ FASHION</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img id="slidebilder" src="andrebilder\slide3.jpg">
+  <div class="text">EMZ FASHION</div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+
+
+<nav id="navForside">
+
+    <div class="dropdown">
+        <div class="dropknapp">
+          <a href="hovedside.html">Til forsiden</a>
+        </div>
+    </div>
+
+      <div class="dropdown">
+        <div class="dropknapp" onclick="VisGensere()">Gensere</div>
+        <div class="dropdownEn">
+          <div id="knapp1" class="innholdDrop"> Anledning
+            <div class="dropdownTo">
+              <div class="innholdDrop" id="file" onclick="VisGFest()">Fest</div>
+              <div class="innholdDrop" id="file" onclick="VisGHverdag()">Hverdag</div>
+            </div>
+          </div>
+          <div id="knapp1" class="innholdDrop"> Type
+            <div class="dropdownTo">
+              <div class="innholdDrop"  onclick="VisGKnit()">Knit</div>
+              <div class="innholdDrop"  onclick="VisGGenser()">Genser</div>
+              <div class="innholdDrop"  onclick="VisGHoodie()">Hoodie</div>
+            </div>
+          </div>
+          <div id="knapp1" class="innholdDrop"> Farge
+            <div class="dropdownTo">
+              <div class="innholdDrop"  id="buttonHvit" onclick="VisGHvit()">Hvit</div>
+              <div class="innholdDrop" id="buttonGrå" onclick="VisGGrå()">Grå</div>
+              <div class="innholdDrop" id="buttonSort" onclick="VisGSort()">Sort</div>
+              <div class="innholdDrop" id="buttonBlå" onclick="VisGBlå()">Blå</div>
+              <div class="innholdDrop" id="buttonGrønn" onclick="VisGGrønn()">Grønn</div>
+              <div class="innholdDrop" id="buttonGul" onclick="VisGGul()">Gul</div>
+              <div class="innholdDrop" id="buttonRød" onclick="VisGRød()">Rød</div>
+              <div class="innholdDrop" id="buttonLilla" onclick="VisGLilla()">Lilla</div>
+              <div class="innholdDrop" id="buttonRosa" onclick="VisGRosa()">Rosa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <div class="dropknapp" onclick="VisTopper()">Topper</div>
+        <div class="dropdownEn">
+          <div id="knapp1" class="innholdDrop"> Anledning
+            <div class="dropdownTo">
+              <div class="innholdDrop" id="file" onclick="VisTFest()">Fest</div>
+              <div class="innholdDrop" id="file" onclick="VisTHverdag()">Hverdag</div>
+            </div>
+          </div>
+          <div id="knapp1" class="innholdDrop"> Type
+            <div class="dropdownTo">
+              <div class="innholdDrop"  onclick="VisTBluse()">Bluse</div>
+              <div class="innholdDrop"  onclick="VisTSinglet()">Singlet</div>
+              <div class="innholdDrop"  onclick="VisTTskjorte()">T-skjorte</div>
+            </div>
+          </div>
+          <div id="knapp1" class="innholdDrop"> Farge
+            <div class="dropdownTo">
+              <div class="innholdDrop"  id="buttonHvit" onclick="VisTHvit()">Hvit</div>
+              <div class="innholdDrop" id="buttonSort" onclick="VisTSort()">Sort</div>
+              <div class="innholdDrop" id="buttonBlå" onclick="VisTBlå()">Blå</div>
+              <div class="innholdDrop" id="buttonGrønn" onclick="VisTGrønn()">Grønn</div>
+              <div class="innholdDrop" id="buttonRød" onclick="VisTRød()">Rød</div>
+              <div class="innholdDrop" id="buttonRosa" onclick="VisTRosa()">Rosa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <div class="dropknapp" onclick="VisBukser()">Bukser</div>
+        <div class="dropdownEn">
+          <div id="knapp1" class="innholdDrop"> Anledning
+            <div class="dropdownTo">
+              <div class="innholdDrop" id="file" onclick="VisBFest()">Fest</div>
+              <div class="innholdDrop" id="file" onclick="VisBHverdag()">Hverdag</div>
+            </div>
+          </div>
+          <div id="knapp1" class="innholdDrop"> Type
+            <div class="dropdownTo">
+              <div class="innholdDrop"  onclick="VisBJeans()">Jeans</div>
+              <div class="innholdDrop"  onclick="VisBBukse()">Bukse</div>
+            </div>
+          </div>
+          <div id="knapp1" class="innholdDrop"> Farge
+            <div class="dropdownTo">
+              <div class="innholdDrop"  id="buttonHvit" onclick="VisBHvit()">Hvit</div>
+              <div class="innholdDrop" id="buttonSort" onclick="VisBSort()">Sort</div>
+              <div class="innholdDrop" id="buttonBlå" onclick="VisBBlå()">Blå</div>
+              <div class="innholdDrop" id="buttonGrønn" onclick="VisBGrønn()">Grønn</div>
+              <div class="innholdDrop" id="buttonRød" onclick="VisBRød()">Rød</div>
+              <div class="innholdDrop" id="buttonRosa" onclick="VisBRosa()">Rosa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <div class="dropknapp" onclick="VisSkjort()">Skjørt</div>
+        <div class="dropdownEn">
+          <div id="knapp1" class="innholdDrop"> Anledning
+            <div class="dropdownTo">
+              <div class="innholdDrop" id="file" onclick="VisSFest()">Fest</div>
+              <div class="innholdDrop" id="file" onclick="VisSHverdag()">Hverdag</div>
+            </div>
+          </div>
+          <div id="knapp1" class="innholdDrop"> Type
+            <div class="dropdownTo">
+              <div class="innholdDrop"  onclick="VisSKortskjort()">Mini skjørt</div>
+              <div class="innholdDrop"  onclick="VisSMaxiskjort()">Maxi skjørt</div>
+            </div>
+          </div>
+          <div id="knapp1" class="innholdDrop"> Farge
+            <div class="dropdownTo">
+              <div class="innholdDrop"  id="buttonHvit" onclick="VisSHvit()">Hvit</div>
+              <div class="innholdDrop" id="buttonSort" onclick="VisSSort()">Sort</div>
+              <div class="innholdDrop" id="buttonBlå" onclick="VisSBlå()">Blå</div>
+              <div class="innholdDrop" id="buttonGrønn" onclick="VisSGrønn()">Grønn</div>
+              <div class="innholdDrop" id="buttonGul" onclick="VisSGul()">Gul</div>
+              <div class="innholdDrop" id="buttonRød" onclick="VisSRød()">Rød</div>
+              <div class="innholdDrop" id="buttonRosa" onclick="VisSRosa()">Rosa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <div class="dropknapp" onclick="VisKjoler()">Kjoler</div>
+        <div class="dropdownEn">
+          <div id="knapp1" class="innholdDrop"> Anledning
+            <div class="dropdownTo">
+              <div class="innholdDrop" id="file" onclick="VisKFest()">Fest</div>
+              <div class="innholdDrop" id="file" onclick="VisKHverdag()">Hverdag</div>
+            </div>
+          </div>
+          <div id="knapp1" class="innholdDrop"> Type
+            <div class="dropdownTo">
+              <div class="innholdDrop"  onclick="VisKKortkjole()">Korte kjoler</div>
+              <div class="innholdDrop"  onclick="VisKMaxikjole()">Maxikjole</div>
+            </div>
+          </div>
+          <div id="knapp1" class="innholdDrop"> Farge
+            <div class="dropdownTo">
+              <div class="innholdDrop"  id="buttonHvit" onclick="VisKHvit()">Hvit</div>
+              <div class="innholdDrop" id="buttonSort" onclick="VisKSort()">Sort</div>
+              <div class="innholdDrop" id="buttonBlå" onclick="VisKBlå()">Blå</div>
+              <div class="innholdDrop" id="buttonGrønn" onclick="VisKGrønn()">Grønn</div>
+              <div class="innholdDrop" id="buttonGul" onclick="VisKGul()">Gul</div>
+              <div class="innholdDrop" id="buttonRosa" onclick="VisKRosa()">Rosa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+</nav>
+
+
+
+    </header>
+
+
+    <main>
+
+
+        <div id="vår19" onclick="VisVår()">
+          <img src="andrebilder/spring2019.jpg">
+          <p id="vår19tekst"> Kjøp årets vårmote her!</p>
+        </div>
+        <div id="fest" onclick=VisFest()>
+          <img  src="andrebilder/fest.jpg">
+          <p id="festtekst">Bli den hotteste på festen!</p>
+        </div>
+        <div id="grønn" onclick="VisGrønn()">
+          <img  src="andrebilder/grønn.jpg">
+          <p id="grønntekst">Kle deg i sesongens lekretse farge!</p>
+        </div>
+
+        <!-- <img id="inspo5" src="andrebilder\inspo5.jpg">
+        <p id="vår19">VÅRENS NYHETER</p>
+        <img id="inspo6" src="andrebilder\inspo6.jpg">
+        <p id="bomull">ØKOLOGISK BOMULL</p>
+        <img id="inspo7" src="andrebilder\inspo7.jpg">
+        <p id="rosa">ROSA - ÅRETS FARGE </p>
+       <img id="inspo8" src="andrebilder\inspo8.jpg">
+        <img id="inspo9" src="andrebilder\inspo9.jpg">
+        <img id="inspo10" src="andrebilder\inspo10.jpg">
+        <img id="inspo11" src="andrebilder\inspo11.jpg"> -->
+
+
+
+    </main>
+
+    <footer>
+      <h1 id="FooterOverskrift"> Kontakt oss</h1>
+        <p id="innholdfooter">Emma Jahre</p>
+        <p id="innholdfooter">Bogstadveien 34b</p>
+        <p id="innholdfooter">Emzfashion@live.no</p>
+        <p id="innholdfooter">tlf fra kl 8 til 21: 11223344</p>
+    </footer>
+
+
+
+    <script src="hovedside.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+  <body>
+      <div style="width:50px;height:50px;" id="divbox">
+        Hei
+      </div>
+      <p id="pbox">Hola</p>
+      <br>
+      <br>
+      <br>
+      <br>
+      <button type="button" onclick="kjør()">Kjør</button>
+      <button id="bytt" type="button" onclick="bytt()">Bytt</button>
+
+      <script>
+        const div = document.getElementById('divbox');
+        const p = document.getElementById('pbox');
+        const b = document.getElementById('bytt');
+
+        function kjør() {
+          if (b.innerHTML == "hei") {
+            b.innerHTML = "bytt"
+            b.innerHTML = "bytt"
+          }
+          else {
+            b.innerHTML = "hei"
+            p.innerHTML = "hei"
+          }
+        }
+        function bytt() {
+          if (div.style.backgroundColor == "blue") {
+            div.style.backgroundColor = "yellow"
+          }
+          else {
+            if (div.style.backgroundColor == "yellow") {
+              div.style.backgroundColor = "red"
+            }
+            else {
+              if (div.style.backgroundColor == "red") {
+                div.style.backgroundColor = "grey"
+              }
+              else {
+                if (div.style.backgroundColor == "grey") {
+                  div.style.backgroundColor = "pink"
+                }
+                else {
+                  if (div.style.backgroundColor == "pink") {
+                    div.style.backgroundColor = "black"
+                  }
+                  else {
+                    if (div.style.backgroundColor == "black") {
+                      div.style.backgroundColor = "cyan"
+                    }
+                    else {
+                      div.style.backgroundColor = "blue"
+                    }
+                  }}}}}}
+      </script>
+  </body>
+</html>

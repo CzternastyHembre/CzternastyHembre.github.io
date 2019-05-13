@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1 id="head">Mattis</h1>
+    <button style="position:fixed; top:150px; left:50px;" type="button"onclick="start()">Trykk</button>
+    <button style="position:fixed; top:150px; left:100px;" type="button"onclick="slutt()">Trykk</button>
+    <button style="position:fixed; top:150px; left:150px;" type="button"onclick="toggle()">toggle</button>
+    <button style="position:fixed; top:150px; left:210px;" type="button"onclick="alleish()">alleish</button>
+    <script>
+      var mattis = document.getElementById("head");
+
+      function toggle() {
+        if (mattis.style.display == "block") {
+          mattis.style.display = "none";
+        }
+        else {
+          mattis.style.display = "block";
+        }
+      }
+
+      function start() {
+        if (mattis.innerHTML == "Mattis") {
+          mattis.innerHTML = "Hei"
+        }
+        else {
+          mattis.innerHTML = "Mattis"
+        }
+      }
+      function slutt() {
+        if (mattis.style.color == "black") {
+          mattis.style.color = "orange"
+        }
+        else {
+          mattis.style.color = "black"
+        }
+      }
+      function alleish() {
+        if (mattis.style.backgroundColor == "white") {
+          mattis.style.backgroundColor = "blue",
+          mattis.style.textAlign = "center"
+        }
+        else {
+          mattis.style.backgroundColor = "white",
+          mattis.style.textAlign = "left"
+        }
+      }
+
+
+    </script>
+
+  </body>
+</html>

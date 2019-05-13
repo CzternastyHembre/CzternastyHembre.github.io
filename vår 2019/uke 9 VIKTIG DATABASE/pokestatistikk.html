@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- Kobler til firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCFhmDveqpzRvevF6EyrLOh0NbACDQ3C_4",
+        authDomain: "pokemon-uke-8.firebaseapp.com",
+        databaseURL: "https://pokemon-uke-8.firebaseio.com",
+        projectId: "pokemon-uke-8",
+        storageBucket: "",
+        messagingSenderId: "974522538356"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+  </head>
+  <body>
+
+    <main></main>
+
+    <script>
+      const main = document.querySelector("main");
+
+      //For å hente url skit
+      var url_string = window.location.href; //window.location.href
+      var url = new URL(url_string);
+      var test = url.searchParams.get("test");
+      console.log(test);
+
+      //firebase ref.
+      const db = firebase.database();
+      const pokemon = db.ref("pokemon/" + test);
+
+      function visPokemon(snapshot){
+            //Javascript-funksjon som skriver varene ut på nettsiden i main-elementet
+          console.log(snapshot.val());
+          let pokeSnap =  snapshot.val();
+
+          main.innerHTML +=`
+              <article class="Pokemon">
+                <h1>${pokeSnap.Name}</h1>
+                <img src="${pokeSnap.ImageURL}" alt="">
+                <p> Type 1 : ${pokeSnap.Type1}</p>
+                <p> Type 2 : ${pokeSnap.Type2}</p>
+                <p> Max Cp : ${pokeSnap.MaxCP}</p>
+                <p> Max HP : ${pokeSnap.MaxHP}</p>
+              </article>
+              <a href=pokemon.html>tilbake</a>
+          `
+      };
+
+      pokemon.on("value",visPokemon);
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+body{
+  background: url("../Man.jpg") center fixed no-repeat #dde;
+}
+@media (max-width:1000px) {
+  body{
+    background: url("../Hund.jpg") center fixed no-repeat #ded;
+  }
+}
+
+p{
+  padding-bottom: 2000px;
+}

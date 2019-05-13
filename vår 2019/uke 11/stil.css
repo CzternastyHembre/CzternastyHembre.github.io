@@ -1,0 +1,32 @@
+body{
+  width: 80%;
+  margin: auto;
+}
+main{
+  /* Grid */
+  display: grid;
+  grid-template-columns: repeat(3 , 1fr);
+  grid-gap: 20px;
+
+  /* Diverse */
+  text-align: center;
+}
+.spiller img{
+  width: 100%;
+}
+main section{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+main p:first-child{
+  border-right: 1px solid grey;
+}
+main article{
+  background-color: black;
+  color: white;
+
+  border-bottom-right-radius: 10%;
+  border-bottom-left-radius:10%;
+
+  border: 10px solid grey;
+}

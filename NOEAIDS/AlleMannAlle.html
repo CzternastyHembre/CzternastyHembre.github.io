@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Mattis Utvalgte</title>
+    <link rel="stylesheet" href="stil.css">
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBn4zj1r0dRGAbymNlWTAEw3laiNooHyAg",
+      authDomain: "prooveuke12.firebaseapp.com",
+      databaseURL: "https://prooveuke12.firebaseio.com",
+      projectId: "prooveuke12",
+      storageBucket: "prooveuke12.appspot.com",
+      messagingSenderId: "678228812653"
+    };
+    firebase.initializeApp(config);
+    </script>
+    <style media="screen">
+      body{
+        margin: 40px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <a class="godJul" href="Nettside.html">Tilbake</a>
+    <main class="hohoho">
+      <div id="Frukter">Frukter</div>
+      <div id="Bakverk">Bakverk</div>
+      <div id="Drinker">Drinker</div>
+      <div id="Diverse">Diverse</div>
+    </main>
+
+
+    <script>
+    const frukt = document.getElementById("Frukter")
+    const bakv = document.getElementById("Bakverk")
+    const drink = document.getElementById("Drinker")
+    const div = document.getElementById("Diverse")
+
+    const db = firebase.database();
+    const frukter = db.ref("Frukt");
+    const bakverk = db.ref("Bakverk");
+    const drikkevarer = db.ref("Drikkevarer")
+    const annet = db.ref("Annet")
+
+    function genererYoMama(snapshot) {
+      let mat = snapshot.val();
+      let key = snapshot.key;
+      frukt.innerHTML +=`
+      <a href="matinfo.html?id=${key}"><li>${mat.Navn}</li></a>
+      `
+    }
+    function genererYoMamaa(snapshot) {
+      let mat = snapshot.val();
+      let key = snapshot.key;
+      bakv.innerHTML +=`
+      <a href="matinfo.html?id=${key}"><li>${mat.Navn}</li></a>
+      `
+    }
+    function genererYoMamaaa(snapshot) {
+      let mat = snapshot.val();
+      let key = snapshot.key;
+      drink.innerHTML +=`
+      <a href="matinfo.html?id=${key}"><li>${mat.Navn}</li></a>
+      `
+    }
+    function genererYoMamaaaa(snapshot) {
+      let mat = snapshot.val();
+      let key = snapshot.key;
+      div.innerHTML +=`
+      <a href="matinfo.html?id=${key}"><li>${mat.Navn}</li></a>
+      `
+    }
+      frukter.orderByChild("Navn").on("child_added",genererYoMama)
+      bakverk.orderByChild("Navn").on("child_added",genererYoMamaa)
+      drikkevarer.orderByChild("Navn").on("child_added",genererYoMamaaa)
+      annet.orderByChild("Navn").on("child_added",genererYoMamaaaa)
+
+    </script>
+  </body>
+</html>

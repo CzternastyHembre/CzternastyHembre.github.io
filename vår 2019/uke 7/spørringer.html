@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nb">
+    <head>
+        <meta charset="UTF-8">
+        <title>Nettbutikk</title>
+        <!--Lim inn kode fra firebase her-->
+        <link rel="stylesheet" href="stil.css">
+    </head>
+    <body>
+      <nav>
+        <button type="button"onclick="visBilligeBukser()">Buksesalg</button>
+        <button type="button"onclick="visVarer()">Vis Varer</button>
+        <button type="button"onclick="visBukser()">Alle Bukser</button>
+        <button type="button"onclick="visBukserEtterPris()">Alle bukser sortert</button>
+        <button type="button"onclick="VisSkjorter()">Skjorter</button>
+      </nav>
+
+        <main>
+
+        </main>
+
+        <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyBGOFk33XOLAxWxo_9Sy4m6nUHIdqq4PxQ",
+            authDomain: "handelsside.firebaseapp.com",
+            databaseURL: "https://handelsside.firebaseio.com",
+            projectId: "handelsside",
+            storageBucket: "handelsside.appspot.com",
+            messagingSenderId: "88512999094"
+          };
+          firebase.initializeApp(config);
+        </script>
+
+
+        <script>
+            const main = document.querySelector("main"); // Variabel som referer til mian-elementet
+
+            // Referanser til databasen
+            const db = firebase.database();
+            const bukser = db.ref("varer/bukser"); // Referer til alt som ligger under sko i databasen
+            const skjorter = db.ref("varer/skjorter"); // Referer til alt som ligger under jakker i databasen
+
+            function visVare(snapshot){
+                //Javascript-funksjon som skriver varene ut på nettsiden i main-elementet
+                let vare = snapshot.val();
+                main.innerHTML +=`
+                    <article class="vare">
+                        <img src="bilder/${vare.bilde}" alt="">
+                        <section>
+                          <h1>${vare.merke} - ${vare.modell}</h1>
+                          <p>Pris: ${vare.pris}</p>
+                        </section>
+                    </article>
+                `
+            }
+            function visBukser() {
+              main.innerHTML = "";
+              bukser.on("child_added",visVare); // Spørring som lytter til nye oppføringer i databasen, hvis det skjer kjøres funksjonen visVare.
+                                        // Når nettsiden lastes inn går den gjennom hver oppføring i databasen og kjører funksjonen visVare
+                                        // på hver oppføring.
+                                      }
+
+            // Spørring som sorterer sko etter pris, laveste først
+            function visBukserEtterPris() {
+              main.innerHTML = ""; //sletter all main
+              bukser
+                .orderByChild("pris")
+                .on("child_added",visVare);
+              }
+
+          function VisSkjorter() {
+            // Samme som spørrefunksjonen over, bare med jakker.
+             /*.orderByChild("pris")*/
+             main.innerHTML = "";
+            skjorter
+                .on("child_added",visVare);
+            }
+
+            // Spørring som sorterer sko etter pris laveste først, og gir de tre billigste skoene
+            function visBilligeBukser() {
+              main.innerHTML = "";
+              bukser
+                  .orderByChild("pris")
+                  .limitToFirst(3)
+                  .on("child_added",visVare);
+              }
+
+            // Spørring som gir alle sko med pris mellom 500 og 700, sortert etter pris.
+            function VisBukserMellom500og700() {
+              main.innerHTML = "";
+              bukser
+                .orderByChild("pris")
+                .startAt(500)
+                .endAt(700)
+                .on("child_added",visVare);
+}
+              function visVarer() {
+                main.innerHTML = `Bukser`;
+                bukser.on("child_added",visVare)
+                main.innerHTML += `Skjorter`;
+                skjorter.on("child_added",visVare)
+              }
+        </script>
+    </body>
+</html>

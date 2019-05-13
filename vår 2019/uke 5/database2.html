@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+    <section>
+      <form id="logIn">
+        <input id="inpTelefon" type="text" required placeholder="telefon">
+        <input id="inpNavn" type="text" required placeholder="navn">
+        <input id="inpEtterNavn" type="text" required placeholder="etternavn">
+        <button type="submit">Send inn</button>
+      </form>
+    </section>
+
+    <section id="secKontakter"></section>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyApruYVSCufdRIvHaXDQiTsZbl0QE4LNus",
+        authDomain: "personer-553e9.firebaseapp.com",
+        databaseURL: "https://personer-553e9.firebaseio.com",
+        projectId: "personer-553e9",
+        storageBucket: "personer-553e9.appspot.com",
+        messagingSenderId: "88713487332"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+      <script>
+        //HTML-konstanter
+        const logIn = document.querySelector("#logIn");
+        const inpTelefon = document.querySelector('')
+      </script>
+
+
+  </body>
+</html>

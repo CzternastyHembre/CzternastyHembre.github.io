@@ -1,0 +1,30 @@
+main{
+  width: 90%;
+  margin: auto;
+}
+div{
+  position:sticky;
+  top: 0;
+  background-color: black;
+  display: flex;
+}
+a{
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+a:hover{
+  background-color: #444;
+}
+@media (max-width:600px) {
+  a,div{
+    display: block;
+    position: static;
+    width: inherit;
+  }
+}
+p{
+  padding-bottom: 1000px;
+}

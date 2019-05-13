@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1 id="mattis">Mattis</h1>
+    <h1 id="mamma">Mamma</h1>
+    <button type="button"onclick="kjør()">kjør</button>
+
+    <script>
+      var mattis = document.getElementById("mattis");
+      var mamma = document.getElementById("mamma");
+
+      function halla() {
+        mattis.style.color = "green"
+        mamma.style.color = "blue"
+      }
+      function invhalla() {
+        mattis.style.color = "blue";
+        mamma.style.color = "green"
+      }
+      function påræ() {
+        if (mattis.style.color == "green") {
+          invhalla()
+        }
+        else {
+          halla()
+        }
+      }
+      function kjør() {
+          påræ()
+
+      }
+    </script>
+  </body>
+</html>

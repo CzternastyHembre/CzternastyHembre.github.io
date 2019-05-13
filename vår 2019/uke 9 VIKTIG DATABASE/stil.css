@@ -1,0 +1,40 @@
+body{
+  background-color: grey;
+}
+main{
+  /* griding */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 400px 400px 400px;
+  grid-gap:1rem;
+
+  /* Stil */
+  margin: auto;
+  width: 1280px;
+
+}
+main article{
+  /* griding */
+  display: grid;
+  /* grid-template-rows: 1fr 1fr 1fr; */
+  justify-content: center;
+  align-items: center;
+
+  /* stil */
+  color: white;
+  text-align: center;
+}
+main article a{
+  text-decoration: none;
+  padding: 10px;
+  background-color:cyan;
+  color: black;
+  border: 1px solid blue;
+  border-radius: 10px;
+
+  transform: scale(0.000001);
+}
+main article:hover a{
+  transform: scale(1);
+  transition: 0.3s;
+}

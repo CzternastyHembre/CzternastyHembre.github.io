@@ -1,0 +1,48 @@
+body{
+  margin: auto;
+  width: 70%;
+  text-align: center;
+}
+main{
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-gap: 10px;
+}
+article{
+  display: grid;
+  grid-template-columns: 23px 60px;
+  border:1px solid black;
+  grid-gap: 10px;  background-color: yellow;
+  width: 100px;
+}
+h2{
+  font-weight : 100;
+  font-size: 10px;
+}
+h1,h2{
+  margin: 0px;
+}
+.høyre h1{
+  font-size: 10px;
+  height: 12px;
+  overflow: hidden;
+}
+.høyre table{
+  font-size: 8px;
+}
+.høyre img{
+  height: 60px;
+  margin-top: 10px;
+}
+.venstre{
+  background-color: gold;
+  /* border-radius: 20px; */
+}
+.venstre p{
+  margin: 0px
+}
+article:hover{
+  opacity: 0.7;
+  cursor:vertical-text;
+}

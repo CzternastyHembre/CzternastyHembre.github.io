@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="stil.css">
+  </head>
+  <body>
+
+    <nav>
+      <button type="button" onclick="nittiPluss()">90+</button>
+      <button type="button" onclick="bunTopp()">Nederste</button>
+      <button type="button" onclick="lag()">MCU</button>
+      <button type="button" onclick="besteLag()">Tottenham</button>
+      <button type="button" onclick="spania()">Spansk</button>
+      <button type="button" onclick="brasil()">brasil</button>
+      <button type="button" onclick="pace()">Pace</button>
+      <button type="button" onclick="GK()">GK</button>
+      <br>
+      <button type="button" onclick="fiveStar()">5star skill</button>
+      <button type="button" onclick="fiveWeak()">5star Weak</button>
+      <button type="button" onclick="funksjonenMin()">DCK</button>
+
+    </nav>
+    <main class="">
+
+    </main>
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDFRz05ntDOJq-BIkYSDPKcMgwYMko1r3M",
+        authDomain: "fifa-spillere.firebaseapp.com",
+        databaseURL: "https://fifa-spillere.firebaseio.com",
+        projectId: "fifa-spillere",
+        storageBucket: "fifa-spillere.appspot.com",
+        messagingSenderId: "828715287361"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <script>
+      const main = document.querySelector("main");//referer til main elementet
+
+      //databasereferanser
+      const db = firebase.database();
+      const spillere = db.ref("players")
+
+      function visSpiller(snap) {//funksjonen som legger inn spillere inn i main
+        console.log(snap.val())
+        let spiller = snap.val();
+        main.innerHTML +=`
+          <article class="spiller">
+            <section class="venstre">
+              <h1>${spiller.Overall}</h1>
+              <h2>${spiller.Position}</h2>
+              <img src="${spiller["Club Logo"]}">
+              <br>
+              <img src="${spiller.Flag}">
+              <p>${spiller["Skill Moves"]}</p>
+              <p>${spiller["Weak Foot"]}</p>
+
+            </section>
+            <section class="høyre">
+              <img src="${spiller.Photo}">
+              <h1>${spiller.Name}</h1>
+              <table>
+                <tr>
+                  <td>${spiller.SprintSpeed}PAC</td>
+                  <td>${spiller.Dribbling}DRI</td>
+                </tr>
+                <tr>
+                  <td>${spiller.LongShots}SHO</td>
+                  <td>${spiller.SlidingTackle}DEF</td>
+                </tr>
+                <tr>
+                  <td>${spiller.LongPassing}PAS</td>
+                  <td>${spiller.Strength}PHY</td>
+                </tr>
+              </table>
+            </section>
+          </article>
+        `
+      }
+      function bunTopp() {
+        main.innerHTML="";
+        spillere
+          .orderByChild("Overall")
+          .limitToFirst(85)
+          .on("child_added",visSpiller)
+      }
+      function nittiPluss() {
+        main.innerHTML="";
+        spillere
+          .orderByChild("Overall")
+          .startAt(90)
+          .endAt(99)
+          .limitToFirst(85)
+          .on("child_added",visSpiller)
+      }
+      function spania() {
+        main.innerHTML="";
+        spillere
+          .orderByChild("Nationality")
+          .equalTo("Spain")
+          .limitToFirst(85)
+          .on("child_added",visSpiller)
+      }
+      function brasil() {
+        main.innerHTML="";
+        spillere
+          .orderByChild("Nationality")
+          .equalTo("Brazil")
+          .limitToFirst(85)
+          .on("child_added",visSpiller)
+      }
+      function lag() {
+        main.innerHTML="";
+        spillere
+          .orderByChild("Club")
+          .equalTo("Manchester United")
+          .on("child_added",visSpiller)
+      }
+      function besteLag() {
+        main.innerHTML="";
+        spillere
+          .orderByChild("Club")
+          .equalTo("Tottenham Hotspur")
+          .on("child_added",visSpiller)
+      }
+        function GK() {
+          main.innerHTML="";
+          spillere
+            .orderByChild("Position")
+            .equalTo("GK")
+            .limitToFirst(85)
+            .on("child_added",visSpiller)
+        }
+        function pace() {
+          main.innerHTML="";
+          spillere .orderByChild("SprintSpeed").limitToLast(20).on("child_added",visSpiller)
+        }
+        function fiveStar() {
+          main.innerHTML="";
+          spillere
+            .orderByChild("Skill Moves")
+            .equalTo(5)
+            .on("child_added",visSpiller)
+        }
+        function fiveWeak() {
+          main.innerHTML="";
+          spillere
+            .orderByChild("Weak Foot")
+            .equalTo(5)
+            .on("child_added",visSpiller)
+        }
+        function funksjonenMin() {
+          main.innerHTML="";
+          spillere
+            .orderByChild("Name")
+            .startAt('B')
+            .endAt('D')
+            .on("child_added",visSpiller)
+        }
+        spillere.orderByChild("Value").limitToLast(25).on("child_added",visSpiller)
+
+    </script>
+
+  </body>
+</html>

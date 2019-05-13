@@ -1,0 +1,22 @@
+body{
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+}
+nav{
+  margin: 10px;
+}
+main{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5px;
+}
+main article{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: solid 1px black;
+}
+article img{
+  grid-row: span 2;
+}

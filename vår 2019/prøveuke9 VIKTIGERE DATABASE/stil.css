@@ -1,0 +1,21 @@
+body{
+  background-color: beige;
+}
+nav,main{
+  text-align: center;
+}
+main{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
+article{
+  margin: auto;
+  border-bottom: solid 1px grey;
+}
+section{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+p:first-child{
+  border-right: 1px solid grey;
+}

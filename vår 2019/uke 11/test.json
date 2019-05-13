@@ -1,0 +1,84 @@
+{
+  "Spillere":{
+    "001":{
+      "Navn":"Andre Hansen",
+      "Posisjon":"Keeper",
+      "Født":1989,
+      "Pris":"10M",
+      "Bilde":"http://www.rbk.no/lag/_/image/06136702-c77a-4177-969d-4ee4d7cb3edf:b6b8c1374f44466daf3da910bfd69bd74d853545/width-800/01-andre-hansen.png.jpg",
+      "DraktNummer":1
+    },
+    "002":{
+      "Navn":"Birger Meling",
+      "Posisjon":"Forsvar",
+      "Født":1994,
+      "Pris":"1.5M",
+      "Bilde":"http://www.rbk.no/lag/_/image/0d7f6659-e56a-42e3-be88-b1cf044f5a8b:ab2bb75f2cb368eec79d97aba9813dd758ac18e5/width-800/03-birger-meling.png.jpg",
+      "DraktNummer":1
+    },
+    "003":{
+      "Navn":"Arild Østbø",
+      "Posisjon":"Keeper",
+      "Født":1991,
+      "Pris":"0.5M",
+      "Bilde":"http://www.rbk.no/lag/_/image/8929a35f-7fd3-4d4b-b5ca-fae9e1f14467:64ed6cd84c2cce94617c5e57b61a8ad368d5bbf4/width-800/24-arild-ostbo.png.jpg",
+      "DraktNummer":24
+    },
+    "004":{
+      "Navn":"Julian Faye Lund",
+      "Posisjon":"Keeper",
+      "Født":1999,
+      "Pris":"0.25M",
+      "Bilde":"http://www.rbk.no/lag/_/image/1e490890-9917-4ef2-894a-a4653bdec43d:72418a731586d2bf250bb384f978774fccb3cd59/width-800/171118-portrett-33-julian-faye-lund.jpg",
+      "DraktNummer":33
+    },
+    "005":{
+      "Navn":"Vegard Eggen Hedenstad",
+      "Posisjon":"Forsvar",
+      "Født":1991,
+      "Pris":"3M",
+      "Bilde":"http://www.rbk.no/lag/_/image/3f82febd-f029-4cca-9b4c-a8dcb4b218a2:6b7ea35eedcb711d947252df1be5d4c814203dfc/width-800/02-vegard-hedenstad.png.jpg",
+      "DraktNummer":2
+    },
+    "006":{
+      "Navn":"Tore Reginiussen",
+      "Posisjon":"Forsvar",
+      "Født":1986,
+      "Pris":"50M",
+      "Bilde":"http://www.rbk.no/lag/_/image/18b37435-cd83-4c5b-b24f-1c01ee02dacf:d1a648d07d31af120d60a59520ca1a7285b5bb89/width-800/04-tore-reginiussen.png.jpg",
+      "DraktNummer":4
+    },
+    "007":{
+      "Navn":"Even Hovlan",
+      "Posisjon":"Forsvar",
+      "Født":1989,
+      "Pris":"2M",
+      "Bilde":"http://www.rbk.no/lag/_/image/c86b2729-364f-443f-a94c-0df448453bf4:93202f691c8188c4981538171c6ca347500effd0/width-800/16-even-hovland.png.jpg",
+      "DraktNummer":19
+    },
+    "008":{
+      "Navn":"Mike Lindemann Jensen",
+      "Posisjon":"Midtbane",
+      "Født":1988,
+      "Pris":"40M",
+      "Bilde":"http://www.rbk.no/lag/_/image/8a158881-2989-4d1f-8ce4-8846c985d43d:8c85cd333cfbd7d0f8b4a5e89bd973b587b3095f/width-800/07-mike-jensen.png.jpg",
+      "DraktNummer":7
+    },
+    "009":{
+      "Navn":"Gjermund Åsen",
+      "Posisjon":"Midtbane",
+      "Født":1991,
+      "Pris":"5M",
+      "Bilde":"http://www.rbk.no/lag/_/image/8b40b164-1afa-4f2b-9912-3428cef0ceb6:72797dbe2f7c9426393b217ed6d4768b77107f8c/width-800/gjermund-aasen-portrett.jpg",
+      "DraktNummer":22
+    },
+    "010":{
+      "Navn":"Nicklas Bendtner",
+      "Posisjon":"Angrep",
+      "Født":1988,
+      "Pris":"0M",
+      "Bilde":"http://www.rbk.no/lag/_/image/8927fbcb-7999-431a-b522-9455030ac215:d9aa173248470a2dc9ca191f1a209c1c1396aeff/width-800/09-nicklas-bendtner.png.jpg",
+      "DraktNummer":9
+    }
+  }
+}
