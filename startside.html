@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBymBswrEV-tjeIZwqTcxVv3LudWnTSPfc",
+        authDomain: "saras-handelsside-2020.firebaseapp.com",
+        databaseURL: "https://saras-handelsside-2020.firebaseio.com",
+        projectId: "saras-handelsside-2020",
+        storageBucket: "saras-handelsside-2020.appspot.com",
+        messagingSenderId: "179146101108",
+        appId: "1:179146101108:web:6f7f3c205b8899ea155c21"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <style media="screen">
+    body{
+      margin: 0;
+      width: 100%;
+    }
+    a{
+      text-decoration: none;
+      color: inherit;
+    }
+      header img{
+        width: 100%;
+      }
+      /* navigasjonsbar */
+      nav{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 99;
+        margin: 0px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        /* grid-gap: 10px; */
+
+        text-align: center;
+      }
+      nav div.vis{
+        background-color: red;
+        padding: 5px;
+      }
+      nav div.vis:hover{
+        opacity: 0.7;
+        cursor: pointer;
+      }
+
+
+      /* Main-innhold */
+      main{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 5%;
+        margin-left: 5%;
+        margin-right: 5%;
+        padding: 2%;
+        border-left: 3px solid black;
+        border-right: 3px solid black;
+      }
+      article img{
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="logo/logo.png" alt="">
+    </header>
+
+    <nav>
+      <div onclick="visAlt()"class="vis">ALLE</div>
+      <div onclick="visBukser()"class="vis">BUKSER</div>
+      <div onclick="visKjoler()"class="vis">KJOLER</div>
+      <div onclick="visSko()"class="vis">SKO</div>
+      <div onclick="visTopper()"class="vis">TOPPER</div>
+    </nav>
+
+    <main>
+    </main>
+
+    <script>
+    const main = document.querySelector("main");
+    const db = firebase.database();
+    const bukser = db.ref("varer/bukser");
+    const kjoler = db.ref("varer/kjoler");
+    const sko = db.ref("varer/sko");
+    const topper = db.ref("varer/topper");
+
+    function genererHTML(snapshot) {
+      var vare = snapshot.val();
+      var key = snapshot.key;
+      main.innerHTML +=`
+        <a href="produktinfo.html?id=${key}">
+          <article class="">
+          <img src="bilder/${vare.bilde}" alt="">
+          <span>Pris :${vare.pris}kr,-</span>
+          <span>${vare.modell}</span>
+          <h2>${vare.merke}</h2>
+          </article>
+        </a>
+      `
+    }
+    // <img src="busker/${bilde}" alt="">
+    function visBukser() {
+      main.innerHTML = ``;
+      bukser.on("child_added",genererHTML)
+    }
+    function visKjoler() {
+      main.innerHTML = ``;
+      kjoler.on("child_added",genererHTML)
+    }
+    function visSko() {
+      main.innerHTML = ``;
+      sko.on("child_added",genererHTML)
+    }
+    function visTopper() {
+      main.innerHTML = ``;
+      topper.on("child_added",genererHTML)
+    }
+    function visAlt() {
+      main.innerHTML = ``;
+      bukser.on("child_added",genererHTML)
+      kjoler.on("child_added",genererHTML)
+      sko.on("child_added",genererHTML)
+      topper.on("child_added",genererHTML)
+    }
+    visAlt()
+    </script>
+  </body>
+</html>
