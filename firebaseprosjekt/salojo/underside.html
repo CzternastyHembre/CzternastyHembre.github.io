@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyAn3fu0uDxk0tg-TLVKP05MWHq3vUidL5c",
+        authDomain: "saras-handelsside.firebase.com",
+        databaseURL: "https://saras-handelsside.firebaseio.com",
+        projectId: "saras-handelsside",
+        storageBucket: "saras-handelsside.appspot.com",
+        messagingSenderId: "749759267863",
+        appId: "1:749759267863:web:717156098aa96b36b64852"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      </script>
+      <style media="screen">
+        div.container{
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+        }
+        .bilder{
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+        img{height:500px;}
+      </style>
+  </head>
+  <body>
+
+    <main>
+
+    </main>
+    <script>
+      const main = document.querySelector("main");
+      const db = firebase.firestore();
+      const sko = db.collection("sko")
+      const topp = db.collection("topper")
+      const bukse = db.collection("bukser")
+
+      const url = new URL(window.location.href);
+      const id = url.searchParams.get("id");
+
+      const visSko = async (id) => {
+          const svar = await sko.doc(id).get();
+          lagHTML(svar.data());
+      }
+      const visTopp = async (id) => {
+          const svar = await topp.doc(id).get();
+          lagHTML(svar.data());
+      }
+      const visBukse = async (id) => {
+          const svar = await bukse.doc(id).get();
+          lagHTML(svar.data());
+      }
+
+      const lagHTML = (vare) => {
+          main.innerHTML += `
+          <div class="container">
+            <div>
+              <h3>${vare.navn}</h3>
+              <p>farger: ${vare.farge[0]}, ${vare.farge[1]}</p>
+              <p>Beskrivelse:</p>
+              <p>${vare.beskrivelse}</p>
+              <div id="kjøp">
+                <b>Pris for ${vare.navn} sin drakt :  ${vare.pris}kr</b>
+                <form action="takk.html">
+                  <select required name="">
+                    <option class="storrelse" value="">Velg størrelse</option>
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                  </select>
+                  <button class="kjøp" type="submit">Legg til i handlekurv</button>
+                </form>
+              </div>
+            </div>
+
+            <div class="bilder">
+              <img src="bilder/${vare.bilde[1]}">
+              <img src="bilder/${vare.bilde[0]}">
+              <a href="hovedside.html"><button>Tilbake</button></a>
+            </div>
+
+          </div>
+              `;
+      }
+      if (id.charAt(0) === "S") { //If - setning som kjører riktig kode utifra hvilken underside man er på
+        visSko(id); // Funksjonskall, gjør at funksjonen visDyr kjøres når siden lastes
+      } else if (id.charAt(0) === "B") {
+        visBukse(id); // Funksjonskall, gjør at funksjonen visDyr kjøres når siden lastes
+      } else if (id.charAt(0) === "T") {
+        visTopp(id); // Funksjonskall, gjør at funksjonen visDyr kjøres når siden lastes
+      }
+
+    </script>
+  </body>
+</html>

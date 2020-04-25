@@ -1,0 +1,167 @@
+:root{
+  --hoved-farge:black;
+  --hover-farge:white;
+
+  --hoved-skrift:white;
+  --hover-skrift:black;
+
+  --border-farge:none;
+}
+body{
+  margin:0;
+  width: 100%;
+}
+header{
+  font-size: 2rem;
+  text-align: center;
+}
+header h1{
+  padding: 0px;
+  margin: 0px;
+}
+header h1::first-letter{
+  font-size: 125%;
+  color: blue;
+}
+main{
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 3rem;
+}
+img{
+  width:100%;
+}
+a{
+  text-decoration: none;
+  color:black;
+}
+div#enhet{
+  border: 1px solid var(--border-farge);
+}
+
+
+/* Navbar */
+nav{
+
+  position: -webkit-sticky;
+  position: sticky;
+  top:0;
+
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  margin: 0;
+  z-index: 2;
+  text-align:center;
+  width: 100%;
+
+  color: var(--hoved-skrift);
+  background-color: var(--hoved-farge)
+}
+.hovedDiv{
+  padding: 15px;
+  margin: 0px;
+  background-color: var(--hoved-farge);
+
+  /* border: 1px solid var(--border-farge); */
+
+}
+.uDiv{
+  width: 100%;
+  background-color: var(--hoved-farge);
+  padding: 7px;
+  z-index: 1;
+  /* border: 1px solid var(--border-farge); */
+
+}
+section.underholder, section.underunderholder{
+  display: none;
+  position: absolute;
+  /* width: 33%; */
+}
+section.omfang:hover section.underholder, section.omfangg:hover section.underunderholder{
+  display: block;
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+}
+section.omfangg:hover section.underunderholder{
+  display: block;
+  margin: auto;
+}
+#under2{
+  /* width: 150%; */
+}
+section.underholder .uDiv:hover, .omfang:hover .hovedDiv{
+  color: var(--hover-skrift);
+  background-color: var(--hover-farge);
+  cursor: pointer;
+}
+section.underholder .uDiv:active, .omfang .hovedDiv:active{
+  opacity: 0.7;
+}
+#under2>.uDiv{
+  text-align: left;
+  padding: 1px;
+  padding-left:2rem;
+}
+.fargeboks{
+  position: absolute;
+  left: 2px;
+  width: 1rem;
+  height: 1rem;
+}
+#hvit{
+  background-color: white;
+}
+#svart{
+  background-color: black;
+}
+#beige{
+  background-color:beige;
+}
+#rod{
+  background-color:red;
+}
+
+@media screen and (max-width: 1200px) {
+  main{
+    grid-template-columns: repeat(3,1fr);
+    font-size: x-large;
+  }
+}
+@media screen and (max-width: 900px) {
+  main{
+    grid-template-columns: repeat(2,1fr);
+    font-size: large;
+  }
+}
+@media screen and (max-width: 600px) {
+  main{
+    grid-template-columns: repeat(1,1fr);
+    font-size: small;
+  }
+  nav{
+    position: static;
+    grid-template-columns: 1fr;
+    background-color: grey;
+  }
+  section.underholder{
+    width: 50%;
+    position: static;
+  }
+  section.underholder div{
+  padding: 0px;
+  }
+  .omfang:hover .underholder{
+    position: absolute;
+    /* left: 25%; */
+  }
+}
+@media screen and (min-width: 1600px) {
+  main{
+    grid-template-columns: repeat(5,1fr);
+  }
+}

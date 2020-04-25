@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyAn3fu0uDxk0tg-TLVKP05MWHq3vUidL5c",
+        authDomain: "saras-handelsside.firebase.com",
+        databaseURL: "https://saras-handelsside.firebaseio.com",
+        projectId: "saras-handelsside",
+        storageBucket: "saras-handelsside.appspot.com",
+        messagingSenderId: "749759267863",
+        appId: "1:749759267863:web:717156098aa96b36b64852"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <link rel="stylesheet" href="hovedsideStil.css">
+  </head>
+  <body>
+    <header>
+      <h1><a href="hovedside.html">SALandO</a></h1>
+    </header>
+    <nav>
+
+
+      <section class="omfang">
+        <div class="hovedDiv" onclick="visAlt()">VIS ALT</div>
+        <section class="underholder">
+          <section class="omfangg">
+            <div class="uDiv" onclick="visAltF()">FARGE</div>
+            <section class="underunderholder" id="under2">
+              <div class="uDiv"onclick="visHvit()">HVIT<span id="hvit" class="fargeboks"></span></div>
+              <div class="uDiv"onclick="visSvart()">SVART<span id="svart" class="fargeboks"></span></div>
+              <div class="uDiv"onclick="visRod()">RØD<span id="rod" class="fargeboks"></span></div>
+              <div class="uDiv"onclick="visBeige()">BEIGE<span id="beige" class="fargeboks"></span></div>
+            </section>
+          </section>
+        </section>
+      </section>
+
+      <section class="omfang">
+        <div class="hovedDiv"onclick="visSko()">SKO</div>
+        <section class="underholder">
+          <section class="omfangg">
+            <div class="uDiv" onclick="visStigendeSko()">PRIS</div>
+            <section class="underunderholder">
+              <div class="uDiv"onclick="visStigendeSko()">STIGENDE</div>
+              <div class="uDiv"onclick="visSynkendeSko()">SYNKENDE</div>
+            </section>
+          </section>
+          <div class="uDiv"onclick="visPensko()">PENSKO</div>
+          <div class="uDiv"onclick="visJoggesko()">JOGGESKO</div>
+        </section>
+      </section>
+
+
+      <section class="omfang">
+        <div class="hovedDiv"onclick="visBukser()">BUKSER</div>
+        <section class="underholder">
+          <section class="omfangg">
+            <div class="uDiv" onclick="visStigendeBukser()">PRIS</div>
+            <section class="underunderholder">
+              <div class="uDiv"onclick="visStigendeBukser()">STIGENDE</div>
+              <div class="uDiv"onclick="visSynkendeBukser()">SYNKENDE</div>
+            </section>
+          </section>
+          <div class="uDiv"onclick="visBukserL()">LØS</div>
+          <div class="uDiv"onclick="visBukserR()">REGULAR</div>
+          <div class="uDiv"onclick="visBukserS()">SLIM</div>
+        </section>
+      </section>
+
+
+      <section class="omfang">
+        <div class="hovedDiv"onclick="visTopper()">TOPPER</div>
+        <section class="underholder">
+          <section class="omfangg">
+            <div class="uDiv" onclick="visStigendeTopper()">PRIS</div>
+            <section class="underunderholder">
+              <div class="uDiv"onclick="visStigendeTopper()">STIGENDE</div>
+              <div class="uDiv"onclick="visSynkendeTopper()">SYNKENDE</div>
+            </section>
+          </section>
+          <div class="uDiv"onclick="visTopperS()">SINGLET</div>
+          <div class="uDiv"onclick="visTopperA()">ARMER</div>
+        </section>
+      </section>
+
+    </nav>
+
+
+
+    </header>
+    <main>
+
+    </main>
+    <script>
+
+      const main = document.querySelector("main"); //Referer til main-elementet
+      const db = firebase.firestore();
+      const sko = db.collection("sko");
+      const bukser = db.collection("bukser");
+      const topper = db.collection("topper");
+
+//Sko
+      const visSkoo = async () => {
+          const svar = await sko.get();
+          for(const sko of svar.docs){
+              lagHTML(sko.id, sko.data());
+          }
+      }
+      function visSko() {
+        main.innerHTML = ``; // Sletter innholdet i main.
+        visSkoo()
+      }
+      const visPensko = async () => {
+          main.innerHTML = ``; // Sletter innholdet i main.
+          const svar = await sko.where("type","==","pensko").get();
+          for(const sko of svar.docs){
+              lagHTML(sko.id, sko.data());
+          }
+      }
+      const visJoggesko = async () => {
+          main.innerHTML = ``; // Sletter innholdet i main.
+          const svar = await sko.where("type","==","joggesko").get();
+          for(const sko of svar.docs){
+              lagHTML(sko.id, sko.data());
+          }
+      }
+      const visSynkendeSko = async () => {
+          main.innerHTML = ``; // Sletter innholdet i main.
+          const svar = await sko.orderBy("pris","desc").get();
+          for(const sko of svar.docs){
+              lagHTML(sko.id, sko.data());
+          }
+      }
+      const visStigendeSko = async () => {
+          main.innerHTML = ``; // Sletter innholdet i main.
+          const svar = await sko.orderBy("pris","asc").get();
+          for(const sko of svar.docs){
+              lagHTML(sko.id, sko.data());
+          }
+      }
+
+//Bukser
+      const visBukserr = async () => {
+          const svar = await bukser.get();
+          for(const bukse of svar.docs){
+              lagHTML(bukse.id, bukse.data());
+          }
+      }
+      function visBukser() {
+        main.innerHTML = ``; // Sletter innholdet i main.
+        visBukserr()
+      }
+
+      const visBukserS = async () => {
+          main.innerHTML = ``; // Sletter innholdet i main.
+          const svar = await bukser.where("type","==","slim").get();
+          for(const bukse of svar.docs){
+              lagHTML(bukse.id, bukse.data());
+          }
+      }
+      const visBukserR = async () => {
+          main.innerHTML = ``; // Sletter innholdet i main.
+          const svar = await bukser.where("type","==","regular").get();
+          for(const bukse of svar.docs){
+              lagHTML(bukse.id, bukse.data());
+          }
+      }
+      const visBukserL = async () => {
+          main.innerHTML = ``; // Sletter innholdet i main.
+          const svar = await bukser.where("type","==","løs").get();
+          for(const bukse of svar.docs){
+              lagHTML(bukse.id, bukse.data());
+          }
+      }
+      const visSynkendeBukser = async () => {
+          main.innerHTML = ``; // Sletter innholdet i main.
+          const svar = await bukser.orderBy("pris","desc").get();
+          for(const bukse of svar.docs){
+              lagHTML(bukse.id, bukse.data());
+          }
+      }
+      const visStigendeBukser = async () => {
+          main.innerHTML = ``; // Sletter innholdet i main.
+          const svar = await bukser.orderBy("pris","asc").get();
+          for(const bukse of svar.docs){
+              lagHTML(bukse.id, bukse.data());
+          }
+      }
+
+//Topper
+      const visTopperr = async () => {
+          const svar = await topper.get();
+          for(const topp of svar.docs){
+              lagHTML(topp.id, topp.data());
+          }
+      }
+      function visTopper() {
+        main.innerHTML = ``; // Sletter innholdet i main.
+        visTopperr()
+      }
+      const visTopperA = async () => {
+        main.innerHTML = ``; // Sletter innholdet i main.
+          const svar = await topper.where("type","==","armer").get();
+          for(const topp of svar.docs){
+              lagHTML(topp.id, topp.data());
+          }
+      }
+      const visTopperS = async () => {
+        main.innerHTML = ``; // Sletter innholdet i main.
+          const svar = await topper.where("type","==","singlet").get();
+          for(const topp of svar.docs){
+              lagHTML(topp.id, topp.data());
+          }
+      }
+      const visStigendeTopper = async () => {
+        main.innerHTML = ``; // Sletter innholdet i main.
+          const svar = await topper.orderBy("pris","asc").get();
+          for(const topp of svar.docs){
+              lagHTML(topp.id, topp.data());
+          }
+      }
+      const visSynkendeTopper = async () => {
+        main.innerHTML = ``; // Sletter innholdet i main.
+          const svar = await topper.orderBy("pris","desc").get();
+          for(const topp of svar.docs){
+              lagHTML(topp.id, topp.data());
+          }
+      }
+
+
+//Farger
+    const visAltF = async () => {
+      main.innerHTML = ``; // Sletter innholdet i main.
+      const svar = await topper.orderBy("farge").get();
+      for(const topp of svar.docs){
+          lagHTML(topp.id, topp.data());
+        }
+      const svarr = await bukser.orderBy("farge").get();
+      for(const topp of svarr.docs){
+          lagHTML(topp.id, topp.data());
+      }
+      const svarrr = await sko.orderBy("farge").get();
+      for(const topp of svarrr.docs){
+          lagHTML(topp.id, topp.data());
+      }
+    }
+
+
+    const visHvit = async () => {
+      main.innerHTML = ``; // Sletter innholdet i main.
+      const svar = await topper.where("farge","array-contains","hvit").get();
+      for(const topp of svar.docs){
+          lagHTML(topp.id, topp.data());
+      }
+      const svarr = await bukser.where("farge","array-contains","hvit").get();
+      for(const topp of svarr.docs){
+          lagHTML(topp.id, topp.data());
+      }
+      const svarrr = await sko.where("farge","array-contains","hvit").get();
+      for(const topp of svarrr.docs){
+          lagHTML(topp.id, topp.data());
+      }
+    }
+    const visSvart = async () => {
+      main.innerHTML = ``; // Sletter innholdet i main.
+      const svar = await topper.where("farge","array-contains","svart").get();
+      for(const topp of svar.docs){
+          lagHTML(topp.id, topp.data());
+      }
+      const svarr = await bukser.where("farge","array-contains","svart").get();
+      for(const topp of svarr.docs){
+          lagHTML(topp.id, topp.data());
+      }
+      const svarrr = await sko.where("farge","array-contains","svart").get();
+      for(const topp of svarrr.docs){
+          lagHTML(topp.id, topp.data());
+      }
+    }
+    const visRod = async () => {
+      main.innerHTML = ``; // Sletter innholdet i main.
+      const svar = await topper.where("farge","array-contains","rød").get();
+      for(const topp of svar.docs){
+          lagHTML(topp.id, topp.data());
+      }
+      const svarr = await bukser.where("farge","array-contains","rød").get();
+      for(const topp of svarr.docs){
+          lagHTML(topp.id, topp.data());
+      }
+      const svarrr = await sko.where("farge","array-contains","rød").get();
+      for(const topp of svarrr.docs){
+          lagHTML(topp.id, topp.data());
+      }
+    }
+    const visBeige = async () => {
+      main.innerHTML = ``; // Sletter innholdet i main.
+      const svar = await topper.where("farge","array-contains","beige").get();
+      for(const topp of svar.docs){
+          lagHTML(topp.id, topp.data());
+      }
+      const svarr = await bukser.where("farge","array-contains","beige").get();
+      for(const topp of svarr.docs){
+          lagHTML(topp.id, topp.data());
+      }
+      const svarrr = await sko.where("farge","array-contains","beige").get();
+      for(const topp of svarrr.docs){
+          lagHTML(topp.id, topp.data());
+      }
+    }
+
+
+
+      function visAlt() { //Funkjson som henter alt
+        main.innerHTML=``;//Sletter innholdet i main
+        visBukser()
+        visSko()
+      visTopper()
+      }
+visAlt()// Funksjonskall, gjør at funksjonen visAlt() kjøres når siden lastes
+
+      const lagHTML = (id, vare) => { //FUnksjon som lager ett element i main, funker som en mal for alle
+          main.innerHTML += `
+            <a id="enhet"href="underside.html?id=${id}">
+              <div id="enhet">
+                <img src="bilder/${vare.bilde[0]}">
+                <h3>${vare.navn}</h3>
+                <span>${vare.pris},-</span>
+                <button type="button"><a href="kjøp.html">Hurtigkjøp</a></button>
+              </div>
+            </a>
+          `;
+      }
+    </script>
+  </body>
+</html>
+
+<!-- NOTE: ALt er med sjekk -->
+<!-- <h3>${vare.navn}</h3>
+<p>pris: ${vare.pris},-</p>
+<p>farge: ${vare.farge[0]}, ${vare.farge[1]}</p>
+<img src="bilder/${vare.bilde[0]}"><span>${vare.bilde[0]}</span>
+<img src="bilder/${vare.bilde[1]}"><span>${vare.bilde[1]}</span>
+<p>type: ${vare.type},-</p>
+<p>besk: ${vare.beskrivelse},-</p>
+</a> -->
