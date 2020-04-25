@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      img.info{
+        margin:auto;
+        width: 100%;
+      }
+      .bildecont{
+        position: relative;
+      }
+      .infocont{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .draktNr{
+        color:#98000d;
+        font-weight: bold;
+        position:absolute;
+        bottom: 3%;
+        left: 10%;
+        font-size: 400%;
+      }
+      .navn{
+        font-size: 200%
+      }
+      a{
+        text-decoration: none;
+        color:#343434;
+      }
+      article{
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-column-gap: 2%;
+      }
+      td{
+        text-align: center;
+        padding: 5px;
+      }
+      tr:nth-child(2n){
+        background-color: #efefef;
+        border-top: solid 1px #cecece;
+        border-bottom: solid 1px #cecece;
+      }
+      table{
+        margin: auto;
+        border-collapse:collapse;
+        border: solid 1px #777;
+      }
+      #profil{
+        border-radius: 50%;
+        width:80%;
+        margin:10%;
+      }
+      td:first-child{
+        border-right: 1px dashed black;
+      }
+      .tabellFar{
+        outline: double black;
+      }
+      p{
+        font-style: italic;
+      }
+      #btn{
+        margin:20%;
+      }
+      .str{
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyBWSzIMcHO2stTmRBTI9sojDUGxT8lOrF0",
+      authDomain: "liverpoolvetle.firebaseapp.com",
+      databaseURL: "https://liverpoolvetle.firebaseio.com",
+      projectId: "liverpoolvetle",
+      storageBucket: "liverpoolvetle.appspot.com",
+      messagingSenderId: "372223911182",
+      appId: "1:372223911182:web:ec64e1a3d41fa42b3d635f",
+      measurementId: "G-07LEBF1HV0"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    let url_string = window.location.href; //window.location.href
+    let url = new URL(url_string);
+    let id = url.searchParams.get("id");
+
+    const db = firebase.database();
+    const main = document.querySelector("main");
+    const spillere = db.ref("spillere/" + id)
+
+    function genererHTML(snapshot){
+      let spiller = snapshot.val();
+      main.innerHTML +=`
+      <article>
+        <div class="bildecont">
+          <img class="info" src="bilder/${spiller.img.info}">
+          <div class="draktNr">${spiller.draktNr}</div>
+        </div>
+        <div class="tabellFar">
+          <img id="profil" src="bilder/${spiller.img.profil}">
+          <table>
+            <tr>
+              <td>Kamper</td>
+              <td>${spiller.kamper}</td>
+            </tr>
+            <tr>
+              <td>Mål</td>
+              <td>${spiller.mål}</td>
+            </tr>
+            <tr>
+              <td>Posisjon</td>
+              <td>${spiller.posisjon}</td>
+            </tr>
+            <tr>
+              <td>Pris</td>
+              <td>£${spiller.pris}M</td>
+            </tr>
+            <tr>
+              <td>Født</td>
+              <td>${spiller.dato} <br> ${spiller.sted}</td>
+            </tr>
+            <tr>
+              <td>Høyde</td>
+              <td>${spiller.høyde}cm</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="infocont">
+          <div>
+            <div class="navn">${spiller.navn}</div>
+            <p>${spiller.beskrivelse}</p>
+          </div>
+
+          <div id="kjøp">
+            <b>Pris for ${spiller.navn} sin signerte drakt :  ${spiller.draktPris}kr</b>
+            <form action="takk.html">
+              <select required name="">
+                <option class="str" value="">Størrelse</option>
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+              </select>
+              <button class="kjøp" type="submit">Legg til i handlekurv</button>
+            </form>
+          </div>
+        </div>
+      </article>
+
+      <a id="btn" href="spillerstall.html"><button>Tilbake</button></a>
+`
+}
+
+  spillere.on("value",genererHTML)
+
+    </script>
+  </body>
+</html>

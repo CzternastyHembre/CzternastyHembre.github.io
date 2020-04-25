@@ -1,0 +1,236 @@
+<!-- Gerrard08 -->
+<!-- ruve2310 -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDsRHBXDGvA-9zQgLPPQmXPUtpv06-L4G0",
+      authDomain: "liverpool-handelsside.firebaseapp.com",
+      databaseURL: "https://liverpool-handelsside.firebaseio.com",
+      projectId: "liverpool-handelsside",
+      storageBucket: "liverpool-handelsside.appspot.com",
+      messagingSenderId: "728777405523",
+      appId: "1:728777405523:web:9c9110f62ac86ce29882a6"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <style media="screen">
+    body{
+      margin:0;
+    }
+      main{
+        width: 80%;
+        margin: auto;
+        display: grid;
+        grid-gap: 6%;
+        grid-template-columns: repeat(4,1fr);
+        margin-top:3%;
+      }
+      main>a{
+        border: 1px solid black;
+        padding: 0;
+        margin: 0;
+        position: relative;
+      }
+      a img{
+        margin:auto;
+        width: 100%;
+      }
+      a .draktNr{
+        color:#98000d;
+        font-weight: bold;
+
+        position:absolute;
+        top: 20%;
+        left: 10%;
+        font-size: 400%;
+      }
+      a .navn{
+        font-size: 200%
+      }
+      a{
+        text-decoration: none;
+        color:#343434;
+      }
+
+      header h1{
+        width: 100%;
+        font-size: 2rem;
+        text-align: center;
+        background-color: red;
+        color: white;
+        margin: 0;
+        padding: 20px;
+      }
+
+
+      nav{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-gap: 10px;
+        z-index: 9999;
+        position: sticky;
+        top: 0px;
+        text-align: center;
+        width: 100%;
+        margin: auto;
+        background-color: #98000d;
+      }
+
+  div.knapp{
+    padding: 15px;
+    background-color: #A0A0A0;
+
+    /* box-shadow: 0px 2px 3px 0px; */
+  }
+  section.innhold{
+    display: none;
+    position: absolute;
+    width: 20%;
+    box-shadow: 4px 4px 8px 0px;
+  }
+
+  section.konteiner:hover section.innhold{
+    display: block;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+  }
+  section.innhold .litenknapp{
+    width: 100%;
+    background-color: #A0A0A0;
+    padding: 5px;
+    z-index: 1;
+  }
+  section.innhold a.litenknapp{
+    font-style: italic;
+  }
+
+
+section.innhold .litenknapp:hover, .konteiner:hover .knapp{
+  background-color: #808080;
+  cursor: pointer;
+}
+section.innhold .litenknapp:active, div.knapp:active{
+  opacity: 0.7;
+}
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>LIVERPOOL DRAKTSALG</h1>
+    </header>
+      <nav>
+
+        <section class="konteiner">
+          <div class="knapp" id="first" onclick="visAlle()">Alle</div>
+        </section>
+
+        <section class="konteiner">
+          <div class="knapp" onclick="visFrukter()">Posisjoner</div>
+          <section class="innhold">
+            <div class="litenknapp" onclick="visKeeper()">Keeper</div>
+            <div class="litenknapp" onclick="visForsvar()">Forsvar</div>
+            <div class="litenknapp" onclick="visMidtbane()">Midtbane</div>
+            <div class="litenknapp" onclick="visAngrep()">Angrep</div>
+          </section>
+        </section>
+
+        <section class="konteiner">
+          <div class="knapp" onclick="visMål()">Mål</div>
+        </section>
+
+        <section class="konteiner">
+          <div class="knapp" onclick="">Statistikk</div>
+          <section class="innhold">
+            <div class="litenknapp" onclick="visKamper()">Kamper</div>
+            <div class="litenknapp" onclick="visHøyde()">Høyde</div>
+            <div class="litenknapp" onclick="visPris()">Pris</div>
+            <div class="litenknapp" onclick="visDato()">Dato</div>
+          </section>
+        </section>
+
+        </nav>
+
+    <main>
+    </main>
+  </body>
+
+  <script>
+
+  const db = firebase.database();
+  const spillere = db.ref("spillere")
+  const main = document.querySelector("main");
+
+
+  function genererHTML(snapshot){
+    let spiller = snapshot.val();
+    let key = snapshot.key;
+    console.log(spiller.dato);
+    main.innerHTML +=`
+      <a href="spillerinfo.html?id=${key}">
+          <img src="bilder/${spiller.img.profil}">
+          <div class="draktNr">${spiller.draktNr}</div>
+          <div class="navn">${spiller.navn}</div>
+      </a>
+    `
+  }
+  function visAlle() {
+    main.innerHTML = ""
+    spillere.on("child_added",genererHTML)
+  }
+  function visKeeper(){
+    main.innerHTML = ""
+    spillere.orderByChild("posisjon").equalTo("Keeper").on("child_added",genererHTML)
+  }
+  function visForsvar(){
+    main.innerHTML = ""
+    spillere.orderByChild("posisjon").equalTo("Forsvar").on("child_added",genererHTML)
+  }
+  function visMidtbane(){
+    main.innerHTML = ""
+    spillere.orderByChild("posisjon").equalTo("Midtbane").on("child_added",genererHTML)
+  }
+  function visAngrep(){
+    main.innerHTML = ""
+    spillere.orderByChild("posisjon").equalTo("Angrep").on("child_added",genererHTML)
+  }
+  function visMål(){
+    main.innerHTML = ""
+    spillere.orderByChild("mål").on("child_added",genererHTML)
+  }
+  function visKamper(){
+    main.innerHTML = ""
+    spillere.orderByChild("kamper").on("child_added",genererHTML)
+  }
+  function visHøyde(){
+    main.innerHTML = ""
+    spillere.orderByChild("høyde").on("child_added",genererHTML)
+  }
+  function visPris(){
+    main.innerHTML = ""
+    spillere.orderByChild("pris").on("child_added",genererHTML)
+  }
+  function visDato(){
+    main.innerHTML = ""
+    spillere.orderByChild("dato").on("child_added",genererHTML)
+  }
+  visAlle()
+  // visMål()
+
+
+</script>
+</html>

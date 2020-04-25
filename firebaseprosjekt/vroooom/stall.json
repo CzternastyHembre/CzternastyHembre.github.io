@@ -1,0 +1,276 @@
+{
+  "spillere":{
+
+    "s001":{
+      "navn":"Alisson Becker",
+      "draktNr":1,
+      "kamper":79,
+      "img":{
+        "profil":"alisson.jpg",
+        "info":"alisson2.jpg"
+      },
+      "dato":"1992-10-02",
+      "sted":"Novo Hamburgo, Brasil",
+      "pris":66.8,
+      "draktPris":600,
+      "høyde":193,
+      "mål":0,
+      "posisjon":"Keeper",
+      "beskrivelse":"Liverpool la store penger på bordet og gjorde Alisson Becker til tidenes dyreste keeper, og sisteskansen innfridde under sin første sesong på Anfield."
+    },
+
+    "s002":{
+      "navn":"Nathaniel Clyne",
+      "draktNr":2,
+      "kamper":103,
+      "img":{
+        "profil":"clyne.jpg",
+        "info":"clyne2.jpg"
+      },
+      "dato":"1991-4-05",
+      "sted":"Stockwell, England",
+      "pris":12.5,
+      "draktPris":700,
+      "høyde":175,
+      "mål":0,
+      "posisjon":"Forsvar",
+      "beskrivelse":"Nathaniel Edwin Clyne startet karrieren i Crystal Palace, og spilte fire sesonger i The Championship, før ferden gikk til Southampton, hvor han fikk tre sesonger i Premier League."
+    },
+
+    "s003":{
+      "navn":"Fabinho",
+      "draktNr":3,
+      "kamper":72,
+      "img":{
+        "profil":"fabinho.jpg",
+        "info":"fabinho2.jpg"
+      },
+      "dato":"1993-10-23",
+      "sted":"Campinas, Bra",
+      "pris":43.6,
+      "draktPris":700,
+      "høyde":189,
+      "mål":2,
+      "posisjon":"Midtbane",
+      "beskrivelse":"189 centimeter høye Fabio Henrique Tavares, kjent som Fabinho, startet karrieren som høyreback."
+    },
+
+    "s004":{
+      "navn":"Virgil Van Dijk",
+      "draktNr":4,
+      "kamper":113,
+      "img":{
+        "profil":"virgil.jpg",
+        "info":"virgil2.jpg"
+      },
+      "dato":"1991-7-08",
+      "sted":"Breda, Nederland",
+      "pris":75,
+      "draktPris":950,
+      "høyde":193,
+      "mål":11,
+      "posisjon":"Forsvar",
+      "beskrivelse":"Virgil van Dijk ble tidenes dyreste forsvarsspiller da han ble Liverpool-spiller for 70 millioner pund, en som som kan stige med ytterligere 5 millioner pund."
+    },
+
+    "s005":{
+      "navn":"Georginio Wijnaldum",
+      "draktNr":5,
+      "kamper":177,
+      "img":{
+        "profil":"wijnaldum.jpg",
+        "info":"wijnaldum2.jpg"
+      },
+      "dato":"1990-11-11",
+      "sted":"Rotterdam i Nederland",
+      "pris":25,
+      "draktPris":800,
+      "høyde":175,
+      "mål":18,
+      "posisjon":"Midtbane",
+      "beskrivelse":"Den 25 år gamle nederlenderen Georginio Wijnaldum ble presentert som Liverpool-spiller 22. juli 2016. Han signerte da en femårsavtale med klubben."
+    },
+
+    "s006":{
+      "navn":"Dejan Lovren",
+      "draktNr":6,
+      "kamper":183,
+      "img":{
+        "profil":"lovren.jpg",
+        "info":"lovren2.jpg"
+      },
+      "dato":"1989-7-05",
+      "sted":"Zenica, Jugoslavia",
+      "pris":20,
+      "draktPris":550,
+      "høyde":188,
+      "mål":8,
+      "posisjon":"Forsvar",
+      "beskrivelse":"Dejan Lovren ble klubbens dyreste forsvarsspiller gjennom tidene da Southampton omsider valgte å akseptere Liverpools bud på £20 millioner."
+    },
+
+    "s007":{
+      "navn":"James Milner",
+      "draktNr":7,
+      "kamper":210,
+      "img":{
+        "profil":"milner.jpg",
+        "info":"milner2.jpg"
+      },
+      "dato":"1986-1-04",
+      "sted":"Wortley, Leeds",
+      "pris":0,
+      "draktPris":750,
+      "høyde":175,
+      "mål":26,
+      "posisjon":"Midtbane",
+      "beskrivelse":"James Philip Milner ble føldt 4.januar 1986, i Leeds. I oppveksten spilte han fotball for Westbrook Lane Primary School i Hosforth. Han ble også regnet som et stort talent innen cricket og terrengløp."
+    },
+
+    "s008":{
+      "navn":"Naby Keita",
+      "draktNr":8,
+      "kamper":51,
+      "img":{
+        "profil":"keita.jpg",
+        "info":"keita2.jpg"
+      },
+      "dato":"1995-02-10",
+      "sted":"Conakry, Guinea",
+      "pris":52.75,
+      "draktPris":600,
+      "høyde":172,
+      "mål":6,
+      "posisjon":"Midtbane",
+      "beskrivelse":"Naby Laye Keita er født og oppvokst i Koleya, et distrikt i Guineas hovedstad Conakry."
+    },
+
+    "s009":{
+      "navn":"Roberto Firmino",
+      "draktNr":9,
+      "kamper":235,
+      "img":{
+        "profil":"firmino.jpg",
+        "info":"firmino2.jpg"
+      },
+      "dato":"1991-10-02",
+      "sted":"Maceio, Alagoas, Brasil",
+      "pris":29,
+      "draktPris":900,
+      "høyde":181,
+      "mål":77,
+      "posisjon":"Angrep",
+      "beskrivelse":"Roberto Firmino Barbosa de Oliveira ble føldt den 2. oktober 1991 i Maceio, Brasil. Den offensive midtbanespilleren er 181 cm på strømpelasten, og har spilt for Hoffenheim i Tyskland siden 2011. Han kan også spille spiss."
+    },
+
+    "s010":{
+      "navn":"Sadio Mané",
+      "draktNr":10,
+      "kamper":161,
+      "img":{
+        "profil":"mane.jpg",
+        "info":"mane2.jpg"
+      },
+      "dato":"1992-4-10",
+      "sted":"Sedhiou i Senegal",
+      "pris":30,
+      "draktPris":1000,
+      "høyde":175,
+      "mål":77,
+      "posisjon":"Angrep",
+      "beskrivelse":"Mannen med tidenes raskeste hat-trick i Premier League har en fotballbakgrunn fra Senegal, Frankrike og Østerrike."
+    },
+
+    "s011":{
+      "navn":"Mohamed Salah",
+      "draktNr":11,
+      "kamper":144,
+      "img":{
+        "profil":"salah.jpg",
+        "info":"salah2.jpg"
+      },
+      "dato":"1992-6-15",
+      "sted":"Basyoun, Egypt",
+      "pris":44,
+      "draktPris":1100,
+      "høyde":175,
+      "mål":91,
+      "posisjon":"Angrep",
+      "beskrivelse":"Mohamad Salah ble hentet inn for potensielt 44 millioner pund sommeren 2017."
+    },
+
+    "s012":{
+      "navn":"Joe Gomez",
+      "draktNr":12,
+      "kamper":100,
+      "img":{
+        "profil":"gomez.jpg",
+        "info":"gomez2.jpg"
+      },
+      "dato":"1997-5-23",
+      "sted":"Catford, London",
+      "pris":5,
+      "draktPris":700,
+      "høyde":188,
+      "mål":0,
+      "posisjon":"Forsvar",
+      "beskrivelse":"Joseph Dave «Joe» Gomez debuterte for Charlton mot Colchester i Capital One Cup 12.august 2014, 17 år gammel."
+    },
+
+    "s013":{
+      "navn":"Adrián",
+      "draktNr":13,
+      "kamper":18,
+      "img":{
+        "profil":"adrian.jpg",
+        "info":"adrian2.jpg"
+      },
+      "dato":"1987-1-03",
+      "sted":"Sevilla, Spania",
+      "pris":0,
+      "draktPris":500,
+      "høyde":190,
+      "mål":0,
+      "posisjon":"Keeper",
+      "beskrivelse":"Liverpool signerte den rutinerte keeperen Adrian på en gratisovergang i august 2019."
+    },
+
+    "s014":{
+      "navn":"Jordan Henderson",
+      "draktNr":14,
+      "kamper":359,
+      "img":{
+        "profil":"henderson.jpg",
+        "info":"henderson2.jpg"
+      },
+      "dato":"1990-6-17",
+      "sted":"Sunderland",
+      "pris":19.25,
+      "draktPris":800,
+      "høyde":182,
+      "mål":28,
+      "posisjon":"Midtbane",
+      "beskrivelse":"Jordan Brian Henderson kom til Anfield i juni 2011 etter å ha gjort fem mål på 79 kamper for Sunderland. Han gikk gradene i Sunderland, etter at han sluttet seg til klubben som 7-åring."
+    },
+
+    "s015":{
+      "navn":"Alex Oxlade-Chamberlain",
+      "draktNr":15,
+      "kamper":78,
+      "img":{
+        "profil":"alex.jpg",
+        "info":"alex2.jpg"
+      },
+      "dato":"1993-8-15",
+      "sted":"Portsmouth",
+      "pris":40,
+      "draktPris":780,
+      "høyde":180,
+      "mål":12,
+      "posisjon":"Midtbane",
+      "beskrivelse":"Alex Oxlade-Chamberlain kom til Liverpool like før transfervinduet stengte sommeren 2017."
+    }
+
+  }
+
+}
