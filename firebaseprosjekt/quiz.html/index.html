@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+// Your web app's Firebase configuration
+var firebaseConfig = {
+apiKey: "AIzaSyDIKnmDy6d14mGWKGfgwQGS7XsQZeP9IuM",
+authDomain: "treningsdagbok-mattis-hembre.firebaseapp.com",
+databaseURL: "https://treningsdagbok-mattis-hembre.firebaseio.com",
+projectId: "treningsdagbok-mattis-hembre",
+storageBucket: "treningsdagbok-mattis-hembre.appspot.com",
+messagingSenderId: "872481160841",
+appId: "1:872481160841:web:9b8fcd08758f50d5849058"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+</script>
+  </head>
+  <body>
+    <script>
+    const db = firebase.database()
+    const linjer = db.ref("kviss")
+
+    </script>
+  </body>
+</html>
