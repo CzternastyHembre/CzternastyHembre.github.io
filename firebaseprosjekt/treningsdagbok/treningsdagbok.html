@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDIKnmDy6d14mGWKGfgwQGS7XsQZeP9IuM",
+    authDomain: "treningsdagbok-mattis-hembre.firebaseapp.com",
+    databaseURL: "https://treningsdagbok-mattis-hembre.firebaseio.com",
+    projectId: "treningsdagbok-mattis-hembre",
+    storageBucket: "treningsdagbok-mattis-hembre.appspot.com",
+    messagingSenderId: "872481160841",
+    appId: "1:872481160841:web:9b8fcd08758f50d5849058"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<style media="screen">
+td{
+  padding: 10px;
+}
+tbody:nth-child(2n-1){
+  background-color: #efefef;
+}
+table{
+  border-collapse:collapse;
+  border: solid 1px #777;
+}
+
+</style>
+  </head>
+  <body>
+    <div>
+      <label><input type="radio" name="gr2" id="i"value="idag">idag</label>
+      <label><input type="radio" name="gr2" id="ig"value="igår">igår</label>
+      <label><input type="radio" name="gr2" id="i2"value="2dager">2dager</label>
+      <label><input type="text" name="gr2" id="i3"value="annet">Dato</label>
+    </div>
+    <div>
+      <label><input type="radio" name="gr1" id="l"value="ttluft">TTLuft</label>
+      <label><input type="radio" name="gr1" id="d"value="ttfinduell">TTFinDuell</label>
+      <label><input type="radio" name="gr1" id="p"value="ttfinpres">TTFinPres</label>
+    </div>
+    <div>
+      <input type="number" placeholder="tid" id="tid">
+    </div>
+    <div>
+      <input type="number" placeholder="antall" id="antall">
+    </div>
+    <div>
+      <label><input type="checkbox" id="chkStatus">konk</label>
+    </div>
+    <div>
+      <input type="text" placeholder="sted" id="sted">
+    </div>
+    <div>
+      <input type="text" placeholder="komentar" id="komentar">
+    </div>
+
+
+
+
+    <button type="button" id="btn">legg til</button>
+    <button type="button" id="btn2">Slett alt</button>
+    <table>
+
+    </table>
+    <script>
+      const db = firebase.database()
+      const linjer = db.ref("linjer")
+
+      const table = document.querySelector("table")
+
+      var i = document.querySelector("#i")
+      var ig = document.querySelector("#ig")
+      var i2 = document.querySelector("#i2")
+
+      var l = document.querySelector("#l")
+      var d = document.querySelector("#d")
+      var p = document.querySelector("#p")
+
+
+      var tid = document.querySelector("#tid")
+      var antall = document.querySelector("#antall")
+      var chkStatus = document.querySelector("#chkStatus")
+      var sted = document.querySelector("#sted")
+      var komentar = document.querySelector("#komentar")
+      var btn = document.querySelector("#btn")
+      var btn2 = document.querySelector("#btn2")
+      function genererHTML(snapshot) {
+        let linje = snapshot.val();
+        console.log(linje);
+        table.innerHTML+=`
+        <tr vlaue="${snapshot}">
+        <td>${linje.dato}</td>
+        <td>${linje.ovelse}</td>
+        <td>${linje.tid}</td>
+        <td>${linje.antall}</td>
+        <td>${linje.status}</td>
+        <td>${linje.sted}</td>
+        <td>${linje.komentar}</td>
+        </tr>
+        `
+      }
+
+function leggTil() {
+  var status = "trening"
+  if (chkStatus.checked) {
+    status = "konk"
+  }
+  var ovelse = "TTluft"
+  if (d.checked) {
+    ovelse = "TTFinDuell"
+  }
+  if (p.checked) {
+    ovelse = "TTFinPres"
+  }
+
+
+  var data =  {
+    "dato":idag(),
+    "ovelse":ovelse,
+    "tid":tid.value,
+    "antall":antall.value,
+    "status":status,
+    "sted":sted.value,
+    "komentar":komentar.value
+  }
+  linjer.push(data)
+}
+  var head =
+  `<tr>
+  <th>Dato</th>
+  <th>Øvelse</th>
+  <th>Tid</th>
+  <th>Antall</th>
+  <th>Status</th>
+  <th>Sted</th>
+  <th>Komentar</th>
+  </tr>`
+
+function vis() {
+  table.innerHTML = head
+  linjer.on("child_added",genererHTML)
+}
+vis()
+
+btn.onclick = function() {
+  leggTil()
+  vis()
+}
+btn2.onclick = function() {
+  linjer.remove()
+  vis()
+}
+function idag() {
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+  if (ig.checked) {
+    dd = String(today.getDate()-1).padStart(2, '0')
+  }
+  if (i2.checked) {
+    dd = String(today.getDate()-2).padStart(2, '0')
+  }
+  today = dd + '/' + mm + '/' + yyyy;
+  return today;
+}
+</script>
+  </body>
+</html>

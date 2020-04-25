@@ -1,0 +1,34 @@
+{
+  "linjer":{
+
+    "l1":{
+      "dato":"2020-04-08",
+      "ovelse":"luft",
+      "tid":10,
+      "antall":20,
+      "status":"konk",
+      "sted":"Hjemme",
+      "komentar":""
+    },
+
+    "l2":{
+      "dato":"2020-04-08",
+      "ovelse":"luft",
+      "tid":10,
+      "antall":20,
+      "status":"konk",
+      "sted":"Hjemme",
+      "komentar":""
+    },
+    
+    "l3":{
+      "dato":"2020-04-08",
+      "ovelse":"luft",
+      "tid":10,
+      "antall":20,
+      "status":"konk",
+      "sted":"Hjemme",
+      "komentar":""
+    }
+  }
+}
