@@ -24,10 +24,114 @@ appId: "1:872481160841:web:9b8fcd08758f50d5849058"
 firebase.initializeApp(firebaseConfig);
 </script>
   </head>
+  <p id="spmP"></p>
+  <!-- <input type="text" id="input" value=""> -->
+  <div id="inpCont">
+    <!-- <label id="l1"></label><input type="radio" id="rb1" name="rb" value="">
+    <label id="l2"></label><input type="radio" id="rb2" name="rb" value="">
+    <label id="l3"></label><input type="radio" id="rb3" name="rb" value="">
+    <label id="l4"></label><input type="radio" id="rb4" name="rb" value="">
+    <label id="l5"></label><input type="radio" id="rb5" name="rb" value=""> -->
+  </div>
+  <button type="button" id="btn">Neste</button>
   <body>
     <script>
     const db = firebase.database()
-    const linjer = db.ref("kviss")
+    const kviss = db.ref("kviss")
+    const spmP = document.querySelector("#spmP")
+    const inpCont = document.querySelector("#inpCont")
+
+    // const l1 = document.querySelector("#l1")
+    // const rb1 = document.querySelector("#rb1")
+    // const l2 = document.querySelector("#l2")
+    // const rb2 = document.querySelector("#rb2")
+    // const l3 = document.querySelector("#l3")
+    // const rb3 = document.querySelector("#rb3")
+    // const l4 = document.querySelector("#l4")
+    // const rb4 = document.querySelector("#rb4")
+    // const l5 = document.querySelector("#l5")
+    // const rb5 = document.querySelector("#rb5")
+    // const l = [l1,l2,l3,l4,l5]
+    // const rb = [rb1,rb2,rb3,rb4,rb5]
+    let rb = []
+    let n = 0
+
+    const btn = document.querySelector("#btn")
+    let spørsmål = [
+      {"spm":"Hvor gammel er Mattis","alternativ":[17,18,19],"fasit":1,"type":"checkbox"},
+      {"spm":"Hva liker Mattis best","alternativ":["IS","COLA"],"fasit":1,"type":"checkbox"},
+      {"spm":"Hva liker Mattis best","alternativ":["PIZZA","BURGER","SUSHI","GODERI","BIFF"],"fasit":1,"type":"checkbox"}
+      // {"spm":"skriv inn spm2","alternativ":["alt1"],"svar":0,"type":"input"}
+    ]
+    console.log(spørsmål);
+    let svar = []
+    let poeng = 0
+
+    btn.onclick = function() {
+      skrivSpm()
+    }
+
+
+    function leggTilSvar(evt) {
+      let rbtn = evt.target
+      let indeks = rb.indexOf(rbtn)
+      svar[n-1] = indeks
+    }
+    function skrivSpm() {
+      if (n>= spørsmål.length) {
+        console.log(svar);
+        console.log("ferdig");
+        ferdig()
+        return ;
+      }
+
+      inpCont.innerHTML = ""
+      for (var i = 0; i < spørsmål[n].alternativ.length; i++) {
+            let nyRb = document.createElement("input");
+            nyRb.type = "radio";
+            nyRb.name = "rb";
+            nyRb.id = "rb"+i;
+
+            let nyL = document.createElement("span")
+            nyL.innerHTML = spørsmål[n].alternativ[i]
+
+            inpCont.appendChild(nyL)
+            inpCont.appendChild(nyRb)
+
+            rb[i] = document.querySelector("#rb"+[i]+"")
+            rb[i].onclick = leggTilSvar
+      }
+      spmP.innerHTML = spørsmål[n].spm
+      n++
+    }
+    skrivSpm()
+//
+//       //Lager spørsmål
+//       for (var n = 0; n < rb.length; n++) {
+//         rb[n].style.display = "none"
+//         l[n].style.display = "none"
+//       }
+//       for (var n = 0; n < spørsmål[i].alternativ.length; n++) {
+//         rb[n].style.display = l[n].style.display = ""
+//         l[n].innerHTML = spørsmål[i].alternativ[n]
+//         rb[n].checked = false;
+//       }
+//       i++
+//     }
+    function ferdig() {
+      let total = 0
+      for (var i = 0; i < spørsmål.length; i++) {
+        total++
+        if (spørsmål[i].fasit == svar[i]) {
+          console.log("riktig");
+          poeng++
+        } else {
+          console.log("feil");
+        }
+      }
+      console.log("du fikk "+poeng+" poeng av "+total);
+      alert("du fikk "+poeng+" poeng av "+total);
+    }
 
     </script>
   </body>
