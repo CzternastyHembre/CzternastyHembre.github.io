@@ -23,6 +23,59 @@ appId: "1:872481160841:web:9b8fcd08758f50d5849058"
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 </script>
+<style media="screen">
+*{
+  font-size: 110%;
+}
+body{
+  margin: 20px;
+}
+table tbody:nth-child(2n-1){
+  background-color: #efefef;
+}
+tbody:nth-child(2){
+  color: gold;
+}
+tbody:nth-child(3){
+  color: silver;
+}
+tbody:nth-child(4){
+  color: brown;
+}
+table td, table th{
+  padding: 10px;
+}
+table{
+  position: absolute;
+  right: 1%;
+  top: 1%;
+  border-collapse:collapse;
+  border: solid 2px #777;
+  text-align: center;
+}
+tr{margin:20px;}
+img:hover{
+  cursor:pointer;
+}
+img:active{
+  opacity: 0.6;
+}
+label{
+
+}
+#graf div{
+  background-color: green;
+}
+#graf{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  text-align: center;
+  position: absolute;
+  height: 50%;
+  width: 30%;
+}
+</style>
+
   </head>
   <p id="spmP"></p>
   <!-- <input type="text" id="input" value=""> -->
@@ -33,49 +86,114 @@ firebase.initializeApp(firebaseConfig);
     <label id="l4"></label><input type="radio" id="rb4" name="rb" value="">
     <label id="l5"></label><input type="radio" id="rb5" name="rb" value=""> -->
   </div>
-  <button type="button" id="btn">Neste</button>
+  <button style="display:none;"type="button" id="btn2">Forrige</button>
+  <button style="display:none;"type="button" id="btn">Neste</button>
+  <p id="din"></p>
+
+  <div id="navnCont">
+    <span>NAVN:</span>
+    <input id="inpNavn"type="text">
+    <button type="button"id="navnBtn">OK</button>
+  </div>
+
+  <label>TOPP 5:</label> <div id="graf">
+
+  </div>
+
+  <table id="table"></table>
   <body>
     <script>
     const db = firebase.database()
-    const kviss = db.ref("kviss")
+    const kviss = db.ref("kviss2")
     const spmP = document.querySelector("#spmP")
     const inpCont = document.querySelector("#inpCont")
-
-    // const l1 = document.querySelector("#l1")
-    // const rb1 = document.querySelector("#rb1")
-    // const l2 = document.querySelector("#l2")
-    // const rb2 = document.querySelector("#rb2")
-    // const l3 = document.querySelector("#l3")
-    // const rb3 = document.querySelector("#rb3")
-    // const l4 = document.querySelector("#l4")
-    // const rb4 = document.querySelector("#rb4")
-    // const l5 = document.querySelector("#l5")
-    // const rb5 = document.querySelector("#rb5")
-    // const l = [l1,l2,l3,l4,l5]
-    // const rb = [rb1,rb2,rb3,rb4,rb5]
-    let rb = []
-    let n = 0
+    const din = document.querySelector("#din")
+    const navnCont = document.querySelector("#navnCont")
+    const navnBtn = document.querySelector("#navnBtn")
+    const inpNavn = document.querySelector("#inpNavn")
+    const table = document.querySelector("#table")
+    const graf = document.querySelector("#graf")
 
     const btn = document.querySelector("#btn")
-    let spørsmål = [
-      {"spm":"Hvor gammel er Mattis","alternativ":[17,18,19],"fasit":1,"type":"checkbox"},
-      {"spm":"Hva liker Mattis best","alternativ":["IS","COLA"],"fasit":1,"type":"checkbox"},
-      {"spm":"Hva liker Mattis best","alternativ":["PIZZA","BURGER","SUSHI","GODERI","BIFF"],"fasit":1,"type":"checkbox"}
-      // {"spm":"skriv inn spm2","alternativ":["alt1"],"svar":0,"type":"input"}
-    ]
-    console.log(spørsmål);
+    const btn2 = document.querySelector("#btn2")
+
+    let spanArray = []
+    let elementArray = []
+    let n = 0
+    let total = 0
     let svar = []
     let poeng = 0
+    let navn = ""
+    let navnArray = []
 
-    btn.onclick = function() {
+    let spørsmål = [
+      {"spm":"Hvor gammel er Mattis?","alternativ":[17,18,19],"fasit":1,"type":"radio","element":"input"},
+      {"spm":"Hva liker Mattis best?","alternativ":["IS","COLA"],"fasit":1,"type":"radio","element":"input"},
+      {"spm":"Hva liker Mattis best?","alternativ":["PIZZA","BURGER","SUSHI","GODERI","BIFF"],"fasit":1,"type":"radio","element":"input"},
+      {"spm":"Hvem er jeg?","alternativ":["bilder/MogL_venstre.jpg","bilder/MogL_hoyre.jpg"],"fasit":1,"type":"bilde","element":"img"}//blyant i rompa, bdag, søsken
+      // {"spm":"skriv inn spm2","alternativ":["alt1"],"svar":0,"type":"input"}
+
+    ]
+    console.log(spørsmål);
+    console.log("gjør sånn at man ser fasit og sine svar");
+    console.log("lag graf ut av svarene");
+
+    navnBtn.onclick = function() {
+      navn = inpNavn.value
+      if (inpNavn.value == "") {
+        alert("Skriv inn et navn da")
+        return;
+      }
+      for (var valgtNavn of navnArray) {
+        if (valgtNavn == navn) {
+          alert("dette navnet er allerde valgt")
+          return
+        }
+      }
+      navnCont.style.display = "none";
+      btn.style.display = "";
+      btn2.style.display = "";
       skrivSpm()
+    }
+
+    btn.onclick = function() {//Neste
+      skrivSpm()
+      if (svar[n-1]>= 0) {
+        elementArray[svar[n-1]].checked = true;
+      }
+    }
+    btn2.onclick = function(){//Forrige
+      if (n<=1) {
+        return;
+      }
+      n-=2
+      skrivSpm()
+      if (svar[n-1]>= 0) {
+        elementArray[svar[n-1]].checked = true;
+      }
     }
 
 
     function leggTilSvar(evt) {
-      let rbtn = evt.target
-      let indeks = rb.indexOf(rbtn)
+      let aktivElement = evt.target
+      let indeks = elementArray.indexOf(aktivElement)
+      if (indeks < 0) {
+        console.log(indeks);
+        console.log("stopp");
+        console.log(svar);
+        return
+      }
       svar[n-1] = indeks
+      // let type = spørsmål[n-1].type
+      n--
+
+      console.log(elementArray.indexOf(aktivElement));
+      skrivSpm()
+      elementArray[svar[n-1]].checked = true;
+      console.log(svar);
+      // if (type == "bilde") {
+      //   inpCont.innerHTML += spørsmål[n-1].alternativ[indeks]
+      // }
     }
     function skrivSpm() {
       if (n>= spørsmål.length) {
@@ -84,55 +202,127 @@ firebase.initializeApp(firebaseConfig);
         ferdig()
         return ;
       }
-
+      elementArray = []
       inpCont.innerHTML = ""
-      for (var i = 0; i < spørsmål[n].alternativ.length; i++) {
-            let nyRb = document.createElement("input");
-            nyRb.type = "radio";
-            nyRb.name = "rb";
-            nyRb.id = "rb"+i;
-
-            let nyL = document.createElement("span")
-            nyL.innerHTML = spørsmål[n].alternativ[i]
-
-            inpCont.appendChild(nyL)
-            inpCont.appendChild(nyRb)
-
-            rb[i] = document.querySelector("#rb"+[i]+"")
-            rb[i].onclick = leggTilSvar
-      }
+      lagElement(spørsmål[n].element,spørsmål[n].type)
       spmP.innerHTML = spørsmål[n].spm
       n++
     }
-    skrivSpm()
-//
-//       //Lager spørsmål
-//       for (var n = 0; n < rb.length; n++) {
-//         rb[n].style.display = "none"
-//         l[n].style.display = "none"
-//       }
-//       for (var n = 0; n < spørsmål[i].alternativ.length; n++) {
-//         rb[n].style.display = l[n].style.display = ""
-//         l[n].innerHTML = spørsmål[i].alternativ[n]
-//         rb[n].checked = false;
-//       }
-//       i++
-//     }
     function ferdig() {
-      let total = 0
+      total = 0
       for (var i = 0; i < spørsmål.length; i++) {
         total++
-        if (spørsmål[i].fasit == svar[i]) {
-          console.log("riktig");
+        if (spørsmål[i].fasit == svar[i]) { //Riktig
           poeng++
-        } else {
-          console.log("feil");
+        } else {//Feil
         }
       }
-      console.log("du fikk "+poeng+" poeng av "+total);
-      alert("du fikk "+poeng+" poeng av "+total);
+
+      // alert("du fikk "+poeng+" poeng av "+total);
+      din.innerHTML = "du fikk "+poeng+" poeng av "+total
+      leggTilBase()
+      vis()
+      console.log("utført");
+
     }
 
+    function lagElement(element,type) {
+      for (var i = 0; i < spørsmål[n].alternativ.length; i++) {
+        let nyttElement = document.createElement(element);
+        nyttElement.type = type;
+        nyttElement.name = "gr1"
+        nyttElement.src = spørsmål[n].alternativ[i];
+        nyttElement.id = "element"+i;
+
+        if (element == "input") {
+
+          let nySpan = document.createElement("span");
+          nySpan.innerHTML = spørsmål[n].alternativ[i];
+          nySpan.id = "span"+i;
+
+          inpCont.appendChild(nySpan);
+        }
+        inpCont.appendChild(nyttElement);
+
+        spanArray[i] = document.querySelector("#span"+i);
+        elementArray[i] = document.querySelector("#element"+i);
+      }
+      inpCont.onclick = leggTilSvar;
+    }
+
+    function genererHTML(snapshot) {
+      let linje = snapshot.val();
+      // navnArray.push(linje.navn)
+      // console.log(linje);
+      table.innerHTML+=`
+      <tr id="topp" value="${snapshot}">
+      <td>${linje.navn}</td>
+      <td>${linje.score}/${linje.total}</td>
+      <td>${linje.prosent*100}%</td>
+      <td>${linje.dato}</td>
+      </tr>
+      `
+    }
+    function idag() {
+      var today = new Date();
+      var mm = String(today.getMinutes()).padStart(2, '0');
+      var hh = String(today.getHours()).padStart(2, '0');
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+      today = hh + ':' + mm+ ' '+ dd + '/' + mm + '/' + yyyy;
+      return today;
+    }
+    let head =
+    `<tr>
+    <th>Navn</th>
+    <th>Poeng</th>
+    <th>Prosent</th>
+    <th>Dato</th>
+    </tr>`
+    function leggTilBase() {
+      let prosent = Math.round(100*poeng/total)/100
+      let data = {
+        "score":poeng,
+        "minusScore":-poeng,
+        "total":total,
+        "minusTotal":-total,
+        "navn":navn,
+        "prosent":prosent,
+        "minusProsent":-prosent,
+        "svar":svar,
+        "dato":idag()
+      }
+      kviss.push(data)
+    }
+    function genererArray(snapshot) {
+      let linje = snapshot.val();
+    }
+    function toppFem(snapshot) {
+      let linje = snapshot.val();
+      navnArray.push({"navn":linje.navn,"prosent":linje.prosent,"score":linje.score})
+    }
+    function tegnTopp() {
+      for (var element of navnArray) {
+        graf.innerHTML += "<div style='height:"+element.prosent*100+"%'>"+element.navn+"<br>"+element.score+"p</div>"
+      }
+    }
+    function vis() {
+      graf.innerHTML = "åå"
+      table.innerHTML = head;
+      kviss.orderByChild("minusScore").on("child_added",genererHTML)
+      tegnTopp()
+      // let resten = Number(navnArray.length-3);
+      // kviss.orderByChild("minusScore").limitToLast(resten).on("child_added",genererHTMLrest)
+    }
+    function lagArray() {//For å kunne få laget array
+      kviss.orderByChild("minusScore").on("child_added",genererArray)
+      kviss.orderByChild("minusScore").limitToFirst(5).on("child_added",toppFem)
+      setTimeout(vis, 1000); //For å lage det i tide slik at det rekker å kjøre igjenom får de andre kjøres
+    }
+    lagArray()
+    // toppTre()
+    // vis()
     </script>
   </body>
 </html>

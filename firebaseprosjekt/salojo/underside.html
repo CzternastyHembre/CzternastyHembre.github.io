@@ -17,24 +17,50 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       </script>
-      <style media="screen">
-        div.container{
-          display: grid;
-          grid-template-columns: 1fr 2fr;
-        }
-        .bilder{
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-        }
-        img{height:500px;}
-      </style>
-  </head>
+      <link rel="stylesheet" href="generell.css">
+      <link rel="stylesheet" href="underside.css">
+</head>
   <body>
+    <header>
+      <h1><a href="hovedside.html">SALandO</a></h1>
+    </header>
+    <nav>
+
+        <a class="hovedDiv" href="hovedside.html">Tilbake</a>
+
+
+    </nav>
+
 
     <main>
-
     </main>
+
+    <footer>
+
+    </footer>
     <script>
+//Slideshow
+      var slideIndex = 1;
+
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
+      }
+
       const main = document.querySelector("main");
       const db = firebase.firestore();
       const sko = db.collection("sko")
@@ -66,7 +92,7 @@
               <p>Beskrivelse:</p>
               <p>${vare.beskrivelse}</p>
               <div id="kjøp">
-                <b>Pris for ${vare.navn} sin drakt :  ${vare.pris}kr</b>
+                <p>Pris for ${vare.navn} :  ${vare.pris}kr</b>
                 <form action="takk.html">
                   <select required name="">
                     <option class="storrelse" value="">Velg størrelse</option>
@@ -81,13 +107,28 @@
               </div>
             </div>
 
-            <div class="bilder">
-              <img src="bilder/${vare.bilde[1]}">
-              <img src="bilder/${vare.bilde[0]}">
-              <a href="hovedside.html"><button>Tilbake</button></a>
+            <div class="slideshow-container">
+
+            <div class="mySlides fade">
+            <div class="numbertext">1 / 2</div>
+            <img src="bilder/${vare.bilde[0]}" style="width:100%">
+            <div class="text">Bilde 1</div>
+            </div>
+
+            <div class="mySlides fade">
+            <div class="numbertext">2 / 2</div>
+            <img src="bilder/${vare.bilde[1]}" style="width:100%">
+            <div class="text">Bilde to</div>
+            </div>
+
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
             </div>
 
           </div>
+
               `;
       }
       if (id.charAt(0) === "S") { //If - setning som kjører riktig kode utifra hvilken underside man er på
@@ -97,6 +138,8 @@
       } else if (id.charAt(0) === "T") {
         visTopp(id); // Funksjonskall, gjør at funksjonen visDyr kjøres når siden lastes
       }
+      setTimeout(showSlides,1000) //Kaller funksjonen 1000ms etter siden lastes slik at slideshowet klarer å lastes ordentlig
+
 
     </script>
   </body>

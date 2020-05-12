@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>SALandO</title>
     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase.js"></script>
     <script>
       var firebaseConfig = {
@@ -17,7 +17,8 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
     </script>
-    <link rel="stylesheet" href="hovedsideStil.css">
+    <link rel="stylesheet" href="generell.css">
+    <link rel="stylesheet" href="hovedside.css">
   </head>
   <body>
     <header>
@@ -105,224 +106,182 @@
       const bukser = db.collection("bukser");
       const topper = db.collection("topper");
 
+      const varer = [sko,bukser,topper] // Et array med de forskjellige varekategoriene, brukes når jeg skal vise noe/alt fra hverkategori for å slippe unødig mye koding
+
 //Sko
-      const visSkoo = async () => {
-          const svar = await sko.get();
-          for(const sko of svar.docs){
-              lagHTML(sko.id, sko.data());
-          }
-      }
-      function visSko() {
+      const visSko = async () => {
         main.innerHTML = ``; // Sletter innholdet i main.
-        visSkoo()
+        const svar = await sko.get();
+        for(const sko of svar.docs){
+            lagHTML(sko.id, sko.data());
+        }
       }
       const visPensko = async () => {
-          main.innerHTML = ``; // Sletter innholdet i main.
-          const svar = await sko.where("type","==","pensko").get();
-          for(const sko of svar.docs){
-              lagHTML(sko.id, sko.data());
-          }
+        main.innerHTML = ``; // Sletter innholdet i main.
+        const svar = await sko.where("type","==","pensko").get();
+        for(const sko of svar.docs){
+            lagHTML(sko.id, sko.data());
+        }
       }
       const visJoggesko = async () => {
-          main.innerHTML = ``; // Sletter innholdet i main.
-          const svar = await sko.where("type","==","joggesko").get();
-          for(const sko of svar.docs){
-              lagHTML(sko.id, sko.data());
-          }
+        main.innerHTML = ``; // Sletter innholdet i main.
+        const svar = await sko.where("type","==","joggesko").get();
+        for(const sko of svar.docs){
+            lagHTML(sko.id, sko.data());
+        }
       }
       const visSynkendeSko = async () => {
-          main.innerHTML = ``; // Sletter innholdet i main.
-          const svar = await sko.orderBy("pris","desc").get();
-          for(const sko of svar.docs){
-              lagHTML(sko.id, sko.data());
-          }
+        main.innerHTML = ``; // Sletter innholdet i main.
+        const svar = await sko.orderBy("pris","desc").get();
+        for(const sko of svar.docs){
+            lagHTML(sko.id, sko.data());
+        }
       }
       const visStigendeSko = async () => {
-          main.innerHTML = ``; // Sletter innholdet i main.
-          const svar = await sko.orderBy("pris","asc").get();
-          for(const sko of svar.docs){
-              lagHTML(sko.id, sko.data());
-          }
+        main.innerHTML = ``; // Sletter innholdet i main.
+        const svar = await sko.orderBy("pris","asc").get();
+        for(const sko of svar.docs){
+            lagHTML(sko.id, sko.data());
+        }
       }
 
 //Bukser
-      const visBukserr = async () => {
-          const svar = await bukser.get();
-          for(const bukse of svar.docs){
-              lagHTML(bukse.id, bukse.data());
-          }
-      }
-      function visBukser() {
+      const visBukser = async () => {
         main.innerHTML = ``; // Sletter innholdet i main.
-        visBukserr()
+        const svar = await bukser.get();
+        for(const bukse of svar.docs){
+            lagHTML(bukse.id, bukse.data());
+        }
       }
 
       const visBukserS = async () => {
-          main.innerHTML = ``; // Sletter innholdet i main.
-          const svar = await bukser.where("type","==","slim").get();
-          for(const bukse of svar.docs){
-              lagHTML(bukse.id, bukse.data());
-          }
+        main.innerHTML = ``; // Sletter innholdet i main.
+        const svar = await bukser.where("type","==","slim").get();
+        for(const bukse of svar.docs){
+            lagHTML(bukse.id, bukse.data());
+        }
       }
       const visBukserR = async () => {
-          main.innerHTML = ``; // Sletter innholdet i main.
-          const svar = await bukser.where("type","==","regular").get();
-          for(const bukse of svar.docs){
-              lagHTML(bukse.id, bukse.data());
-          }
+        main.innerHTML = ``; // Sletter innholdet i main.
+        const svar = await bukser.where("type","==","regular").get();
+        for(const bukse of svar.docs){
+            lagHTML(bukse.id, bukse.data());
+        }
       }
       const visBukserL = async () => {
-          main.innerHTML = ``; // Sletter innholdet i main.
-          const svar = await bukser.where("type","==","løs").get();
-          for(const bukse of svar.docs){
-              lagHTML(bukse.id, bukse.data());
-          }
+        main.innerHTML = ``; // Sletter innholdet i main.
+        const svar = await bukser.where("type","==","løs").get();
+        for(const bukse of svar.docs){
+            lagHTML(bukse.id, bukse.data());
+        }
       }
       const visSynkendeBukser = async () => {
-          main.innerHTML = ``; // Sletter innholdet i main.
-          const svar = await bukser.orderBy("pris","desc").get();
-          for(const bukse of svar.docs){
-              lagHTML(bukse.id, bukse.data());
-          }
+        main.innerHTML = ``; // Sletter innholdet i main.
+        const svar = await bukser.orderBy("pris","desc").get();
+        for(const bukse of svar.docs){
+            lagHTML(bukse.id, bukse.data());
+        }
       }
       const visStigendeBukser = async () => {
-          main.innerHTML = ``; // Sletter innholdet i main.
-          const svar = await bukser.orderBy("pris","asc").get();
-          for(const bukse of svar.docs){
-              lagHTML(bukse.id, bukse.data());
-          }
+        main.innerHTML = ``; // Sletter innholdet i main.
+        const svar = await bukser.orderBy("pris","asc").get();
+        for(const bukse of svar.docs){
+            lagHTML(bukse.id, bukse.data());
+        }
       }
 
 //Topper
-      const visTopperr = async () => {
-          const svar = await topper.get();
-          for(const topp of svar.docs){
-              lagHTML(topp.id, topp.data());
-          }
-      }
-      function visTopper() {
+      const visTopper = async () => {
         main.innerHTML = ``; // Sletter innholdet i main.
-        visTopperr()
+        const svar = await topper.get();
+        for(const topp of svar.docs){
+          lagHTML(topp.id, topp.data());
+        }
       }
       const visTopperA = async () => {
         main.innerHTML = ``; // Sletter innholdet i main.
-          const svar = await topper.where("type","==","armer").get();
-          for(const topp of svar.docs){
-              lagHTML(topp.id, topp.data());
-          }
+        const svar = await topper.where("type","==","armer").get();
+        for(const topp of svar.docs){
+            lagHTML(topp.id, topp.data());
+        }
       }
       const visTopperS = async () => {
         main.innerHTML = ``; // Sletter innholdet i main.
-          const svar = await topper.where("type","==","singlet").get();
-          for(const topp of svar.docs){
-              lagHTML(topp.id, topp.data());
-          }
+        const svar = await topper.where("type","==","singlet").get();
+        for(const topp of svar.docs){
+            lagHTML(topp.id, topp.data());
+        }
       }
       const visStigendeTopper = async () => {
         main.innerHTML = ``; // Sletter innholdet i main.
-          const svar = await topper.orderBy("pris","asc").get();
-          for(const topp of svar.docs){
-              lagHTML(topp.id, topp.data());
-          }
+        const svar = await topper.orderBy("pris","asc").get();
+        for(const topp of svar.docs){
+            lagHTML(topp.id, topp.data());
+        }
       }
       const visSynkendeTopper = async () => {
         main.innerHTML = ``; // Sletter innholdet i main.
-          const svar = await topper.orderBy("pris","desc").get();
-          for(const topp of svar.docs){
-              lagHTML(topp.id, topp.data());
-          }
+        const svar = await topper.orderBy("pris","desc").get();
+        for(const topp of svar.docs){
+            lagHTML(topp.id, topp.data());
+        }
       }
-
-
 //Farger
     const visAltF = async () => {
       main.innerHTML = ``; // Sletter innholdet i main.
-      const svar = await topper.orderBy("farge").get();
-      for(const topp of svar.docs){
-          lagHTML(topp.id, topp.data());
+      for (var i = 0; i < varer.length; i++) {//For løkke som kjører alle varekategoriene igjennom forof-løkka
+        const svar = await varer[i].orderBy("farge").get();
+        for(const vare of svar.docs){
+          lagHTML(vare.id, vare.data());
         }
-      const svarr = await bukser.orderBy("farge").get();
-      for(const topp of svarr.docs){
-          lagHTML(topp.id, topp.data());
-      }
-      const svarrr = await sko.orderBy("farge").get();
-      for(const topp of svarrr.docs){
-          lagHTML(topp.id, topp.data());
       }
     }
-
-
     const visHvit = async () => {
       main.innerHTML = ``; // Sletter innholdet i main.
-      const svar = await topper.where("farge","array-contains","hvit").get();
-      for(const topp of svar.docs){
-          lagHTML(topp.id, topp.data());
-      }
-      const svarr = await bukser.where("farge","array-contains","hvit").get();
-      for(const topp of svarr.docs){
-          lagHTML(topp.id, topp.data());
-      }
-      const svarrr = await sko.where("farge","array-contains","hvit").get();
-      for(const topp of svarrr.docs){
-          lagHTML(topp.id, topp.data());
+      for (var i = 0; i < varer.length; i++) {//For løkke som kjører alle varekategoriene igjennom forof-løkka
+        const svar = await varer[i].where("farge","array-contains","hvit").get();
+        for(const vare of svar.docs){
+          lagHTML(vare.id, vare.data());
+        }
       }
     }
     const visSvart = async () => {
       main.innerHTML = ``; // Sletter innholdet i main.
-      const svar = await topper.where("farge","array-contains","svart").get();
-      for(const topp of svar.docs){
-          lagHTML(topp.id, topp.data());
-      }
-      const svarr = await bukser.where("farge","array-contains","svart").get();
-      for(const topp of svarr.docs){
-          lagHTML(topp.id, topp.data());
-      }
-      const svarrr = await sko.where("farge","array-contains","svart").get();
-      for(const topp of svarrr.docs){
-          lagHTML(topp.id, topp.data());
+      for (var i = 0; i < varer.length; i++) {//For løkke som kjører alle varekategoriene igjennom forof-løkka
+        const svar = await varer[i].where("farge","array-contains","svart").get();
+        for(const vare of svar.docs){
+          lagHTML(vare.id, vare.data());
+        }
       }
     }
     const visRod = async () => {
       main.innerHTML = ``; // Sletter innholdet i main.
-      const svar = await topper.where("farge","array-contains","rød").get();
-      for(const topp of svar.docs){
-          lagHTML(topp.id, topp.data());
-      }
-      const svarr = await bukser.where("farge","array-contains","rød").get();
-      for(const topp of svarr.docs){
-          lagHTML(topp.id, topp.data());
-      }
-      const svarrr = await sko.where("farge","array-contains","rød").get();
-      for(const topp of svarrr.docs){
-          lagHTML(topp.id, topp.data());
+      for (var i = 0; i < varer.length; i++) {//For løkke som kjører alle varekategoriene igjennom forof-løkka
+        const svar = await varer[i].where("farge","array-contains","rød").get();
+        for(const vare of svar.docs){
+          lagHTML(vare.id, vare.data());
+        }
       }
     }
     const visBeige = async () => {
       main.innerHTML = ``; // Sletter innholdet i main.
-      const svar = await topper.where("farge","array-contains","beige").get();
-      for(const topp of svar.docs){
-          lagHTML(topp.id, topp.data());
-      }
-      const svarr = await bukser.where("farge","array-contains","beige").get();
-      for(const topp of svarr.docs){
-          lagHTML(topp.id, topp.data());
-      }
-      const svarrr = await sko.where("farge","array-contains","beige").get();
-      for(const topp of svarrr.docs){
-          lagHTML(topp.id, topp.data());
+      for (var i = 0; i < varer.length; i++) {//For løkke som kjører alle varekategoriene igjennom forof-løkka
+        const svar = await varer[i].where("farge","array-contains","beige").get();
+        for(const vare of svar.docs){
+          lagHTML(vare.id, vare.data());
+        }
       }
     }
-
-
-
-      function visAlt() { //Funkjson som henter alt
-        main.innerHTML=``;//Sletter innholdet i main
-        visBukser()
-        visSko()
-      visTopper()
+    const visAlleSammen = async () => {
+      main.innerHTML = ``; // Sletter innholdet i main.
+      for (var i = 0; i < varer.length; i++) {//For løkke som kjører alle varekategoriene igjennom forof-løkka
+        const svar = await varer[i].get();
+        for(const vare of svar.docs){
+          lagHTML(vare.id, vare.data());
+        }
       }
-visAlt()// Funksjonskall, gjør at funksjonen visAlt() kjøres når siden lastes
-
+    }
+visAlleSammen()// Funksjonskall,//Funkjson som henter alle elementer og viser alt
       const lagHTML = (id, vare) => { //FUnksjon som lager ett element i main, funker som en mal for alle
           main.innerHTML += `
             <a id="enhet"href="underside.html?id=${id}">
@@ -330,7 +289,10 @@ visAlt()// Funksjonskall, gjør at funksjonen visAlt() kjøres når siden lastes
                 <img src="bilder/${vare.bilde[0]}">
                 <h3>${vare.navn}</h3>
                 <span>${vare.pris},-</span>
-                <button type="button"><a href="kjøp.html">Hurtigkjøp</a></button>
+                <form action="kjøp.html">
+                  <button type="submit">Hurtigkjøp</button>
+                </form>
+
               </div>
             </a>
           `;
