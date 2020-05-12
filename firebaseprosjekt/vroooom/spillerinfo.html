@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="stil.css">
     <style media="screen">
       img.info{
         margin:auto;
@@ -34,6 +35,7 @@
         display: grid;
         grid-template-columns: 3fr 1fr;
         grid-column-gap: 2%;
+        width: 100%;
       }
       td{
         text-align: center;
@@ -63,8 +65,8 @@
       p{
         font-style: italic;
       }
-      #btn{
-        margin:20%;
+      #button{
+        margin-top: 5%;
       }
       .str{
         font-style: italic;
@@ -72,6 +74,10 @@
     </style>
   </head>
   <body>
+    <header>
+      <h1>LIVERPOOL DRAKTSALG</h1>
+    </header>
+
     <main>
 
     </main>
@@ -145,7 +151,7 @@
 
           <div id="kjøp">
             <b>Pris for ${spiller.navn} sin signerte drakt :  ${spiller.draktPris}kr</b>
-            <form action="takk.html">
+            <form action="test.html">
               <select required name="">
                 <option class="str" value="">Størrelse</option>
                 <option value="XS">XS</option>
@@ -158,9 +164,9 @@
             </form>
           </div>
         </div>
+        <a id="button" href="spillerstall.html"><button>Tilbake</button></a>
       </article>
 
-      <a id="btn" href="spillerstall.html"><button>Tilbake</button></a>
 `
 }
 

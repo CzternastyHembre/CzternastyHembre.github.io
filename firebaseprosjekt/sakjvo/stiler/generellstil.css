@@ -1,0 +1,55 @@
+/* farger:	#d0c4e7	#c2dae1	#ffd0d0	#ffe1a7	#fff7ad */
+body{
+  color: 	#bb4040;
+  margin: 0;
+  width: 100%;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+  header img{
+    width: 100%;
+  }
+  /* navigasjonsbar   */
+  nav{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    margin: 0px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    /* grid-gap: 10px; */
+    background-color: #fff7ad;
+
+    text-align: center;
+  }
+  nav div.hent{
+    background-color: #fff7ad;
+    padding: 20px;
+    /* border: 2px solid black; */
+  }
+  nav div.hent:hover{
+    /* opacity: 0.7; */
+    background-color:#ffe1a7;
+    cursor: pointer;
+  }
+  .skjult{
+    position: absolute;
+    display: none;
+  }
+  .konteiner:hover .skjult{
+    display: block;
+  }
+  /* footer */
+  footer{
+    border-top: 1px solid black;
+    text-align: center;
+    font-weight: bold;
+    background-color: #c2dae1;
+  }
+  footer ul{
+    list-style-type: none;
+  }

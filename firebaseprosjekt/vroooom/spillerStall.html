@@ -25,109 +25,7 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     </script>
-
-    <style media="screen">
-    body{
-      margin:0;
-    }
-      main{
-        width: 80%;
-        margin: auto;
-        display: grid;
-        grid-gap: 6%;
-        grid-template-columns: repeat(4,1fr);
-        margin-top:3%;
-      }
-      main>a{
-        border: 1px solid black;
-        padding: 0;
-        margin: 0;
-        position: relative;
-      }
-      a img{
-        margin:auto;
-        width: 100%;
-      }
-      a .draktNr{
-        color:#98000d;
-        font-weight: bold;
-
-        position:absolute;
-        top: 20%;
-        left: 10%;
-        font-size: 400%;
-      }
-      a .navn{
-        font-size: 200%
-      }
-      a{
-        text-decoration: none;
-        color:#343434;
-      }
-
-      header h1{
-        width: 100%;
-        font-size: 2rem;
-        text-align: center;
-        background-color: red;
-        color: white;
-        margin: 0;
-        padding: 20px;
-      }
-
-
-      nav{
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-        grid-gap: 10px;
-        z-index: 9999;
-        position: sticky;
-        top: 0px;
-        text-align: center;
-        width: 100%;
-        margin: auto;
-        background-color: #98000d;
-      }
-
-  div.knapp{
-    padding: 15px;
-    background-color: #A0A0A0;
-
-    /* box-shadow: 0px 2px 3px 0px; */
-  }
-  section.innhold{
-    display: none;
-    position: absolute;
-    width: 20%;
-    box-shadow: 4px 4px 8px 0px;
-  }
-
-  section.konteiner:hover section.innhold{
-    display: block;
-    display: flex;
-    justify-content: space-around;
-    margin: auto;
-  }
-  section.innhold .litenknapp{
-    width: 100%;
-    background-color: #A0A0A0;
-    padding: 5px;
-    z-index: 1;
-  }
-  section.innhold a.litenknapp{
-    font-style: italic;
-  }
-
-
-section.innhold .litenknapp:hover, .konteiner:hover .knapp{
-  background-color: #808080;
-  cursor: pointer;
-}
-section.innhold .litenknapp:active, div.knapp:active{
-  opacity: 0.7;
-}
-
-    </style>
+    <link rel="stylesheet" href="stil.css">
   </head>
   <body>
     <header>
@@ -165,7 +63,7 @@ section.innhold .litenknapp:active, div.knapp:active{
 
         </nav>
 
-    <main>
+    <main class="stall">
     </main>
   </body>
 

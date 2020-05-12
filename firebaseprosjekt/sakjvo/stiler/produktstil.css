@@ -1,0 +1,17 @@
+article img{
+  width: 70%;
+  /* height: 50vh; */
+}
+article{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+}
+article h1{
+  font-size: 400%;
+}
+article p{
+  font-size: 200%;
+}

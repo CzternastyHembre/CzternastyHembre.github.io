@@ -2,7 +2,9 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Re;store</title>
+    <link rel="stylesheet" href="stiler/generellstil.css">
+    <link rel="stylesheet" href="stiler/startsideStil.css">
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase.js"></script>
 
@@ -23,121 +25,336 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
     </script>
-    <style media="screen">
-    body{
-      margin: 0;
-      width: 100%;
-    }
-    a{
-      text-decoration: none;
-      color: inherit;
-    }
-      header img{
-        width: 100%;
-      }
-      /* navigasjonsbar */
-      nav{
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0;
-        z-index: 99;
-        margin: 0px;
-
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        /* grid-gap: 10px; */
-
-        text-align: center;
-      }
-      nav div.vis{
-        background-color: red;
-        padding: 5px;
-      }
-      nav div.vis:hover{
-        opacity: 0.7;
-        cursor: pointer;
-      }
-
-
-      /* Main-innhold */
-      main{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-column-gap: 5%;
-        margin-left: 5%;
-        margin-right: 5%;
-        padding: 2%;
-        border-left: 3px solid black;
-        border-right: 3px solid black;
-      }
-      article img{
-        width: 100%;
-      }
-    </style>
   </head>
   <body>
     <header>
-      <img src="logo/logo.png" alt="">
+      <a href="startside.html">
+        <img src="logo/logo.png" alt="">
+      </a>
     </header>
 
     <nav>
-      <div onclick="visAlt()"class="vis">ALLE</div>
-      <div onclick="visBukser()"class="vis">BUKSER</div>
-      <div onclick="visKjoler()"class="vis">KJOLER</div>
-      <div onclick="visSko()"class="vis">SKO</div>
-      <div onclick="visTopper()"class="vis">TOPPER</div>
+      <div onclick="hentAlleVarer()"class="hent">ALLE</div>
+
+      <div class="konteiner">
+        <div onclick="hentBukser()"class="hent">BUKSER</div>
+        <section class="skjult">
+          <div onclick="hentLyseBukser()"class="hent">LYS</div>
+          <div onclick="hentMorkeBukser()"class="hent">MØRK</div>
+        </section>
+      </div>
+
+
+      <div class="konteiner">
+        <div onclick="hentKjoler()"class="hent">KJOLER</div>
+        <section class="skjult">
+          <div onclick="hentLyseKjoler()"class="hent">LYS</div>
+          <div onclick="hentMorkeKjoler()"class="hent">MØRK</div>
+        </section>
+      </div>
+
+      <div class="konteiner">
+        <div onclick="hentSko()"class="hent">SKO</div>
+        <section class="skjult">
+          <div onclick="hentLyseSko()"class="hent">LYS</div>
+          <div onclick="hentMorkeSko()"class="hent">MØRK</div>
+        </section>
+      </div>
+
+      <div class="konteiner">
+        <div onclick="hentTopper()"class="hent">TOPPER</div>
+        <section class="skjult">
+          <div onclick="hentLyseTopper()"class="hent">LYS</div>
+          <div onclick="hentMorkeTopper()"class="hent">MØRK</div>
+        </section>
+      </div>
+
+
     </nav>
 
-    <main>
+    <main id="secVarer">
+      <div class="startSide">
+        <div class="slideshow-container">
+
+          <div class="mySlides fade">
+            <img src="slideshow/slideshow1.png" style="width:100%">
+            <div class="text">Caption Text</div>
+          </div>
+
+          <div class="mySlides fade">
+            <img src="slideshow/slideshow2.png" style="width:100%">
+            <div class="text">Caption Two</div>
+          </div>
+
+          <div class="mySlides fade">
+            <img src="slideshow/slideshow3.png" style="width:100%">
+            <div class="text">Caption Three</div>
+          </div>
+        </div>
+        <p>Hei og velkommen til butikken vår!</p>
+        <p>Re;Store er opptatt av mote og bærekraft.</p>
+        <p>Derfor er alle våre klær og sko stylish, men også miljøvennlige.</p>
+        <p>God shopping! Hilsen oss i Re;Store.</p>
+      </div>
+
     </main>
 
-    <script>
-    const main = document.querySelector("main");
-    const db = firebase.database();
-    const bukser = db.ref("varer/bukser");
-    const kjoler = db.ref("varer/kjoler");
-    const sko = db.ref("varer/sko");
-    const topper = db.ref("varer/topper");
+    <footer>
+      <ul>
+        <li>Kontakt oss:</li>
+        <li>Sara K.V</li>
+        <li>Majorstueveien</li>
+        <li>Re;store@gmail.com</li>
+      </ul>
+    </footer>
 
-    function genererHTML(snapshot) {
-      var vare = snapshot.val();
-      var key = snapshot.key;
-      main.innerHTML +=`
-        <a href="produktinfo.html?id=${key}">
-          <article class="">
+    <script>
+    //SLideshow
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex-1].style.display = "block";
+      setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+
+    const secVarer = document.querySelector("#secVarer")
+    const db = firebase.firestore()
+    const bukser = db.collection("bukser")
+    const kjoler = db.collection("kjoler")
+    const sko = db.collection("sko")
+    const topper = db.collection("topper")
+
+    const hentVarer = async () => {
+      const svar1 = await bukser.get();
+      for (const plagg of svar1.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+      const svar2 = await kjoler.get();
+      for (const plagg of svar2.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+      const svar3 = await sko.get();
+      for (const plagg of svar3.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+      const svar4 = await topper.get();
+      for (const plagg of svar4.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+    }
+    hentVarer(); //Funksjonskall som kjør at funsjonen kjøres når siden laster
+    const hentAlleVarer = async () => {
+      secVarer.innerHTML = ``; //Sletter inholdet i secVarer
+      const svar1 = await bukser.get();
+      for (const plagg of svar1.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+      const svar2 = await kjoler.get();
+      for (const plagg of svar2.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+      const svar3 = await sko.get();
+      for (const plagg of svar3.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+      const svar4 = await topper.get();
+      for (const plagg of svar4.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+    }
+
+    const hentBukser = async () => {
+      secVarer.innerHTML = ``; //Sletter inholdet i secVarer
+      const svar = await bukser.get();
+      for (const plagg of svar.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+    }
+    const hentLyseBukser = async () => {
+      secVarer.innerHTML = ``; //Sletter inholdet i secVarer
+      const svar = await bukser.where("modell","==","lys").get();
+      for (const plagg of svar.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+    }
+    const hentMorkeBukser = async () => {
+      secVarer.innerHTML = ``; //Sletter inholdet i secVarer
+      const svar = await bukser.where("modell","==","mørk").get();
+      for (const plagg of svar.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+    }
+    const hentKjoler = async () => {
+      secVarer.innerHTML = ``; //Sletter inholdet i secVarer
+      const svar = await kjoler.get();
+      for (const plagg of svar.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+    }
+    const hentLyseKjoler = async () => {
+      secVarer.innerHTML = ``; //Sletter inholdet i secVarer
+      const svar = await kjoler.where("modell","==","lys").get();
+      for (const plagg of svar.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+    }
+    const hentMorkeKjoler = async () => {
+      secVarer.innerHTML = ``; //Sletter inholdet i secVarer
+      const svar = await kjoler.where("modell","==","mørk").get();
+      for (const plagg of svar.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+    }
+    const hentSko = async () => {
+      secVarer.innerHTML = ``; //Sletter inholdet i secVarer
+      const svar = await sko.get();
+      for (const plagg of svar.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+    }
+    const hentLyseSko = async () => {
+      secVarer.innerHTML = ``; //Sletter inholdet i secVarer
+      const svar = await sko.where("modell","==","lys").get();
+      for (const plagg of svar.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+    }
+    const hentMorkeSko = async () => {
+      secVarer.innerHTML = ``; //Sletter inholdet i secVarer
+      const svar = await sko.where("modell","==","mørk").get();
+      for (const plagg of svar.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+    }
+    const hentTopper = async () => {
+      secVarer.innerHTML = ``; //Sletter inholdet i secVarer
+      const svar = await topper.get();
+      for (const plagg of svar.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+    }
+    const hentLyseTopper = async () => {
+      secVarer.innerHTML = ``; //Sletter inholdet i secVarer
+      const svar = await topper.where("modell","==","lys").get();
+      for (const plagg of svar.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+    }
+    const hentMorkeTopper = async () => {
+      secVarer.innerHTML = ``; //Sletter inholdet i secVarer
+      const svar = await topper.where("modell","==","mørk").get();
+      for (const plagg of svar.docs) {
+        lagHTML(plagg.id, plagg.data())
+      }
+    }
+
+    const lagHTML = (id, vare) => {
+    secVarer.innerHTML += `
+      <a href="produktinfo.html?id=${id}">
+        <article class="">
           <img src="bilder/${vare.bilde}" alt="">
-          <span>Pris :${vare.pris}kr,-</span>
-          <span>${vare.modell}</span>
-          <h2>${vare.merke}</h2>
-          </article>
+            <p>${vare.merke}</p>
+            <i>${vare.modell}</i>
+            <p>${vare.pris}kr,-</p>
+        </article>
         </a>
-      `
+      `;
     }
-    // <img src="busker/${bilde}" alt="">
-    function visBukser() {
-      main.innerHTML = ``;
-      bukser.on("child_added",genererHTML)
-    }
-    function visKjoler() {
-      main.innerHTML = ``;
-      kjoler.on("child_added",genererHTML)
-    }
-    function visSko() {
-      main.innerHTML = ``;
-      sko.on("child_added",genererHTML)
-    }
-    function visTopper() {
-      main.innerHTML = ``;
-      topper.on("child_added",genererHTML)
-    }
-    function visAlt() {
-      main.innerHTML = ``;
-      bukser.on("child_added",genererHTML)
-      kjoler.on("child_added",genererHTML)
-      sko.on("child_added",genererHTML)
-      topper.on("child_added",genererHTML)
-    }
-    visAlt()
     </script>
   </body>
 </html>
+<!-- Gamle scriptet
+//KOstanter
+const main = document.querySelector("main");
+const db = firebase.database();
+const bukser = db.ref("varer/bukser");
+const kjoler = db.ref("varer/kjoler");
+const sko = db.ref("varer/sko");
+const topper = db.ref("varer/topper");
+
+function genererHTML(snapshot) {//Funkjson-mal som lager artiklene
+  var vare = snapshot.val();
+  var key = snapshot.key;
+  main.innerHTML +=`
+  <a href="produktinfo.html?id=${key}">
+    <article class="">
+      <img src="bilder/${vare.bilde}" alt="">
+      <p>${vare.merke}</p>
+      <i>${vare.modell}</i>
+      <p>${vare.pris}kr,-</p>
+    </article>
+  </a>
+  `
+}
+//Funksjon som viser varene
+function visBukser() {
+  main.innerHTML = ``;
+  bukser.on("child_added",genererHTML)
+}
+function visLyseBukser() {
+  main.innerHTML = ``
+  bukser.orderByChild("modell").equalTo("Lys").on("child_added",genererHTML)
+}
+function visMorkeBukser() {
+  main.innerHTML = ``
+  bukser.orderByChild("modell").equalTo("Mørk").on("child_added",genererHTML)
+}
+
+function visKjoler() {
+  main.innerHTML = ``;
+  kjoler.on("child_added",genererHTML)
+}
+function visLyseKjoler() {
+  main.innerHTML = ``
+  bukser.orderByChild("modell").equalTo("Lys").on("child_added",genererHTML)
+}
+function visMorkeKjoler() {
+  main.innerHTML = ``
+  kjoler.orderByChild("modell").equalTo("Mørk").on("child_added",genererHTML)
+}
+
+function visSko() {
+  main.innerHTML = ``;
+  sko.on("child_added",genererHTML)
+}
+function visLyseSko() {
+  main.innerHTML = ``
+  bukser.orderByChild("modell").equalTo("Lys").on("child_added",genererHTML)
+}
+function visMorkeSko() {
+  main.innerHTML = ``
+  sko.orderByChild("modell").equalTo("Mørk").on("child_added",genererHTML)
+}
+
+function visTopper() {
+  main.innerHTML = ``;
+  topper.on("child_added",genererHTML)
+}
+function visLyseTopper() {
+  main.innerHTML = ``
+  bukser.orderByChild("modell").equalTo("Lys").on("child_added",genererHTML)
+}
+function visMorkeTopper() {
+  main.innerHTML = ``
+  topper.orderByChild("modell").equalTo("Mørk").on("child_added",genererHTML)
+}
+
+function visAlt() {//Lager en funksjon som ikke sletter innholdet i main slik at slidshowet vises, men slettes om man vil se noe annet
+  bukser.on("child_added",genererHTML)
+  kjoler.on("child_added",genererHTML)
+  sko.on("child_added",genererHTML)
+  topper.on("child_added",genererHTML)
+}
+function visAlle() {
+  main.innerHTML = ``;
+  visAlt();
+}
+visAlt()//Kjører funksjonen med en gang slik at den vises når siden lastes -->

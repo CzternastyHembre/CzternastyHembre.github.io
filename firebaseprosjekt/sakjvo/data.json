@@ -5,37 +5,49 @@
         "merke" : "Levis 501",
         "modell" : "Lys",
         "pris" : 490,
-        "bilde" : "bukse001.png"
+        "bilde" : "bukse001.png",
+        "beskrivelse":"Regular-bukse, laget i 2019, jeans",
+        "farge":"blå"
       },
       "bukse002" : {
         "merke" : "Bukse med sleng",
         "modell" : "Lys",
         "pris" : 580,
-        "bilde" : "bukse002.png"
+        "bilde" : "bukse002.png",
+        "beskrivelse":"Loose-bukse, laget i 2019, jeans",
+        "farge":"blå"
       },
       "bukse003" : {
         "merke" : "Dark crop",
         "modell" : "Mørk",
         "pris" : 280,
-        "bilde" : "bukse003.png"
+        "bilde" : "bukse003.png",
+        "beskrivelse":"Regular bukse, laget i 2019, jeans",
+        "farge":"svart"
       },
       "bukse004" : {
         "merke" : "Høy&Mørk",
         "modell" : "Mørk",
         "pris" : 580,
-        "bilde" : "bukse004.png"
+        "bilde" : "bukse004.png",
+        "beskrivelse":"Slim-bukse, laget i 2019, jeans",
+        "farge":"svart"
       },
       "bukse005" : {
         "merke" : "STAR",
         "modell" : "Lys",
         "pris" : 650,
-        "bilde" : "bukse005.png"
+        "bilde" : "bukse005.png",
+        "beskrivelse":"Regular-bukse, laget i 2019, jeans",
+        "farge":"blå"
       },
       "bukse006" : {
         "merke" : "Svart sleng",
         "modell" : "Mørk",
         "pris" : 399,
-        "bilde" : "bukse006.png"
+        "bilde" : "bukse006.png",
+        "beskrivelse":"Loose-bukse, laget i 2019, jeans",
+        "farge":"svart"
       }
     },
     "topper" : {
@@ -43,43 +55,57 @@
         "merke" : "Svart singlet",
         "modell" : "Mørk",
         "pris" : 480,
-        "bilde" : "topp001.png"
+        "bilde" : "topp001.png",
+        "beskrivelse":"En av våre fineste topper, laget i 2019, nylon",
+        "farge":"svart"
       },
       "topp002" : {
         "merke" : "Blomster mesh",
         "modell" : "Mørk",
         "pris" : 380,
-        "bilde" : "topp002.png"
+        "bilde" : "topp002.png",
+        "beskrivelse":"En av våre fineste topper, laget i 2020, nylon",
+        "farge":"svart"
       },
       "topp003" : {
         "merke" : "Singlet med blonder",
         "modell" : "Mørk",
         "pris" : 580,
-        "bilde" : "topp003.png"
+        "bilde" : "topp003.png",
+        "beskrivelse":"En av våre fineste topper, laget i 2020, nylon",
+        "farge":"svart"
       },
       "topp004" : {
         "merke" : "Organsa topp",
         "modell" : "Mørk",
         "pris" : 400,
-        "bilde" : "topp004.png"
+        "bilde" : "topp004.png",
+        "beskrivelse":"En av våre fineste topper, laget i 2017, nylon",
+        "farge":"svart"
       },
       "topp005" : {
         "merke" : "Rosa drømm",
         "modell" : "Lys",
         "pris" : 300,
-        "bilde" : "topp005.png"
+        "bilde" : "topp005.png",
+        "beskrivelse":"En av våre fineste topper, laget i 2017, nylon",
+        "farge":"rosa"
       },
       "topp006" : {
         "merke" : "Hvit med blomster",
         "modell" : "Lys",
         "pris" : 200,
-        "bilde" : "topp006.png"
+        "bilde" : "topp006.png",
+        "beskrivelse":"En av våre fineste topper, laget i 2018, nylon",
+        "farge":"hvit"
       },
       "topp007" : {
         "merke" : "Baby blue",
         "modell" : "Lys",
         "pris" : 180,
-        "bilde" : "topp007.png"
+        "bilde" : "topp007.png",
+        "beskrivelse":"En av våre fineste topper, laget i 2018, nylon",
+        "farge":"blå"
       }
     },
     "kjoler" : {
@@ -87,43 +113,57 @@
         "merke" : "Hvit puff",
         "modell" : "Lys",
         "pris" : 450,
-        "bilde" : "kjole001.png"
+        "bilde" : "kjole001.png",
+        "beskrivelse":"En av våre fineste kjoler, laget i 2015, silke",
+        "farge":"hvit"
       },
       "kjole002" : {
         "merke" : "DARK",
         "modell" : "Mørk",
         "pris" : 600,
-        "bilde" : "kjole002.png"
+        "bilde" : "kjole002.png",
+        "beskrivelse":"En av våre fineste kjoler, laget i 2015, silke",
+        "farge":"svart"
       },
       "kjole003" : {
         "merke" : "Lin kjole",
         "modell" : "Lys",
         "pris" : 320,
-        "bilde" : "kjole003.png"
+        "bilde" : "kjole003.png",
+        "beskrivelse":"En av våre fineste kjoler, laget i 2015, silke",
+        "farge":"hvit"
       },
       "kjole004" : {
         "merke" : "Guns&roses",
         "modell" : "Mørk",
         "pris" : 567,
-        "bilde" : "kjole004.png"
+        "bilde" : "kjole004.png",
+        "beskrivelse":"En av våre fineste kjoler, laget i 2015, silke",
+        "farge":"svart"
       },
       "kjole005" : {
         "merke" : "Markblomster",
         "modell" : "Mørk",
         "pris" : 300,
-        "bilde" : "kjole005.png"
+        "bilde" : "kjole005.png",
+        "beskrivelse":"En av våre fineste kjoler, laget i 2015, silke",
+        "farge":"svart"
       },
       "kjole006" : {
         "merke" : "Grønn av sjalusi",
         "modell" : "Lys",
         "pris" : 299,
-        "bilde" : "kjole006.png"
+        "bilde" : "kjole006.png",
+        "beskrivelse":"En av våre fineste kjoler, laget i 2015, silke",
+        "farge":"grøn"
       },
       "kjole007" : {
         "merke" : "Himmelblå",
         "modell" : "Lys",
         "pris" : 300,
-        "bilde" : "kjole007.png"
+        "bilde" : "kjole007.png",
+        "beskrivelse":"En av våre fineste kjoler, laget i 2015, silke",
+        "farge":"blå"
       }
     },
     "sko" : {
@@ -131,37 +171,49 @@
         "merke" : "Usynlige sko",
         "modell" : "Lys",
         "pris" : 100,
-        "bilde" : "sko001.png"
+        "bilde" : "sko001.png",
+        "beskrivelse":"Et avv våre beste par sko, laget i 2020, en hot nyhet og meget ettertraktet",
+        "farge":"hvit"
       },
       "sko002" : {
         "merke" : "Sorte platformsandaler",
         "modell" : "Mørk",
         "pris" : 480,
-        "bilde" : "sko002.png"
+        "bilde" : "sko002.png",
+        "beskrivelse":"Et avv våre beste par sko, laget i 2020, en hot nyhet og meget ettertraktet",
+        "farge":"svart"
       },
       "sko003" : {
         "merke" : "Mørk snøring",
         "modell" : "Mørk",
         "pris" : 300,
-        "bilde" : "sko003.png"
+        "bilde" : "sko003.png",
+        "beskrivelse":"Et avv våre beste par sko, laget i 2020, en hot nyhet og meget ettertraktet",
+        "farge":"svart"
       },
       "sko004" : {
         "merke" : "Gult er kult",
         "modell" : "Lys",
         "pris" : 200,
-        "bilde" : "sko004.png"
+        "bilde" : "sko004.png",
+        "beskrivelse":"Et avv våre beste par sko, laget i 2020, en hot nyhet og meget ettertraktet",
+        "farge":"gul"
       },
       "sko005" : {
         "merke" : "Glinsende sandaler",
         "modell" : "Lys",
         "pris" : 500,
-        "bilde" : "sko005.png"
+        "bilde" : "sko005.png",
+        "beskrivelse":"Et avv våre beste par sko, laget i 2020, en hot nyhet og meget ettertraktet",
+        "farge":"hvit"
       },
       "sko006" : {
         "merke" : "Sorte loafers",
         "modell" : "Lys",
         "pris" : 395,
-        "bilde" : "sko006.png"
+        "bilde" : "sko006.png",
+        "beskrivelse":"Et avv våre beste par sko, laget i 2020, en hot nyhet og meget ettertraktet",
+        "farge":"svart"
       }
     }
   }

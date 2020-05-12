@@ -23,45 +23,91 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
     </script>
-    <style media="screen">
-      img{
-        width: 20%;
-      }
-    </style>
+    <link rel="stylesheet" href="stiler/generellstil.css">
+    <link rel="stylesheet" href="stiler/produktstil.css">
   </head>
   <body>
-    <main>
+    <header>
+      <img src="logo/logo.png" alt="">
+    </header>
 
+    <nav>
+      <a href="startside.html">
+        <div class="hent">TILBAKE</div>
+      </a>
+    </nav>
+
+    <main id="secVarer">
     </main>
+
+    <footer>
+      <ul>
+        <li>Kontakt oss:</li>
+        <li>Sara K.V</li>
+        <li>Majorstueveien</li>
+        <li>Re;store@gmail.com</li>
+      </ul>
+    </footer>
     <script>
-      let url_string = window.location.href; //window.location.href
-      let url = new URL(url_string);
-      let id = url.searchParams.get("id");
+      const url = new URL(window.location.href);
+      const id = url.searchParams.get("id");
 
-      const main = document.querySelector("main");
-      const db = firebase.database();
-      
-      const bukser = db.ref("varer/bukser/" + id)
-      const kjoler = db.ref("varer/kjoler/" + id)
-      const sko = db.ref("varer/sko/" + id)
-      const topper = db.ref("varer/topper/" + id)
+      const secVarer = document.querySelector("#secVarer");
+      const db = firebase.firestore();
 
-      function genererHTML(snapshot){
-        let vare = snapshot.val();
-        main.innerHTML +=`
+      const bukser = db.collection("bukser")
+      const kjoler = db.collection("kjoler")
+      const sko = db.collection("sko")
+      const topper = db.collection("topper")
+
+      const visBukser = async (id) => {
+        const svar = await bukser.doc(id).get();
+        lagHTML(svar.data())
+      }
+      const visKjoler = async (id) => {
+        const svar = await kjoler.doc(id).get();
+        lagHTML(svar.data())
+      }
+      const visSko = async (id) => {
+        const svar = await sko.doc(id).get();
+        lagHTML(svar.data())
+      }
+      const visTopper = async (id) => {
+        const svar = await topper.doc(id).get();
+        lagHTML(svar.data())
+      }
+      visBukser(id)
+      visKjoler(id)
+      visSko(id)
+      visTopper(id)
+
+      const lagHTML = (vare) => {
+        secVarer.innerHTML +=`
         <article>
-          <p>${vare.merke}</p>
+          <div>
+            <h1>${vare.merke}</h1>
+            <p>${vare.beskrivelse}</p>
+            <p>Farge : ${vare.farge}</p>
+            <p>${vare.pris}</p>
+
+            <form action="bestilling.html">
+              <select required>
+                <option class="storrelse" value="">Velg størrelse</option>
+                <option>EKSTRA LITEN</option>
+                <option>LITEN</option>
+                <option>MEDIUM</option>
+                <option>STOR</option>
+                <option>EKSTRA STOR</option>
+              </select>
+              <button type="submit">Legg til i handlekurv</button>
+            </form>
+
+            <a href="startside.html"><button>Tilbake</button></a>
+          </div>
           <img src="bilder/${vare.bilde}">
-          <a href="startside.html"><button>Tilbake</button></a>
         </article>
-
-  `
-  }
-
-    bukser.on("value",genererHTML)
-    kjoler.on("value",genererHTML)
-    sko.on("value",genererHTML)
-    topper.on("value",genererHTML)
+        `;
+      }
 
     </script>
   </body>
