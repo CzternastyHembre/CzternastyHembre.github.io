@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+
+    <link rel="stylesheet" href="strikkebutikk.css">
+
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyC1GoPzUpPKeEfDswihiF9WGSoZz6UyH2g",
+        authDomain: "database-de1a8.firebaseapp.com",
+        databaseURL: "https://database-de1a8.firebaseio.com",
+        projectId: "database-de1a8",
+        storageBucket: "database-de1a8.appspot.com",
+        messagingSenderId: "113722071235",
+        appId: "1:113722071235:web:50f162d95687bef3b02a76",
+        measurementId: "G-598CJFFSKW"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      // firebase.analytics();
+    </script>
+
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <section class="flexcontainer">
+      <a id="flexcontainer" href="hovedside.html">Hjem</a>
+      <a id="flexcontainer" href="oppskrift.html">Strikkeoppskrifter</a>
+      <a id="flexcontainer" href="strikkebutikk.html">Garn</a>
+      <a id="flexcontainer" href="handlekurv.html">Handlekurv</a>
+    </section>
+
+    <div class="divForm">
+      <div id="divTotalPris"></div>
+      <form onsubmit="kjopGarn(event)">
+        <label>Epost:</label>
+        <input id="inpEpost" type="email" placeholder="Skriv epost" required />
+        <button type="submit">Kjøp nå</button>
+      </form>
+  </div>
+
+    <section id="secHandlekurv">
+
+    </section>
+
+    <script>
+    // referanser til html-elementer
+    const divTotalPris = document.querySelector("#divTotalPris");
+    const secHandlekurv = document.querySelector("#secHandlekurv");
+    const inpEpost = document.querySelector("#inpEpost")
+
+    // referanser til databasen
+    const db = firebase.firestore();
+    const garn = db.collection("Garn");
+    const handlekurv = db.collection("GarnIHandlekurv");
+    const kjop = db.collection("kjop")
+    // funksjon som henter alle bøker fra databasen
+    const hentHandlekurv = async () => {
+      secHandlekurv.innerHTML = ``;
+      const svar = await handlekurv.orderBy("tid", "desc").get(); // Henter hele handlekurven
+      let totalPris = 0; // oppretter en variabel som kan endres
+      for await (vare of svar.docs) {
+          const garnIHandlekurvId = vare.id;
+          const garnId = vare.data().garnId; // Får bokId fra varen i handlekurven
+          const garnSvar = await garn.doc(garnId).get(); // Spør etter den aktuelle boken fra boker-kolleksjonen
+          totalPris += garnSvar.data().Pris; // Plusser på prisen til boken i variabelen totalPris
+          lagHTML(garnId, garnSvar.data(), garnIHandlekurvId); // Kjører funksjonen lagHTML på hver bok
+      }
+      divTotalPris.innerHTML = `Sum: ${totalPris}kr`; // Skriver prisen ut i divTotalPris
+    }
+
+
+    hentHandlekurv(); // Kjører funksjonen hentAlle
+
+
+    const lagHTML = (garnId, Garn, garnIHandlekurvId) => {
+      secHandlekurv.innerHTML += `
+                <div>
+                  <img src=${Garn.Bilder} alt="Bilder av ${Garn.Farge}">
+                  <div>
+                    <h1>${Garn.Farge}</h1>
+                    <p>Pris : ${Garn.Pris}kr</p>
+                    <button onclick=fjernFraHandlekurv('${garnIHandlekurvId}')>X</button>
+                    </div>
+                  </div>
+      `;
+    }
+
+    const kjopGarn = async (event) => {
+      event.preventDefault();
+      const svar = await handlekurv.get();
+      for await(const garnIHandlekurv of svar.docs){
+        const garnId = garnIHandlekurv.data().garnId;
+          // Legger boken i kjop-tabellen
+          await kjop.add({
+            garnId: garnId,
+            epost: inpEpost.value
+          });
+
+          // Sletter varen fra handlekurven
+          await handlekurv.doc(garnIHandlekurv.id).delete();
+      }
+      // Sletter innholdet i secHandlekurv
+      secHandlekurv.innerHTML = ``;
+    }
+
+    const fjernFraHandlekurv = async (bokIHandlekurvId) => {
+      await handlekurv.doc(bokIHandlekurvId).delete(); // Sletter varen fra handlekurven
+      hentHandlekurv(); // Henter handlekurven på nytt
+    }
+    </script>
+
+
+  </body>
+</html>

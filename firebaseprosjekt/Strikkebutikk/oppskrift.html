@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+
+    <link rel="stylesheet" href="strikkebutikk.css">
+
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyC1GoPzUpPKeEfDswihiF9WGSoZz6UyH2g",
+        authDomain: "database-de1a8.firebaseapp.com",
+        databaseURL: "https://database-de1a8.firebaseio.com",
+        projectId: "database-de1a8",
+        storageBucket: "database-de1a8.appspot.com",
+        messagingSenderId: "113722071235",
+        appId: "1:113722071235:web:50f162d95687bef3b02a76",
+        measurementId: "G-598CJFFSKW"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      // firebase.analytics();
+    </script>
+
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <section class="flexcontainer">
+      <a id="flexcontainer" href="hovedside.html">Hjem</a>
+      <a id="flexcontainer" href="oppskrift.html">Strikkeoppskrifter</a>
+      <a id="flexcontainer" href="strikkebutikk.html">Garn</a>
+      <a id="flexcontainer" href="handlekurv.html">Handlekurv</a>
+    </section>
+
+    <section class="knapper">
+      <div onclick="hentAlle()">Alle oppskrifter</div>
+      <div onclick="hentJakke()">Jakker</div>
+      <div onclick="hentGenser()">Gensere</div>
+    </section>
+
+
+    <section id="secOppskrift">
+
+    </section>
+
+    <script src="oppskrift.js">
+
+    </script>
+
+
+  </body>
+</html>

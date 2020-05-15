@@ -1,0 +1,91 @@
+body{
+  margin: 0;
+  background-color: #ddeeff
+}
+img{
+  width: 100%;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+body{
+  font-family: verdana, arial;
+}
+
+/* #secStrikkebutikk{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+} */
+
+
+
+.flexcontainer, .knapper{
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  font-size: 30px;
+  z-index: 100;
+  border-bottom: 2px;
+  background-color: purple;
+  margin: 0;
+}
+.knapper{
+  position: sticky;
+  position: -webkit-sticky;
+  top:-1px;
+  z-index: 99;
+  background-color: pink;
+  opacity: 0.8;
+}
+#flexcontainer, .knapper div{
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+}
+.knapper div{
+  padding: 10px;
+}
+#flexcontainer:hover, .knapper div:hover{
+  background-color: lightblue;
+  cursor: pointer;
+}
+.knapper{
+
+}
+#secOppskrift, #secStrikkebutikk, #secHandlekurv{
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.divForm{
+  width: 80%;
+  margin:auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+
+}
+
+#secKlaer, #secGarn{
+  margin: auto;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#secKlaer{
+  grid-template-columns: 1fr 1fr 1fr;
+}
+#secHandlekurv{
+  grid-template-columns: repeat(6, 1fr)
+}
+#secKlaer div, #secGarn div, #secHandlekurv div div{
+  margin: auto;
+  width: 80%;
+  text-align: center;
+}
