@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyAn3fu0uDxk0tg-TLVKP05MWHq3vUidL5c",
+        authDomain: "saras-handelsside.firebase.com",
+        databaseURL: "https://saras-handelsside.firebaseio.com",
+        projectId: "saras-handelsside",
+        storageBucket: "saras-handelsside.appspot.com",
+        messagingSenderId: "749759267863",
+        appId: "1:749759267863:web:717156098aa96b36b64852"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      </script>
+      <link rel="stylesheet" href="generell.css">
+      <style media="screen">
+      main{
+        margin: 8rem;
+      }
+      .pris, .e{
+        margin: 0;
+        padding: 30px;
+        background-color: #aaaa33;
+        display: inline;
+
+      }
+      .e{
+        background-color: #33aaaa;
+      }
+      .pris p{
+
+        display: inline-block;
+      }
+      form{
+        margin: 4rem;
+      }
+      td img{
+        height: 150px;
+      }
+      td{
+        padding: 10px;
+      }
+      tbody:nth-child(2n-1){
+        background-color: #efefef;
+      }
+      table{
+        width: 100%;
+        border-collapse:collapse;
+        border: solid 1px #777;
+      }
+      </style>
+  </head>
+  <body>
+    <header>
+      <h1><a href="forside.html">SALandO</a></h1>
+    </header>
+    <nav>
+
+        <a class="hovedDiv" href="hovedside.html">Tilbake</a>
+
+
+    </nav>
+
+    <main>
+        <h1>HANDLEKURV</h1>
+      <form onsubmit="kjopVarer(event)">
+        <div class="pris">
+          <label>Totalt : </label><p>0kr</p>
+        </div>
+        <div class="e">
+          <label>Epost :</label>
+          <input id="inpEpost" type="email" placeholder="Skriv epost" required />
+          <button type="submit">Kjøp nå</button>
+        </div>
+      </form>
+      <table>
+        <td> <h2>Denne handlekurven er tom!</h2></td>
+      </table>
+    </main>
+    <script>
+    const p = document.querySelector("p")
+    // referanser til html-elementer
+    const main = document.querySelector("main");
+    const table = document.querySelector("table");
+    const inpEpost = document.querySelector("#inpEpost")
+
+    // referanser til databasen
+    const db = firebase.firestore();
+    const sko = db.collection("sko");
+    const bukser = db.collection("bukser");
+    const topper = db.collection("topper");
+    const varerArray = [sko,bukser,topper] // Et array med de forskjellige varekategoriene, brukes når jeg skal vise noe/alt fra hverkategori for å slippe unødig mye koding
+//Refersaser til handlekurvdatabsen
+    const skoHandlekurv = db.collection("skoHandlekurv");
+    const toppHandlekurv = db.collection("toppHandlekurv");
+    const bukseHandlekurv = db.collection("bukseHandlekurv");
+    const handlekurvArray = [skoHandlekurv,bukseHandlekurv,toppHandlekurv] // Et array med de forskjellige handlekurv-arekategoriene, brukes når jeg skal vise noe/alt fra hverkategori for å slippe unødig mye koding
+    const kjop = db.collection("kjop")
+    // funksjon som henter alle bøker fra databasen
+    let pris = 0
+    const hentHandlekurv = async () => {
+      pris = 0
+      table.innerHTML = `` //Seltter tabellen
+      for (var i = 0; i < handlekurvArray.length; i++) {
+        const svar = await handlekurvArray[i].orderBy("tid", "desc").get();//Får ikke sortert alle sammen på tid, kommer først i en type var også sorters den på tid får neste kommer // Henter hele handlekurven
+        for await (vare of svar.docs) {
+            const vareIHandlekurvId = vare.id;
+            const vareId = vare.data().vareId; // Får bokId fra varen i handlekurven
+            const vareSvar = await varerArray[i].doc(vareId).get(); // Spør etter den aktuelle boken fra boker-kolleksjonen
+            lagHTML(vareId, vareSvar.data(), vareIHandlekurvId); // Kjører funksjonen lagHTML på hver bok
+          }
+        }
+      }
+    const lagHTML = (id, vare, vareIHandlekurvId) => { //FUnksjon som lager ett element i main, funker som en mal for alle
+        // main.innerHTML += `
+        //     <div id="enhet">
+        //       <a id="enhet"href="underside.html?id=${id}">
+        //         <img src="bilder/${vare.bilde[0]}">
+        //         <h3>${vare.navn}</h3>
+        //         <span>${vare.pris},-</span>
+        //       </a>
+        //   </div>
+        // `;
+        table.innerHTML += `
+        <tr>
+        <td>${vare.navn}</td>
+        <td>Pris : ${vare.pris}kr</td>
+        <td>Type : ${vare.type}</td>
+        <td>
+          <a id="enhet"href="underside.html?id=${id}">
+            <img src="bilder/${vare.bilde[0]}">
+          </a>
+        </td>
+        <td>
+        <button onclick=fjernFraHandlekurv('${vareIHandlekurvId}')>X</button>
+        </td>
+        </tr>
+        `;
+        pris += vare.pris
+        p.innerHTML = pris+"kr";
+    }
+    const kjopVarer = async (event) => {
+      event.preventDefault();
+      for (var i = 0; i < handlekurvArray.length; i++) {
+        const svar = await handlekurvArray[i].get();
+        for await(const vareIHandlekurv of svar.docs){
+            const vareId = vareIHandlekurv.data().vareId;
+            // Legger boken i kjop-tabellen
+            await kjop.add({
+              vareId: vareId,
+              epost: inpEpost.value
+            });
+
+            // Sletter varen fra handlekurven
+            await handlekurvArray[i].doc(vareIHandlekurv.id).delete();
+        }
+        // Sletter innholdet i secHandlekurv
+      }
+      table.innerHTML = `<td><h2>Denne handlekurven er tom!</h2></td>`;
+      alert("Ditt kjøp er nå registrert")
+    }
+    hentHandlekurv(); // Kjører funksjonen hentAlle
+
+    const fjernFraHandlekurv = async (id) => {
+        await skoHandlekurv.doc(id).delete(); // Sletter varen fra handlekurven
+        await toppHandlekurv.doc(id).delete(); // Sletter varen fra handlekurven
+        await bukseHandlekurv.doc(id).delete(); // Sletter varen fra handlekurven
+//Fant ingen god måte å slette bare én gang men denne iden er unik og består av 21 siffer eller bokstaver så oddsen for at den sletter mer enn én gang er 1/(26+10)^20(ikke sikkert at det er akkurat slik) som er så å si  lik 0
+      hentHandlekurv(); // Henter handlekurven på nytt
+}
+    </script>
+  </body>
+</html>

@@ -7,11 +7,6 @@ main{
   width: 80%;
   margin: auto;
 }
-.hovedDiv{color: var(--hoved-skrift)}
-.hovedDiv:hover{
-  color: var(--hover-skrift);
-  background-color: var(--hover-farge);
-}
 .mySlides {display: none}
 img {vertical-align: middle;}
 

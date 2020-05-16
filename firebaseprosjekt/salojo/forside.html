@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SALandO</title>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyAn3fu0uDxk0tg-TLVKP05MWHq3vUidL5c",
+        authDomain: "saras-handelsside.firebase.com",
+        databaseURL: "https://saras-handelsside.firebaseio.com",
+        projectId: "saras-handelsside",
+        storageBucket: "saras-handelsside.appspot.com",
+        messagingSenderId: "749759267863",
+        appId: "1:749759267863:web:717156098aa96b36b64852"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <link rel="stylesheet" href="generell.css">
+    <style media="screen">
+    body {
+font-family: Arial;
+margin: 0;
+}
+
+* {
+box-sizing: border-box;
+}
+
+img {
+vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+cursor: pointer;
+position: absolute;
+top: 40%;
+width: auto;
+padding: 16px;
+margin-top: -50px;
+color: black;
+font-weight: bold;
+font-size: 20px;
+border-radius: 0 3px 3px 0;
+user-select: none;
+-webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+right: 0;
+border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+color: #f2f2f2;
+font-size: 12px;
+padding: 8px 12px;
+position: absolute;
+top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+text-align: center;
+background-color: #222;
+padding: 2px 16px;
+color: white;
+}
+
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+/* Six columns side by side */
+.column {
+float: left;
+width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+opacity: 1;
+}
+main{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  width: 80%;
+  margin: auto;
+}
+.tekst{
+  margin: auto;
+  text-align: center;
+}
+ul{
+  text-align: left;
+  margin-left: 30%;
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1><a href="forside.html">SALandO</a></h1>
+    </header>
+    <nav>
+
+
+
+      <a class="hovedDiv" href="hovedside.html">SHOP NÅ</a>
+      <a class="hovedDiv" href="handlekurv.html">HANDLEKURV</a>
+
+    </nav>
+
+
+
+    <main>
+      <div class="tekst">
+        <h1>Velkommen til SALandO!</h1>
+
+      <p>Klær online på SALandO <br>
+        SALandO er Nordens ledende e-handelselskap innen mote og skjønnhet for unge kvinner. Vi har et maxet utvalg av den aller siste moten fra omtrent 350 varemerker som Missguided, Nike, Maya, IRO, Gestuz, Levis, Nunoo og fra våre egne SALandO-merker.
+        <br>
+        Shop mote på SALandO <br>
+        Vi på SALandO elsker alt som har med mote og beauty å gjøre, derfor sørger vi alltid for å være oppdaterte på sesongens siste trender. Vi vil inspirere deg med nyheter hver dag, slik at du enkelt skal kunne finne en look som passer deg perfekt. Her finner du alt fra trendy klær og sko til accessories til alle anledninger – alltid god pris og rask levering!</p>
+        <h2>Kontakt oss:</h2>
+        <ul>
+          <li>Adresse:Elias Smiths vei 47</li>
+          <li>TLF : <i>12345678</i> </li>
+          <li>Mail <a href="mailto:sara@salando.no?subject=feedback"> <i>sara@salando.no</i> </a> </li>
+        </ul>
+        <br>
+        <h2>
+          <a class="hovedDiv" href="hovedside.html">SHOP NÅ</a>
+        </h2>
+    </div>
+
+      <div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <img src="bilder/B00101.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+    <img src="bilder/S00101.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+    <img src="bilder/T00101.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+    <img src="bilder/B00201.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+    <img src="bilder/S00201.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+    <img src="bilder/T00201.jpg" style="width:100%">
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="bilder/B00101.jpg" style="width:100%" onclick="currentSlide(1)" alt="Bukse sort">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="bilder/S00101.jpg" style="width:100%" onclick="currentSlide(2)" alt="Sko beige">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="bilder/T00101.jpg" style="width:100%" onclick="currentSlide(3)" alt="Topp sort">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="bilder/B00201.jpg" style="width:100%" onclick="currentSlide(4)" alt="Bukse beige">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="bilder/S00201.jpg" style="width:100%" onclick="currentSlide(5)" alt="Sko sort">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="bilder/T00201.jpg" style="width:100%" onclick="currentSlide(6)" alt="Topp sort">
+    </div>
+  </div>
+</div>
+
+    </main>
+    <script>
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        captionText.innerHTML = dots[slideIndex-1].alt;
+      }
+
+    </script>
+  </body>
+</html>

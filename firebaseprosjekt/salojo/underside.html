@@ -22,11 +22,12 @@
 </head>
   <body>
     <header>
-      <h1><a href="hovedside.html">SALandO</a></h1>
+      <h1><a href="forside.html">SALandO</a></h1>
     </header>
     <nav>
 
         <a class="hovedDiv" href="hovedside.html">Tilbake</a>
+        <a class="hovedDiv" href="handlekurv.html">HANDLEKURV</a>
 
 
     </nav>
@@ -66,6 +67,9 @@
       const sko = db.collection("sko")
       const topp = db.collection("topper")
       const bukse = db.collection("bukser")
+      const skoHandlekurv = db.collection("skoHandlekurv");
+      const toppHandlekurv = db.collection("toppHandlekurv");
+      const bukseHandlekurv = db.collection("bukseHandlekurv");
 
       const url = new URL(window.location.href);
       const id = url.searchParams.get("id");
@@ -93,16 +97,7 @@
               <p>${vare.beskrivelse}</p>
               <div id="kjøp">
                 <p>Pris for ${vare.navn} :  ${vare.pris}kr</b>
-                <form action="takk.html">
-                  <select required name="">
-                    <option class="storrelse" value="">Velg størrelse</option>
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                  </select>
-                  <button class="kjøp" type="submit">Legg til i handlekurv</button>
+                <button onclick="leggIHandlekurv('${id}')">Legg til i handlekurv</button>
                 </form>
               </div>
             </div>
@@ -130,7 +125,33 @@
           </div>
 
               `;
+
       }
+
+      const leggIHandlekurv = async (id) => {
+        console.log(id.charAt());
+        if (id.charAt() == "S") {
+          await skoHandlekurv.add({
+            vareId: id,
+            tid: firebase.firestore.FieldValue.serverTimestamp()
+          });
+          alert("Sko lagt til i handlekurv");
+        } else if (id.charAt() == "T") {
+          await toppHandlekurv.add({
+            vareId: id,
+            tid: firebase.firestore.FieldValue.serverTimestamp()
+          });
+          alert("Topp lagt til i handlekurv");
+        } else if (id.charAt() == "B") {
+          await bukseHandlekurv.add({
+            vareId: id,
+            tid: firebase.firestore.FieldValue.serverTimestamp()
+          });
+          alert("Bukse lagt til i handlekurv");
+      }
+    }
+
+
       if (id.charAt(0) === "S") { //If - setning som kjører riktig kode utifra hvilken underside man er på
         visSko(id); // Funksjonskall, gjør at funksjonen visDyr kjøres når siden lastes
       } else if (id.charAt(0) === "B") {

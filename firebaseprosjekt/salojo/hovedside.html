@@ -22,7 +22,7 @@
   </head>
   <body>
     <header>
-      <h1><a href="hovedside.html">SALandO</a></h1>
+      <h1><a href="forside.html">SALandO</a></h1>
     </header>
     <nav>
 
@@ -90,11 +90,12 @@
         </section>
       </section>
 
+        <a class="hovedDiv" href="handlekurv.html">HANDLEKURV</a>
+
     </nav>
 
 
 
-    </header>
     <main>
 
     </main>
@@ -105,6 +106,10 @@
       const sko = db.collection("sko");
       const bukser = db.collection("bukser");
       const topper = db.collection("topper");
+      // const handlekurv = db.collection("skoIHandlekurv");
+      const skoHandlekurv = db.collection("skoHandlekurv");
+      const toppHandlekurv = db.collection("toppHandlekurv");
+      const bukseHandlekurv = db.collection("bukseHandlekurv");
 
       const varer = [sko,bukser,topper] // Et array med de forskjellige varekategoriene, brukes når jeg skal vise noe/alt fra hverkategori for å slippe unødig mye koding
 
@@ -284,19 +289,42 @@
 visAlleSammen()// Funksjonskall,//Funkjson som henter alle elementer og viser alt
       const lagHTML = (id, vare) => { //FUnksjon som lager ett element i main, funker som en mal for alle
           main.innerHTML += `
-            <a id="enhet"href="underside.html?id=${id}">
               <div id="enhet">
+              <a id="enhet"href="underside.html?id=${id}">
                 <img src="bilder/${vare.bilde[0]}">
                 <h3>${vare.navn}</h3>
                 <span>${vare.pris},-</span>
-                <form action="kjøp.html">
-                  <button type="submit">Hurtigkjøp</button>
-                </form>
-
-              </div>
             </a>
+            <button onclick="leggIHandlekurv('${id}')">Kjøp</button>
+            </div>
           `;
       }
+      const leggIHandlekurv = async (id) => {
+        console.log(id.charAt());
+        if (id.charAt() == "S") {
+          await skoHandlekurv.add({
+            vareId: id,
+            tid: firebase.firestore.FieldValue.serverTimestamp()
+          });
+          alert("Sko lagt til i handlekurv");
+        } else if (id.charAt() == "T") {
+          await toppHandlekurv.add({
+            vareId: id,
+            tid: firebase.firestore.FieldValue.serverTimestamp()
+          });
+          alert("Topp lagt til i handlekurv");
+        } else if (id.charAt() == "B") {
+          await bukseHandlekurv.add({
+            vareId: id,
+            tid: firebase.firestore.FieldValue.serverTimestamp()
+          });
+          alert("Bukse lagt til i handlekurv");
+      }
+    }
+    console.log("Forside!");
+    console.log("handlekurv tomt");
+    console.log("hentallesko('type')");
+
     </script>
   </body>
 </html>

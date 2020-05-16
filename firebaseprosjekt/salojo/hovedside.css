@@ -4,9 +4,6 @@ main{
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 3rem;
 }
-header img{
-  width:100%;
-}
 div#enhet{
   border: 1px solid var(--border-farge);
 }
@@ -15,25 +12,25 @@ div#enhet img{
 }
 
 
-@media screen and (max-width: 1200px) {
+@media (max-width: 1200px) {
   main{
     grid-template-columns: repeat(3,1fr);
     font-size: x-large;
   }
 }
-@media screen and (max-width: 900px) {
+@media (max-width: 900px) {
   main{
     grid-template-columns: repeat(2,1fr);
     font-size: large;
   }
 }
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
   main{
     grid-template-columns: repeat(1,1fr);
     font-size: small;
   }
 }
-@media screen and (min-width: 1600px) {
+@media (min-width: 1600px) {
   main{
     grid-template-columns: repeat(5,1fr);
   }
