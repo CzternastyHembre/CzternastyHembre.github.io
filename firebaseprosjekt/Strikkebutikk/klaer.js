@@ -26,8 +26,10 @@ const lagHTML = (Strikkeoppskrifter) => {
               <img src=${Strikkeoppskrifter.Bilder} alt="Bilder av ${Strikkeoppskrifter.Navn}">
               <div>
                 <h1>${Strikkeoppskrifter.Navn}</h1>
-                <p>Pinneforslag: <br> ${Strikkeoppskrifter.Pinneforslag}</p>
-                <p>Strikkefasthet:<br> ${Strikkeoppskrifter.Strikkefasthet}</p>
+                <p><b>Pinneforslag:</b> <br> ${Strikkeoppskrifter.Pinneforslag}</p>
+                <p><b>Strikkefasthet:</b><br> ${Strikkeoppskrifter.Strikkefasthet}</p>
+                <p><b>Farge:</b><br> ${Strikkeoppskrifter.Farge}</p>
+                <p><b>Type:</b><br> ${Strikkeoppskrifter.Type}</p>
               </div>
   `;
   hentGarn(Strikkeoppskrifter.Farge)

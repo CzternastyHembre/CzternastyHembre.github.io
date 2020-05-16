@@ -100,3 +100,21 @@ cursor: pointer;
 section.innhold .litenknapp:active, div.knapp:active{
 opacity: 0.7;
 }
+@media (max-width: 1000px) {
+  main.stall{
+    grid-template-columns: repeat(3,1fr);
+    font-size: x-large;
+  }
+}
+@media (max-width: 800px) {
+  main.stall{
+    grid-template-columns: repeat(2,1fr);
+    font-size: large;
+  }
+}
+@media (max-width: 600px) {
+  main.stall{
+    grid-template-columns: repeat(1,1fr);
+    font-size: small;
+  }
+}

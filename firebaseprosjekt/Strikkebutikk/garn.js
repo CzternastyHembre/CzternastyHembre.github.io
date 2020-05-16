@@ -25,7 +25,8 @@ const lagHTML = (Garn) => {
               <img src=${Garn.Bilder} alt="Bilder av ${Garn.Farge}">
               <div>
                 <h1>${Garn.Farge}</h1>
-                <p>Pris : ${Garn.Pris}kr</p>
+                <p><b>Merke</b> : ${Garn.Merke}</p>
+                <p><b>Pris</b> : ${Garn.Pris}kr</p>
                 <button onclick="leggIHandlekurv('${id}')">Kjop</button>
               </div>
   `;
