@@ -1,0 +1,1152 @@
+:root {
+  --background-color: #d3ebeb;
+  --nav-color: #e8ffff;
+  --element-background: #d1d1d1;
+  --text-color: #000;
+  --background-text-color: none;
+  --secondary-teks-color: #f2f2f2;
+  --secondary-background-color: #000000bf;
+  --button-color: #f2994a;
+  --font-size-large: 25pt;
+  --font-size: 15pt;
+  --font-size-small: 10pt;
+  --border-color: #000;
+}
+
+body {
+  font-family: "Arial", "Times new roman", "sans-serif";
+  background-color: var(--background-color);
+  color: var(--text-color);
+  width: 100%;
+  margin: auto;
+  font-size: var(--font-size);
+}
+
+.grid-container-hjem {
+  /* margin-top: 30px;  */
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  /* grid-column-gap: 1%; */
+}
+
+.grid-container-hjem>div {
+  background-color: var(--element-background);
+  padding: 20px;
+  /* border: 1px solid black; */
+}
+
+.grid-container-athletes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  font-size: var(--font-size);
+  margin: 5% 0;
+}
+
+.athlete {
+  position: relative;
+  width: 100%;
+  background-color: var(--secondary-background-color);
+  overflow: hidden;
+  border-radius: 3px 3px 0 0;
+}
+
+.athlete img {
+  /* vertical-align: middle; */
+  width: 100%;
+}
+
+.athlete a {
+  height: 100%;
+}
+
+.athlete .text {
+  color: var(--secondary-teks-color);
+  background-color: var(--secondary-background-color);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1ch 0;
+}
+
+.sponsor {
+  margin: auto;
+  width: 100%;
+  height: 240px;
+  border: 1px solid var(--border-color);
+  padding-bottom: 5%;
+  margin-bottom: 20px;
+  background-color: white;
+  text-align: center;
+}
+
+.sponsor>a {
+  color: var(--text-color);
+text-decoration: none;
+  margin: 0;
+
+}
+
+.sponsor img {
+width: 100%;
+}
+.sponsor:last-child img{
+  height: 150px;
+}
+
+
+a>h5{
+  text-align: left;
+  padding-left: 20px;
+}
+
+
+/*Slideshow*/
+.slideshow-container * {
+  box-sizing: border-box;
+}
+
+.slides {
+  /* for at siden skal lastes bedre/finere */
+  display: none;
+}
+
+.slides>img {
+  /* vertical-align: middle; */
+  width: 100%;
+  height: 400px;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  background-color: var(--secondary-background-color);
+  border-radius: 3px 3px 0 0;
+  width: 100%;
+}
+
+/* Caption text */
+.slides>.text {
+  color: var(--secondary-teks-color);
+  background-color: var(--secondary-background-color);
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+/*.slides>.numbertext {
+    color: var(--secondary-teks-color);
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}*/
+/* The dots/bullets/indicators */
+/*.active {
+    background-color: var(--background-color);
+}*/
+.buttonsSlides {
+  text-align: center;
+}
+
+.buttonsSlides * {
+  padding: 0 2ch;
+  cursor: pointer;
+  font-weight: 900;
+  border-radius: 10%;
+  border-radius: 0 0 10px 10px;
+  margin: 0 10%;
+}
+
+.buttonsSlides>*:hover {
+  background-color: var(--button-color);
+  color: var(--secondary-teks-color);
+  cursor: pointer;
+}
+
+.athlete:hover .text {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.buttonsSlides>*:active, .athlete:active {
+  opacity: 0.7;
+}
+
+/* Fading animation, denne funker ikke */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1s;
+  animation-name: fade;
+  animation-duration: 1s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.6;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.6;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+@media (max-width: 600px) {
+
+  /*Big smartphones [426px -> 600px]*/
+  #center {
+    grid-row: 1;
+  }
+
+  .grid-container-athletes {
+    grid-gap: 5px;
+  }
+
+  .grid-container-hjem {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 425px) {
+
+  /*Small smartphones [325px -> 425px]*/
+  .grid-container-athletes {
+    grid-template-columns: 1fr;
+  }
+}
+
+#navbar {
+  display: flex;
+  text-align: left;
+  border-top: 1px solid;
+  background-color: var(--nav-color);
+  height: 100px;
+  font-size: 30px;
+  width: 100%;
+  font-family: Montserrat;
+}
+
+.navBarElement>a::before {
+  /* styler tekst og endrer plasseing og bakgrunnsfarge*/
+  content: "";
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #000;
+  /* funksjoner for å skalere elementer og overgangs tid*/
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.39s ease-in-out 0s;
+  transition: all 0.28s ease-in-out 0s;
+}
+
+.navBarElement>a:hover::before {
+  /* funksjoner for å skalere elementer*/
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.navBarElement:hover>a {
+  color: var(--text-color);
+}
+
+.navBarElement>a {
+  position: relative;
+}
+
+.navBarElement {
+  transition: 0.5s;
+  height: 75px;
+  padding-top: 25px;
+  position: relative;
+  width: 16.677%
+}
+
+.logo_nav {
+  width: 15%;
+  position: right;
+  margin-left: 10%;
+  padding: 0px;
+}
+
+.logo_nav>a>img {
+  height: 100%;
+}
+
+
+#kontaktKnapp {
+  background-color: orange;
+  border-radius: 0px;
+  border: 0px;
+  width: 50%;
+  height: 50%;
+  font-size: 1.8vw;
+  box-shadow: 1px 2px 3px;
+}
+
+#submenu_1 {
+  border-top: 10px solid darkblue;
+}
+
+#submenu_2 {
+  border-left: 10px solid darkred;
+}
+
+#submenu_1,
+#submenu_2 {
+  z-index: 2;
+  display: none;
+  font-family: Montserrat;
+}
+
+.submenuElement_1 a,
+.submenuElement_2 a {
+  color: #ddcccc;
+}
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  background-color: #353131;
+  font-family: fantasy;
+  font-size: 30px;
+  width: 20%;
+  position: absolute;
+  transition: 0.2s;
+  color: white;
+}
+
+.submenuElement_1,
+.submenuElement_2 {
+  padding: 10px;
+}
+
+.submenuElement_1:hover,
+.submenuElement_2:hover {
+  background-color: darkgray;
+}
+
+#utoverElement:hover {
+  text-decoration: none;
+}
+
+.underline {
+  width: 60%;
+  margin-top: 0px;
+  margin-bottom: 2px;
+  border-color: #ddcccc;
+}
+
+.submenuElement_1 a, .submenuElement_2 a {
+  text-decoration: none;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+#kontaktKnapp {
+  border-radius: 0px;
+  background-color: orange;
+  border: 0px;
+  width: 50%;
+  height: 50%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*css for hele body når den er større enn 600px starter under her*/
+@media only screen and (min-width: 600px) {
+  body {
+    /*gjør slik at det ikke er noe avstand mellom body og det som er utenfor*/
+    margin: 0px;
+    top: 0px;
+    /*gir body en bakgrunnsfarge*/
+  }
+}
+
+main {
+  font-family: "Arial", "Times new roman", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  width: 100%;
+  margin: auto;
+  font-size: var(--font-size);
+  margin: 0% auto;
+}
+
+.index_body {
+  text-align: center
+}
+
+/*css for hele delen over søkemotoren av header når den er større enn 600px starter under her*/
+.header_øverst {
+  text-align: center;
+  /* styler tekst*/
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0px;
+  height: 755px;
+}
+
+.knapp_header>a {
+  color: white;
+  font-size: 25px;
+  border-style: solid;
+  border-color: white;
+  border-width: 5px;
+  padding: 12px 28px;
+  font-style: monospace;
+  text-decoration: none;
+}
+
+@media only screen and (max-height: 660px) {
+  .knapp_header {
+    display: none;
+  }
+}
+
+.knapp_header>a:hover {
+  transition: all 0.4s ease-in-out;
+  border-color: #022c70;
+}
+
+.logo {
+  padding-top: 20px;
+  text-align: center;
+  margin: 10% 20%;
+  margin-top: 0px;
+}
+
+.header_over_mitt_navn {
+  text-align: center;
+  width: 15%;
+  margin: auto;
+  margin-top: 13vh;
+  color: white;
+  padding: 10px;
+  font-size: 40px;
+}
+
+.logo>img {
+  width: 30%;
+}
+
+.hele_følg_meg {
+  position: relative;
+  display: flex;
+  padding-top: 20px;
+  float: right;
+  margin-right: 15px;
+}
+
+.følg_meg {
+  font-size: 16px;
+  color: white;
+  font-family: fantasy;
+}
+
+.fa {
+  font-size: 30px;
+  width: 30px;
+  text-align: right;
+  text-decoration: none;
+  border-radius: 90%;
+  float: right;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.5;
+}
+
+/* Set a specific color for each brand */
+/* Facebook */
+.fa-facebook {
+  color: white;
+}
+
+.logo>img:hover {
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.1);
+}
+
+#bilder_team>div {
+  transform: scale(1);
+  transition-duration: 0.4s;
+}
+
+#bilder_team>div:hover {
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+}
+
+#header_om_oss {
+  background-image: url(bilder/om6.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+
+/* Style the tab buttons */
+.navn_header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.link {
+  background-color: darkgrey;;
+  color: white;
+  float: left;
+  cursor: pointer;
+  padding: 24px 16px;
+  margin: 0px;
+  font-size: 17px;
+  width: 25%;
+  bottom: 0px;
+  position: absolute;
+}
+
+
+
+/* Change background color of buttons on hover */
+.link:hover {
+  background-color: #777;
+}
+
+h1 {
+  font-size: 3vw;
+}
+
+/* Style each tab content individually */
+.tekst_om {
+  margin-bottom: 50px;
+}
+
+main {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  width: 90%;
+  margin: auto;
+}
+
+#vunnet {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  background-color: #f0fff0;
+  color: var(--text-color);
+  margin: 5% 25%;
+  padding: 1%;
+}
+
+#gull>h1 {
+  color: #e68a00;
+}
+
+#ol-deltat>h1 {
+  color: red;
+}
+
+#norge_rekorder>h1 {
+  color: blue;
+}
+
+/* #alle_utovere>div>h2 {
+  padding-top: 30px;
+} */
+
+#alle_utovere>div {
+  padding: 5vh 13vh;
+  height: 60vh;
+  scroll-snap-align: center;
+}
+
+#alle_utovere {
+  text-align: left;
+  background-color: #ffaf37;
+  margin: 5%;
+  margin-top: 20px;
+  height: 70vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  text-align: left;
+}
+.hembre img, #person_bilder img{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+@media only screen and (max-width: 1200px) {
+  #pal_info>ul>li {
+    font-size: 1.5vw;
+  }
+
+  #alle_utovere>div>img {
+    width: 150px;
+    height: 250px;
+  }
+}
+.hembre {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.hembre:nth-child(1n) {
+  background-color: #ffcc99;
+}
+
+.hembre:nth-child(2n) {
+  background-color: #ffb366;
+}
+
+.hembre:nth-child(3n) {
+  background-color: #ff9933;
+}
+
+.hembre:nth-child(4n) {
+  background-color: #ff8000;
+}
+.hembre:nth-child(5n) {
+  background-color: #ff7000;
+}
+
+.hembre a {
+  display: block;
+}
+
+.hembre>*{
+  margin: auto;
+}
+.hembre>*>*{
+  margin: 10px;
+}
+#alle_utovere::-webkit-scrollbar {
+  width: 8px;
+}
+#alle_utovere::-webkit-scrollbar-track {
+  background: var(--background-color); 
+}
+#alle_utovere::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius:5px;
+}
+#alle_utovere::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+} 
+
+#bare_team {
+  background-color: #ffaf37;
+  margin: 5%;
+  margin-bottom: 0px;
+  padding: 20px 50px;
+  text-align: center;
+}
+
+#bilder_team>div>img {
+  width: 80%;
+  height: 80%;
+  display: block;
+  margin: auto;
+}
+
+.bilde_info {
+  background-color: white;
+  text-align: center;
+  padding: 10px 0px;
+  width: 80%;
+  display: block;
+  margin: auto;
+  box-shadow: 0px 2px 8px 4px;
+}
+
+#alle_utovere>div>h1 {
+  margin: 0px;
+}
+
+/* #pal_info>ul {
+  list-style-type: none;
+  font-size: 22px;
+  margin: 0px;
+}
+
+#pal_bilder {
+  display: block;
+  margin: auto;
+  text-align: center;
+} */
+
+/* #pal_info > ul > li > a,
+#pal_info > p > a {
+  color: black;
+  text-decoration: none;
+}
+#pal_info > ul > li > a:hover,
+#pal_info > p > a:hover {
+  text-decoration: underline;
+} */
+/* h3 > a {
+  color: black;
+  text-decoration: none;
+  padding: 7px;
+  border-style: ridge;
+  font-size: 1.5vw;
+  background-color: lightblue;
+  border-color: lightblue;
+  border-radius: 2px;
+}
+h3 > a:hover {
+  background-color: green;
+  border-color: green;
+  transition-duration: 1s;
+} */
+
+#dp_meny {
+  background-color: inherit;
+  border-color: var(--text-color);
+  padding: 8px;
+  font-size: 16px;
+  text-align: center;
+}
+
+#bilder_team {
+  margin: 30px 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+
+#formContainer {
+  background-color: #fff0f0;
+  width: 50%;
+  margin-top: 30px;
+  border: 1px solid var(--border-color);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 2%;
+}
+#formContainer>p{
+  color: grey;
+}
+
+#contactForm {
+  display: grid;
+}
+
+.gridElement {
+  margin-top: 4%;
+  width: 60%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+.gridElement>input{
+  padding-top: 10px;
+}
+
+
+input,
+textarea {
+  border: 2px solid var(--border-color);
+}
+
+#f_mail {
+  margin-left: auto;
+  margin-right: auto;
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+#f_melding {
+  margin-left: auto;
+  margin-right: auto;
+  grid-column: 1 / span 2;
+  grid-row: 2;
+}
+
+#f_fornavn {
+  width: 55%;
+  margin-right: 5%;
+  margin-left: auto;
+  grid-column: 1;
+  grid-row: 3;
+}
+
+#f_etternavn {
+  width: 55%;
+  margin-left: 5%;
+  margin-right: auto;
+  grid-column: 2;
+  grid-row: 3;
+}
+
+#f_telefon {
+  grid-column: 1 / span 2;
+  grid-row: 4;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#f_submit {
+  grid-column: 1 / span 2;
+  grid-row: 5;
+  width: 10%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#f_submit>button {
+  background-color:orange;
+  padding: 5px;
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  font-size: 19px
+
+}
+
+.subFolder {
+  display: flex;
+}
+
+.subContainers {
+  margin: 0px;
+  width: 50%;
+  height: 300px;
+  background-color: #f1b04f;
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.spacer {
+  height: 100px;
+  width: 100%;
+}
+
+.main_sponsor h1 {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.main_sponsor p {
+  margin: 0;
+  text-align: center;
+}
+
+.main_sponsor a {
+  text-decoration: none;
+  color: var(--text-color);
+  width: 100%;
+  height: 100%;
+}
+
+.spons-grid-container {
+  background-color: lightgrey;
+}
+
+.main_sponsor {
+  width: 80%;
+  margin: auto;
+  background-color: #f4f4f4;
+}
+
+.spons-grid-one {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: 80vh;
+}
+
+.spons-grid-one .spons {
+  padding-top: 10px;
+  margin: auto;
+  height: 40vh;
+  width: 100%;
+}
+
+.spons_navn {
+  padding-top: 20px;
+  font-size: 28px;
+}
+
+.kryss_farge_1 {
+  background-color: #a0e6ff;
+}
+
+.kryss_farge_2 {
+  background-color: #de785d;
+}
+
+.spons .logo_liten {
+  width: 40%;
+  height: 50%;
+  margin-left: 30%;
+}
+
+.spons .pil {
+  height: 80px;
+  width: 20%;
+  margin-left: 40%
+}
+
+.fyll {
+  height: 40%;
+  width: 40%;
+  background-color: white;
+  margin-left: 30%;
+  margin-top: 10%;
+  border-radius: 2000px
+}
+
+.fyll p {
+  padding-top: 50px;
+}
+
+.spons-grid-two {
+  width: 70%;
+  margin: auto;
+  margin-top: 90px;
+}
+
+.spons-grid-two>div {
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.spons-grid-two .spons img {
+  margin-left: 5%;
+  width: 70%;
+  padding-bottom: 15px;
+}
+
+.spons-grid-two .spons {
+  height: 500px;
+}
+
+.spons-grid-two .tom .fyll {}
+
+@media only screen and (max-width: 900px) {
+  .pil {
+    display: none;
+  }
+
+  .main_sponsor {
+    width: 100%;
+  }
+}
+
+footer{
+  /* margin-top: 20px; */
+  background-color: var(--nav-color);
+}
+
+.logo_footer {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+
+.footer-container-one {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  border-bottom: var(--border-color) 0.4px solid;
+}
+
+.footer-container-one ul li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+.footer-container-one ul li {
+  list-style-type: none;
+}
+
+.footer-container-one ul li p a {
+  font-size: 18px;
+}
+
+.footer-container-two {
+  margin: 2%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20%;
+  margin-bottom:0px;
+  padding: 10px
+}
+
+p {
+  margin: 0;
+}
+
+.footer-container-two>div {
+  font-size: 14px;
+  border: solid 1px var(--border-color);
+}
+.footer-container-two>div>a{
+  color:var(--text-color);
+  text-decoration: none;
+  margin:auto;
+}
+
+#footer_contact {
+  text-align: center;
+  margin-right: 40px;
+  margin-top: 30px;
+  padding: 10px;
+  background-color: orange;
+  border-radius: 20px;
+}
+
+/* Fikse news, og støtttespillere kommer opp som athelete */
+
+/* Skyttere.html */
+#person_side_top {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr  ;
+}
+#skytter{
+  width: 95%;
+  margin: 1% auto;
+  font-size: var(--font-size);
+}
+#person_side_info{
+  margin: auto;
+  padding:0 10%;
+}
+#person_side_info>*{
+  margin:10px;
+  text-align: left;
+}
+
+#skytter #medlemskap {
+  text-decoration: underline;
+}
+#person_rekorder {
+  /* background-color: #ff8080; */
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding: 15px;
+  border-collapse: collapse;
+  border-radius: 10px;
+}
+#personal-records td:first-child,
+#personal-records th:first-child {
+  text-align: left;
+}
+
+#personal-records th, #personal-records td {
+  padding: 5px;
+}
+#personal-records th, #merit i {
+  border-bottom: dashed 1px var(--text-color);
+}
+/* #vunnet {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  background-color: #f0fff0;
+  color: black;
+  margin: 5% 25%;
+  margin-top: 5px;
+  padding: 1%;
+  font-size: 12px;
+} */
+
+/* #gull > h1 {
+  color: #e68a00;
+}
+#ol-deltat > h1 {
+  color: red;
+}
+#norge_rekorder > h1 {
+  color: blue;
+} */
+
+#skytter #personer_underliggende_bilder {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 20px;
+}
+#skytter #person_bilder_vid > img {
+  width: 10%;
+  height: 50px;
+  display: block;
+  margin: auto;
+}
+#skytter #person_video > video {
+  display: block;
+  margin: auto;
+}
+#skytter #grid_container_stats {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--text-color);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 30px;
+}
+#skytter #grid_container_stats > * {
+  margin: 0 auto 10px auto;
+}
+#skytter #merit {
+  margin-bottom: 10px;
+}
+#skytter #merit > * {
+  margin: 5px;
+}
+#skytter #merit,#skytter td {
+  border-bottom: 1px solid var(--text-color);
+}
+#familyDiv{
+  margin: auto auto auto 0;
+}
+#skytter #familyDiv a {
+  display: block;
+}
+#skytter #familyType > p {
+  margin: 0;
+  display: inline;
+}
+#skytter #familyType {
+  margin-top: 20px;
+}
+#skytter #familyType:first-child {
+  margin-top: 0;
+}
+

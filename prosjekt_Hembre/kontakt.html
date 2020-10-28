@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="shortcut icon" href="bilder/logo2.svg" />
+
+    <link rel="stylesheet" href="./main.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+  </head>
+  <body>
+    <script src="script/navbar.js" charset="utf-8"></script>
+<main>
+      <div id="formContainer">
+      <h1>Kontakt oss</h1>
+      <p>
+        La oss få denne samtalen i gang. Fortell litt om deg selv, så tar vi
+        kontakt så snart vi kan.
+      </p>
+
+      <form id="contactForm" action="index.html" method="post">
+        <div class="gridElement" id="f_mail">
+          <label for="email">Mail:</label>
+          <input type="email" name="email" id="email" />
+        </div>
+
+        <div class="gridElement" id="f_melding">
+          <label for="melding">Melding (maks 150 ord):</label>
+          <textarea name="melding" id="melding" rows="8" cols="70"> </textarea>
+        </div>
+
+        <div class="gridElement" id="f_fornavn">
+          <label for="fornavn">Fornavn:</label>
+          <input type="text" name="fornavn" id="fornavn" />
+        </div>
+
+        <div class="gridElement" id="f_etternavn">
+          <label for="etternavn">Etternavn:</label>
+          <input type="text" name="etternavn" id="etternavn" />
+        </div>
+
+        <div class="gridElement" id="f_telefon">
+          <label for="telephone">Telefon:</label>
+          <input type="text" name="telephone" id="telephone" />
+        </div>
+
+        <div class="gridElement" id="f_submit">
+          <button type="submit" name="button">Send</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="spacer"></div>
+    <div class="subFolder">
+      <div id="mapContainer" class="subContainers"></div>
+      <div id="infoContainer" class="subContainers">
+        <h4>Vi trener på</h4>
+        <p>BÆRUM PISTOLKLUBB</p>
+        <p>Postboks 101</p>
+        <p>1332 Østerås</p>
+        <p>E-post: post (at)</p>
+        <p>bpk.no telefon: 32563893</p>
+      </div>
+    </div>
+  </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script src="script/map.js" charset="utf-8"></script>
+    <script src="script/footer.js" charset="utf-8"></script>
+
+  </body>
+</html>
