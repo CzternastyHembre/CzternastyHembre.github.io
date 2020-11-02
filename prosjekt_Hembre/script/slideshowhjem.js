@@ -24,7 +24,6 @@ function showSlides() {
 
 function nextSlide(n) {
     const slides = document.getElementsByClassName("slides");
-
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }

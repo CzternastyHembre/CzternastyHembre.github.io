@@ -41,7 +41,7 @@ body {
   font-size: 16px;
   text-align: center;
 }
-h1 {
+.grid_container_stats>h1, .person_side_top>h1 {
   text-align: center;
   font-size: 6vh;
   margin-top: 0px;
@@ -83,15 +83,6 @@ th,
   font-size: 12px;
 }
 
-/* #gull > h1 {
-  color: #e68a00;
-}
-#ol-deltat > h1 {
-  color: red;
-}
-#norge_rekorder > h1 {
-  color: blue;
-} */
 
 #personer_underliggende_bilder {
   display: grid;

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
     <link rel="shortcut icon" href="bilder/logo2.svg" />
 
     <link rel="stylesheet" href="./main.css" />
@@ -14,43 +14,44 @@
     />
   </head>
   <body>
+    <script src="script/data.js" charset="utf-8"></script>
     <script src="script/navbar.js" charset="utf-8"></script>
 <main>
       <div id="formContainer">
-      <h1>Kontakt oss</h1>
+      <h1>Contact us</h1>
       <p>
-        La oss få denne samtalen i gang. Fortell litt om deg selv, så tar vi
-        kontakt så snart vi kan.
+        Let's get this conversation started. Tell us a little about yourself,
+        and we'll take it contact as soon as we can.
       </p>
 
       <form id="contactForm" action="index.html" method="post">
         <div class="gridElement" id="f_mail">
           <label for="email">Mail:</label>
-          <input type="email" name="email" id="email" />
+          <input type="email" required name="email" id="email" />
         </div>
 
         <div class="gridElement" id="f_melding">
-          <label for="melding">Melding (maks 150 ord):</label>
-          <textarea name="melding" id="melding" rows="8" cols="70"> </textarea>
+          <label for="melding">Message (max 400 letters ):</label>
+          <textarea name="melding" recuired id="melding" maxlength="400" rows="8" cols="70"> </textarea>
         </div>
 
         <div class="gridElement" id="f_fornavn">
-          <label for="fornavn">Fornavn:</label>
-          <input type="text" name="fornavn" id="fornavn" />
+          <label for="fornavn">Surname:</label>
+          <input type="text" name="fornavn" required id="fornavn" />
         </div>
 
         <div class="gridElement" id="f_etternavn">
-          <label for="etternavn">Etternavn:</label>
-          <input type="text" name="etternavn" id="etternavn" />
+          <label for="etternavn">Last name:</label>
+          <input type="text" name="etternavn" required id="etternavn" />
         </div>
 
         <div class="gridElement" id="f_telefon">
-          <label for="telephone">Telefon:</label>
-          <input type="text" name="telephone" id="telephone" />
+          <label for="telephone">Phone number:</label>
+          <input type="text" name="telephone" required id="telephone" />
         </div>
 
         <div class="gridElement" id="f_submit">
-          <button type="submit" name="button">Send</button>
+          <button type="submit"  name="button">Send</button>
         </div>
       </form>
     </div>
@@ -59,12 +60,12 @@
     <div class="subFolder">
       <div id="mapContainer" class="subContainers"></div>
       <div id="infoContainer" class="subContainers">
-        <h4>Vi trener på</h4>
+        <h4>We train at </h4>
         <p>BÆRUM PISTOLKLUBB</p>
         <p>Postboks 101</p>
         <p>1332 Østerås</p>
-        <p>E-post: post (at)</p>
-        <p>bpk.no telefon: 32563893</p>
+        <p>E-mail: hembre@bpk.no</p>
+        <p>Phone: 32563893</p>
       </div>
     </div>
   </main>
@@ -74,8 +75,11 @@
       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
       crossorigin=""
     ></script>
-    <script src="script/map.js" charset="utf-8"></script>
-    <script src="script/footer.js" charset="utf-8"></script>
+    <script src="script/map.js"></script>
+<footer>
+  <script src="script/skyttere.js"></script>
 
+    <script src="script/footer.js"></script>
+</footer>
   </body>
 </html>

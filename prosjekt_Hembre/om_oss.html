@@ -2,9 +2,9 @@
 <html lang="nb" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TEAM HEMBRE</title>
-  <link rel="shortcut icon" type="bilder/logo2.svg" href="">
+  <link rel="shortcut icon" href="bilder/logo2.svg" />
   <link rel="stylesheet" href="main.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,13 +13,14 @@
 <body>
 
   <header id="header_om_oss">
+    <script src="script/data.js" charset="utf-8"></script>
     <script src="script/navbar.js" charset="utf-8"></script>
 
-    <section class="header_øverst">
+    <section class="header_overst">
 
-      <section class="hele_følg_meg">
+      <section class="hele_folg_meg">
 
-        <p class="følg_meg">følg oss:</p>
+        <p class="folg_oss">følg oss:</p>
         <a href="https://www.facebook.com/teamhembre" class="fa fa-facebook"></a>
 
       </section>
@@ -33,34 +34,25 @@
       </section>
 
 
+      <section class="navn_header">
+      </section>
 
-      <div class="navn_header">
-        <a href="skyttere.html?skytter=palhembre">
-          <button class="link">Pål</button></a>
-        <a  href="skyttere.html?skytter=mattishembre">
-          <button class="link">Mattis</button></a>
-        <a href="skyttere.html?skytter=ludvikhembre">
-          <button class="link">Ludvik</button></a>
-        <a href="skyttere.html?skytter=timleohembre">
-          <button class="link">Tim Leo</button></a>
-        </section>
-
-      </div>
+      </section>
   </header>
 
   <div id="vunnet">
-    <div id="gull">
-      <h1>34</h1>
-      <h2>GOLDS</h2>
+    <div>
+      <h1 id="gold"></h1>
+      <h2>GOLD</h2>
     </div>
-    <div id="ol-deltat">
-      <h1>4</h1>
-      <h2>OLYMPICS</h2>
+    <div >
+      <h1 id="silver">4</h1>
+      <h2>SILVER</h2>
     </div>
 
-    <div id="norge_rekorder">
-      <h1>46</h1>
-      <h2>NORWEGIAN RECORD</h2>
+    <div>
+      <h1 id="bronze">46</h1>
+      <h2>BRONZE</h2>
     </div>
   </div>
 
@@ -71,6 +63,7 @@
       genres. It is now in the 4th generation with pistol shooters and now has
       4 active Hembre pistol shooters that take Norway's records by storm.
     </p>
+
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -98,61 +91,27 @@
   </div>
 
   <div id="alle_utovere">
-    <div id="palhembre" class="hembre">
-      <!-- <div id="pal_info">
-        <h1>PÅL HEMBRE</h1>
-        <h3>Former Second Lieutenant for the Norwegian army</h3>
-        <ul>
-          <li> Started with pistol shooting in 1978.</li>
-          <li> CISM shooter in 1984/85 and from 1990 to 2018.</li>
-        </ul>
-
-        <h3>
-          Has four kids:
-        </h3>
-        <ul>
-
-          <li><a href="ludvik.html">Ludvik Hembre</a></li>
-          <li> <a href="mattis.html">Mattis Hembre</a></li>
-          <li><a href="tim_leo.html">Tim Leo Hembre</a></li>
-          <li>Leonel Hembre</li>
-        </ul>
-        <p> <a href="bpk.no"> Member of Bærum PK</a></p>
-
-      </div>
-
-      <div id="pal_bilder">
-        <img src=" bilder/paal.png" alt="">
-        <h3><a href="skyttere.html?skytter=palhembre">click here for more about Pål</a> </h3>
-
-      </div> -->
-    </div>
-
-    <div id="mattishembre" class="hembre">
-      <!-- <h2>MATTIS HEMBRE</h2> -->
-    </div>
-
-    <div id="ludvikhembre" class="hembre">
-      <!-- <h2>LUDVIK HEMBRE</h2> -->
-    </div>
-
-    <div id="timleohembre" class="hembre">
-      <!-- <h2>TIM LEO HEMBRE</h2> -->
-    </div>
-
-    <div id="leonelhembre" class="hembre">
-      <!-- <h2>TIM LEO HEMBRE</h2> -->
-    </div>
-  </div>
 
   </div>
 
 
-  <script src="script/footer.js" charset="utf-8"></script>
-  <script src="script/data.js"></script>
+
   <script src="script/skyttere.js"></script>
+  <script src="script/om_oss.js"></script>
+  <script src="script/footer.js" charset="utf-8"></script>
+
+
+
   <script>
-    writeStatsOmOss();
+    makeNavnHeader()
+    writeStatsOmOss()
+    const gold = document.querySelector('#gold')
+    const silver = document.querySelector('#silver')
+    const bronse = document.querySelector('#bronse')
+    totalMedals = getTotalMealds()
+    gold.innerHTML = totalMedals[0]
+    silver.innerHTML = totalMedals[1]
+    bronze.innerHTML = totalMedals[2]
   </script>
 </body>
 

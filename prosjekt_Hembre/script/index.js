@@ -25,15 +25,11 @@ function main() {
 
 //Supporters----------------------------------------------
     const  supporters = document.createElement('div')
-        supporters.id = 'supporters'
-        supporters.appendChild(createSupporters())
+    supporters.id = 'supporters'
+    supporters.appendChild(createSupporters())
 
 
     gch.appendChild(supporters)
-
-
-
-
 
 //Main----------------------------------------------------
     main.appendChild(gch)
@@ -74,7 +70,6 @@ function makeSponsor(i) {
     a.appendChild(img)
     div.appendChild(a)
     return div
-
 }
 
 
@@ -96,7 +91,6 @@ function createAtletes() {
 }
 function makeAthlete(i) {
     const skytter = skyttere[i]
-
 
     const img = document.createElement('img')
     img.src = skytter.image.mainImage
@@ -121,29 +115,31 @@ function makeAthlete(i) {
 function createSlideshow() {
     const container = document.createElement('div')
     container.className = 'slideshow-container'
+    
 
-    for (let i = 0; i < bilder.slideShow.length; i++) {
+    for (let i = 0; i < news.length; i++) {
         container.appendChild(makeSlide(i))
     }
     return container
 }
 function makeSlide(i) {
-    const src = bilder.slideShow[i]
+    const article = news[i]
+    const aSlides = document.createElement('a')
+    aSlides.className = 'slides fade'
+    aSlides.href = 'nyheter.html#'+article.id
 
-    const divSlides = document.createElement('div')
-    divSlides.className = 'slides fade'
-
+    
     const img = document.createElement('img')
-    img.src = src
+    img.src = article.img
 
     const textDiv = document.createElement('div')
     textDiv.className = 'text'
-    textDiv.innerHTML = 'Tekst her'
+    textDiv.innerHTML = article.header
 
-    divSlides.appendChild(img)
-    divSlides.appendChild(textDiv)
+    aSlides.appendChild(img)
+    aSlides.appendChild(textDiv)
 
-    return divSlides
+    return aSlides
 }
 function createSlideshowButtons() {
 
