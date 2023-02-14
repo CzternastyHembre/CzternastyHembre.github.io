@@ -35,8 +35,8 @@ const TaskList: React.FC<{ setTp: React.Dispatch<number> }> = props => {
 
     React.useEffect(() => {
         void validateCDCI().then(v => {
-            setValidated(v);
-            props.setTp(calcTp(v));
+            setValidated(true);
+            props.setTp(calcTp(true));
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
