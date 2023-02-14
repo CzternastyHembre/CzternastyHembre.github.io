@@ -13,6 +13,7 @@ const Container = styled.section`
 
 const Home: React.FC = () => {
     const [tp, setTp] = React.useState<number>(0);
+    console.log(tp)
 
     return (
         <Container>
