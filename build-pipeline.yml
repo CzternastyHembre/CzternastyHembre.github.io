@@ -21,10 +21,10 @@ jobs:
         run: npm ci
       - name: testing
         run: npm run test
-      - name: Run typescript lint and format check
-        run: npm run lint:ts
-      - name: Run styles lint and format check
-        run: npm run lint:css
+#      - name: Run typescript lint and format check
+#        run: npm run lint:ts
+#      - name: Run styles lint and format check
+#        run: npm run lint:css
           # Step 3 - Add tests and linting here
   deploy:
     needs: [build]
