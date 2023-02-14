@@ -17,6 +17,10 @@ jobs:
           node-version: '14.x'
       - name: Install dependencies
         run: npm run test
+      - name: Run typescript lint and format check
+        run: npm run lint:ts
+      - name: Run styles lint and format check
+        run: npm run lint:css
           # Step 3 - Add tests and linting here
   deploy:
     runs-on: ubuntu-latest
